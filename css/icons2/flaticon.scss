@@ -1,0 +1,37 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?656d4025b8529d086fcb8852963b4e9e") format("truetype"),
+url("./flaticon.woff?656d4025b8529d086fcb8852963b4e9e") format("woff"),
+url("./flaticon.woff2?656d4025b8529d086fcb8852963b4e9e") format("woff2"),
+url("./flaticon.eot?656d4025b8529d086fcb8852963b4e9e#iefix") format("embedded-opentype"),
+url("./flaticon.svg?656d4025b8529d086fcb8852963b4e9e#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "facebook": "\f101",
+    "error": "\f102",
+    "garrapata": "\f103",
+);
+
+.flaticon-facebook:before {
+    content: map-get($flaticon-map, "facebook");
+}
+.flaticon-error:before {
+    content: map-get($flaticon-map, "error");
+}
+.flaticon-garrapata:before {
+    content: map-get($flaticon-map, "garrapata");
+}

@@ -1,0 +1,57 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?f058c4370a9a00924a2b205cd107d788") format("truetype"),
+url("./flaticon.woff?f058c4370a9a00924a2b205cd107d788") format("woff"),
+url("./flaticon.woff2?f058c4370a9a00924a2b205cd107d788") format("woff2"),
+url("./flaticon.eot?f058c4370a9a00924a2b205cd107d788#iefix") format("embedded-opentype"),
+url("./flaticon.svg?f058c4370a9a00924a2b205cd107d788#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-caja:before {
+    content: "\f101";
+}
+.flaticon-almacen:before {
+    content: "\f102";
+}
+.flaticon-admin-con-ruedas-dentadas:before {
+    content: "\f103";
+}
+.flaticon-chevron-pointing-to-the-left:before {
+    content: "\f104";
+    position:absolute;
+  top:13px;
+  right:1px;
+  padding:0 10px 0 3px;
+}
+.flaticon-chevron-pointing-to-the-left:hover{
+    color: red;
+}
+.flaticon-repairing-service:before {
+    content: "\f105";
+}
+.flaticon-speedometer:before {
+    content: "\f106";
+}
+.flaticon-customer:before {
+    content: "\f107";
+}
+.flaticon-delivery-truck:before {
+    content: "\f108";
+}
+.flaticon-gear:before {
+    content: "\f109";
+}
+.flaticon-search-for-incidents:before {
+    content: "\f10a";
+}

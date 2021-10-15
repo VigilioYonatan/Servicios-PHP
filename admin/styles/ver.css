@@ -1,0 +1,48 @@
+.view_product_box{
+    background: white;
+    padding: 30px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    width: 105%;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2), 0 2px 10px 0 rgba(0,0,0,0.19);
+  }
+  .blanco{
+    color: black;
+  }
+  h2{
+    color: black; 
+  }
+  input[type=submit]:hover{
+    background: #212121;
+    border: #212121;
+  }
+  .fa-pencil{
+    color: #17a2b8;
+    overflow:hidden;
+    margin-left:10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .fa-trash{
+    color: #dc3545;
+    overflow:hidden;
+    margin-left: 15px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  .fa-pencil:hover,.fa-trash:hover{
+    color: black;
+  }
+  .agregar{
+    background: #6c757d;
+    border-color: #6c757d;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-left: 15px;
+  }
+  .agregar:hover{
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.40), 0 2px 10px 0 rgba(0,0,0,0.19);
+  }

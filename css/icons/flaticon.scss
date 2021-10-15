@@ -1,0 +1,65 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?f058c4370a9a00924a2b205cd107d788") format("truetype"),
+url("./flaticon.woff?f058c4370a9a00924a2b205cd107d788") format("woff"),
+url("./flaticon.woff2?f058c4370a9a00924a2b205cd107d788") format("woff2"),
+url("./flaticon.eot?f058c4370a9a00924a2b205cd107d788#iefix") format("embedded-opentype"),
+url("./flaticon.svg?f058c4370a9a00924a2b205cd107d788#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "caja": "\f101",
+    "almacen": "\f102",
+    "admin-con-ruedas-dentadas": "\f103",
+    "chevron-pointing-to-the-left": "\f104",
+    "repairing-service": "\f105",
+    "speedometer": "\f106",
+    "customer": "\f107",
+    "delivery-truck": "\f108",
+    "gear": "\f109",
+    "search-for-incidents": "\f10a",
+);
+
+.flaticon-caja:before {
+    content: map-get($flaticon-map, "caja");
+}
+.flaticon-almacen:before {
+    content: map-get($flaticon-map, "almacen");
+}
+.flaticon-admin-con-ruedas-dentadas:before {
+    content: map-get($flaticon-map, "admin-con-ruedas-dentadas");
+}
+.flaticon-chevron-pointing-to-the-left:before {
+    content: map-get($flaticon-map, "chevron-pointing-to-the-left");
+}
+.flaticon-repairing-service:before {
+    content: map-get($flaticon-map, "repairing-service");
+}
+.flaticon-speedometer:before {
+    content: map-get($flaticon-map, "speedometer");
+}
+.flaticon-customer:before {
+    content: map-get($flaticon-map, "customer");
+}
+.flaticon-delivery-truck:before {
+    content: map-get($flaticon-map, "delivery-truck");
+}
+.flaticon-gear:before {
+    content: map-get($flaticon-map, "gear");
+}
+.flaticon-search-for-incidents:before {
+    content: map-get($flaticon-map, "search-for-incidents");
+}
