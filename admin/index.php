@@ -84,10 +84,12 @@ session_start();
 		 </li>
 		 <li>
 		  <a href="#"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;VENTAS <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-		  <ul class="left_sidebar_second_level">
-			 <li><a href="index.php?action=view_users">Orden de servicios</a></li>
-			 <li><a href="index.php?action=view_users">Cotizaciones</a></li>
-		   </ul>
+				<ul class="left_sidebar_second_level">
+			 		<li><a href="index.php?action=view_cotizacion">COTIZACIONES</a></li>
+		   		</ul>
+		  		<ul class="left_sidebar_second_level">
+			 		<li><a href="#">CLIENTES</a></li>
+		   		</ul>  
 		 </li>
 		 <li>
 		  <a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;LOGISTICA <i class="flaticon-chevron-pointing-to-the-left"></i></a>
@@ -179,6 +181,14 @@ session_start();
 		
 		case 'add_rol';
 		include 'includes/agregar_rol.php';
+		break;
+
+		case 'view_cotizacion';
+		include 'includes/cotizaciones/ver_cotizaciones.php';
+		break;
+
+		case 'add_cotizacion';
+		include 'includes/cotizaciones/add_cotizaciones.php';
 		break;
 	   }
 	   ?>
