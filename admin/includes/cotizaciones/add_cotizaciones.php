@@ -59,7 +59,21 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     ?>
     </select>
     <label>Tiempo de entrega: </label>
-    <input type="number" name="tiempo"><br>
+    <select name="expira" id="">
+        <option >Selecciona el tiempo de entrega</option>
+    <?php
+        $get_cats = "select * from venta_entrega";
+
+        $run_cats = mysqli_query($conexion, $get_cats);
+
+        while ($row_cats = mysqli_fetch_array($run_cats)) {
+            $entrega_id = $row_cats['entrega_id'];
+            $entrega_nombre = $row_cats['entrega_nombre'];
+                    
+            echo "<option value='$entrega_id'>$entrega_nombre</option>";
+        }
+    ?>
+    </select><br>
     <label>Expira: </label>
     <select name="expira" id="">
         <option >Selecciona el tiempo de expiracion</option>
