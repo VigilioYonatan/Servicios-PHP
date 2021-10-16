@@ -190,6 +190,10 @@ session_start();
 		case 'add_cotizacion';
 		include 'includes/cotizaciones/add_cotizaciones.php';
 		break;
+
+		case 'view_cotizacion_id';
+		include 'includes/cotizaciones/ver_cotizacione_id.php';
+		break;
 	   }
 	   ?>
 			
