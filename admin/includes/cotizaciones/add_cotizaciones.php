@@ -1,13 +1,16 @@
+<link href="styles/agregar.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 17 AND $_SESSION['role'] != 5 ){
 
 
 echo "<script>alert('No puedes acceder acá ')</script>";
 echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_self')</script>";
 }else{ ?>
-<h2>Agregar cotizaciones</h2>
+    <div class="form_box1">
+<h2> <i class="fa fa-plus fa-1x" aria-hidden="true"></i>  AGREGAR COTIZACIONES</h2>
+<div class="border_bottom"></div>
 <form action="" method="POST" accept-charset="utf-8">
     <label>Cliente:</label>
-    <select name="cliente" id="" required>
+    <select name="cliente" id="cliente" required>
     <option value="null">Selecciona un cliente</option>
     <?php
         $num = 17;
@@ -24,7 +27,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     ?>
     </select>
     <label>Estado:</label>
-    <select name="estado" id="" required>
+    <select name="estado" id="estado" required>
         <option value="null">Selecciona un estado</option>
     <?php
         $get_cats = "select * from venta_estado";
@@ -38,11 +41,11 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
             echo "<option value='$estado_nombre'>$estado_nombre</option>";
         }
     ?>
-    </select><br>
+    </select>
     <label>Asignado:</label>
-    <b><?php echo $_SESSION['name']; ?></b>
-    <label>Forma de pago</label>
-    <select name="pago" required>
+    <b><?php echo $_SESSION['name']; ?></b><br>
+    <label>Forma de pago:</label>
+    <select name="pago" id="pago" required>
         <option value="null">Selecciona un tipo pago</option>
     <?php
         $get_cats = "select * from venta_pago";
@@ -56,9 +59,9 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
             echo "<option value='$pago_nombre'>$pago_nombre</option>";
         }
     ?>
-    </select><br>
+    </select>
     <label>Moneda:</label>
-    <select name="moneda"
+    <select name="moneda" id="moneda">
         <option value="null">Selecciona un tipo de moneda</option>
         <?php
         $get_cats = "select * from venta_moneda";
@@ -74,7 +77,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     ?>
     </select>
     <label>Tiempo de entrega: </label>
-    <select name="entrega" id="" required>
+    <select name="entrega" id="entrega" required>
         <option value="null" >Selecciona el tiempo de entrega</option>
     <?php
         $get_cats = "select * from venta_entrega";
@@ -90,7 +93,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     ?>
     </select><br>
     <label>Expira: </label>
-    <select name="expira" id="" required>
+    <select name="expira" id="expira" required>
         <option value="null">Selecciona el tiempo de expiracion</option>
     <?php
         $get_cats = "select * from venta_expira";
@@ -113,16 +116,23 @@ CCI DOLARES: 009-021-0000463603-77
 Cuenta corriente en soles Bco.
  Scotiabank: 2824507
 CCI Soles: 009-021-0000026452345-74</textarea><br>
-    <label>Pie de paginas: </label><br>
+<div class="pagina">
+    <label >Pie de paginas: </label><br>
     <textarea name="pie" cols="45" rows="5">Telef: 01-05440920 Celulares: 958529197
         958070350/945014170/976545807
         Correo: ventas@chromemetales.com/
         gerencia@chromemetales.com
         www.chrometales.com
-    </textarea><br>
-    <input type="submit" name="agregarCot" value="Agregar">
+    </textarea>
+</div>
+    <td colspan="7">
+        <div id="enviar">    
+            <input type="submit" name="agregarCot" value="Guardar">
+            <i class="fa fa-floppy-o" aria-hidden="true"></i>
+        </div>
+    </td>
 </form>
-
+</div>
 <?php
 if(isset($_POST['agregarCot'])){
     $codigo = "zsds";

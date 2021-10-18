@@ -57,7 +57,7 @@ $fetch_cat = mysqli_fetch_array($edit_cat);
 				<tr>
 					<td><b>Editar Detalles de servicio:</b></td>
 					<td>
-                    <textarea name="det_serv" id="" cols="40" rows="5"><?php echo $fetch_cat['servicio_det']; ?></textarea>
+                    <textarea name="det_serv" id="area" cols="40" rows="5"><?php echo $fetch_cat['servicio_det']; ?></textarea>
 					</td>
 				</tr>
                 <tr>
@@ -77,6 +77,7 @@ $fetch_cat = mysqli_fetch_array($edit_cat);
 			</table>
 
 		</form>
+
 
 	</div><!-- /.form_box -->
 

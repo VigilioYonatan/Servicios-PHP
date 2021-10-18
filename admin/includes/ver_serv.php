@@ -8,7 +8,8 @@
 <?php include '../web/bd.php'; ?>
 <div class="view_product_box">
 
-<h2><i style="color:black;" class="fa fa-user fa-1x"></i>   SERVICIOS</h2>
+<h2>
+<i style="color:black;"class="fa fa-handshake-o fa-1x"></i>  SERVICIOS</h2>
 <div class="border_bottom"></div>
 
 <form action="" method="post" enctype="multipart/form-data" >
@@ -18,11 +19,11 @@
   <tr>  
    <th><input type="checkbox" id="checkAll" />Check</th>
    <th>ID</th>
-   <th>Codigo del Servicio</th>
-   <th>Nombre del Servicio</th>
+   <th>Codigo </th>
+   <th>Nombre </th>
    <th>Tipo de Servicio</th>
    <th>Cat</th>
-   <th>Detalles del Servicio</th>
+   <th>Detalles </th>
    <th>Dias </th> 
    <th>Editar</th>
    <th>Eliminar</th>

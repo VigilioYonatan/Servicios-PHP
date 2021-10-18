@@ -72,13 +72,12 @@
 #guardar {
     padding: 0px;
     background: #0d9d94;
-    ;
+    
     margin-top: 20px;
     width: 120px;
     position: relative;
     border-radius: 4px;
 }
-
 .form_box input[type=submit] {
     border: none;
     background: none;
@@ -93,4 +92,28 @@
 .fa-floppy-o {
     color: white;
     font-size: 17px;
+}
+.form_box #area{
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    border: 2px solid #ced3d7;
+    color: #495057;
+    max-height: 200px;
+    max-width: 250px;
+    border-radius: 4px;
+    margin-bottom: 20px;    
+}
+.form_box #area:focus,.form_box input[type=number]:focus{
+    border: 2px solid #0d9d94;
+    outline: none;
+    border-radius: 4px;
+}
+.form_box form  tr td input[type=number] {
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    border: 2px solid #ced3d7;
+    color: #495057;
+    height: 20px;
+    width: 50px;
+    border-radius: 4px;
 }

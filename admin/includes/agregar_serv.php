@@ -7,7 +7,8 @@
 
 <?php include '../web/bd.php'; ?>
 <div class="form_box">
-<h3>Agregar Servicios:</h3>
+<h2><i class="fa fa-plus fa-1x" aria-hidden="true"></i>  AGREGAR SERVICIOS</h2>
+<div class="border_bottom"></div>
 <form action="" method="POST" enctype="multipart/form-data">
     <label>Nombre del servicio:</label>
     <input type="text" name="nombre_serv" required><br>
