@@ -1,230 +1,226 @@
 <?php 
 session_start();
-	if(isset($_SESSION['role'])){
-	$cliente = $_SESSION['role'];
-	}else{
-		header('Location: ../login.php');
-		die();
-	}
+  if(isset($_SESSION['role'])){
+  $cliente = $_SESSION['role'];
+  }else{
+    header('Location: ../login.php');
+    die();
+  }
 ?>
 
 <?php include '../web/bd.php'; ?>
 
-<!DOCTYPE html><!-- HTML5 Declaration -->
-<html>
-<head>
-<title>Web ADMIN</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <!-- Twitter meta-->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:site" content="@pratikborsadiya">
+    <meta property="twitter:creator" content="@pratikborsadiya">
+    <!-- Open Graph Meta-->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vali Admin">
+    <meta property="og:title" content="Vali - Free Bootstrap 4 admin theme">
+    <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
+    <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+    <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
+    <title>Web Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main CSS-->
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="styles/ver.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap">
+    <script src="../ajax/jquery-3.6.0.min.js"></script>
+  </head>
+  <body class="app sidebar-mini" style="font-family: 'Open Sans', sans-serif;">
+    <!-- Navbar-->
+    <header class="app-header"><a class="app-header__logo" href="#">Outsourcing</a>
+      <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+      <!-- Navbar Right Menu-->
+      <ul class="app-nav">
+        <li class="app-search">
+          <input class="app-search__input" type="search" placeholder="Search">
+          <button class="app-search__button"><i class="fa fa-search"></i></button>
+        </li>
+        <!--Notification Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="fa fa-bell-o fa-lg"></i></a>
+          <ul class="app-notification dropdown-menu dropdown-menu-right">
+            <li class="app-notification__title">You have 4 new notifications.</li>
+            <div class="app-notification__content">
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Lisa sent you a mail</p>
+                    <p class="app-notification__meta">2 min ago</p>
+                  </div></a></li>
+              <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                  <div>
+                    <p class="app-notification__message">Mail server not working</p>
+                    <p class="app-notification__meta">5 min ago</p>
+                  </div></a></li>
+              </div>
+              
+          </ul>
+        </li>
+        <!-- User Menu-->
+        <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+          <ul class="dropdown-menu settings-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
+            <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Cuenta</a></li>
+            <li><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out fa-lg"></i> Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="usuarios_fotos/<?php echo $_SESSION['foto'];?>" alt="User Image" style="width: 30%;">
+        <div>
+          <p class="app-sidebar__user-name"><?php echo $_SESSION['name']; ?></p>
+          <p class="app-sidebar__user-designation"><?php echo $_SESSION['cod_user']; ?></p>
+        </div>
+      </div>
+      <ul class="app-menu" style="font-weight: bold;">
+        <li><a class="app-menu__item active" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">DASHBOARD</span></a></li>
 
-<link href="styles/index.css" type="text/css" rel="stylesheet">
-<link rel="stylesheet" href="../css/icons2/flaticon.css">
-<link rel="stylesheet" href="../css/icons/flaticon.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="../ajax/jquery-3.6.0.min.js"></script>
+        <li><a class="app-menu__item " href="#"><i class="app-menu__icon fa fa-truck" ></i><span class="app-menu__label">PROVEEDORES</span></a></li>
 
-<head>	
-<body>
-<div class="container">
-   <div class="header">
-     <div class="navbar-header">
-	  <h3><a class="admin_name">Bienvenido</a><p><?php echo $_SESSION['name']; ?></p></h3> 
-	 </div> 
-	 
-	 <div class="navbar-right-header">
-	 
-	
-	   <ul class="dropdown-navbar-right">
-       <li>
-          <a><img src="usuarios_fotos/<?php echo $_SESSION['foto'];?>" /></a> 
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-money"></i>
+          <span class="app-menu__label">VENTAS</span>
+          <i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="index.php?action=view_cotizacion"><i class="icon fa fa-circle-o"></i> Cotizaciones</a></li>
+            <li><a class="treeview-item" href="index.php?action=view_clientes" ><i class="icon fa fa-circle-o"></i> Clientes</a></li>
+           
+          </ul>
+        </li>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-bar-chart"></i><span class="app-menu__label">LOGISTICA</span></a></li>
 
-         <ul class="subnavbar-right">
-           <li><a>Cuenta de usuario</a></li>
-           <li><a href="logout.php">Salir</a></li>
-         </ul>
-       </li>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">ALMACEN</span></a></li>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">OPERACIONES</span></a></li>
+        
+        <li class="treeview"><a class="app-menu__item" href="index.php?action=view_serv" data-toggle="treeview"><i class="app-menu__icon fa fa-handshake-o"></i><span class="app-menu__label">SERVICIOS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="index.php?action=view_serv"><i class="icon fa fa-circle-o"></i> Lista de Servicios</a></li>
+            <li><a class="treeview-item" href="index.php?action=add_serv"><i class="icon fa fa-circle-o"></i> Agregar Servicios</a></li>
+            
+          </ul>
+        </li>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-search"></i><span class="app-menu__label">INCIDENCIAS</span></a></li>
 
+       <?php if($_SESSION['role'] == 5){ ?>
+
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-lock"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="index.php?action=view_users"><i class="icon fa fa-circle-o"></i> Lista de Empleados</a></li>
+            <li><a class="treeview-item" href="index.php?action=add_rol"><i class="icon fa fa-circle-o"></i> Agregar Rol</a></li>
+          </ul>
+        </li>
+        
+        <?php }//else{
+       //echo "<script>alert('No sos admin')</script>";}?> 
 
      </ul>
+     
+    </aside>
+    <div class="content">
+     <div class="content_box">
+     <?php 
+     if(isset($_GET['action'])){
+      $action = $_GET['action'];
+     }else{
+      $action ='';
+     }
+     
+     switch($action){
+      case 'add_pro';
+    include 'includes/insertar_productos.php';
+    break;
+    
+    case 'view_pro';
+    include 'includes/ver_productos.php';
+    break;
+    
+    case 'edit_serv';
+    include 'includes/edit_serv.php';
+    break;
+    
+    case 'view_serv';
+    include 'includes/ver_serv.php';
+    break;
+    
+    case 'add_serv';
+    include 'includes/agregar_serv.php';
+    break;
+    
+    case 'edit_user';
+    include 'includes/edit_usuarios.php';
+    break;
+    
+    case 'view_users';
+    include 'includes/ver_usuarios.php';
+    break;
+    
+    case 'add_rol';
+    include 'includes/agregar_rol.php';
+    break;
 
-	 </ul>
-	 
-	 <!-- <ul class="dropdown-navbar-right">
-	   <li>
-	     <a><i style="color: white;" class="fa fa-bell"></i>&nbsp;<i  style="color: white;" class="fa fa-caret-down"></i></a>
-		 
-		 <ul class="subnavbar-right">
-		   <li><a>Notificaciones </a></li>
-		   
-		 </ul>
-	   </li>
-	 </ul> -->
-	 
-	 </div><!-- /.navbar-right-header -->
-	 
-   </div><!-- /.header -->
-   
-   <div class="body_container">
-     <div class="left_sidebar">
-	   <div class="left_sidebar_box">
-	   
-	   <ul class="left_sidebar_first_level">
-	     
-		 <li style="margin-top: 30px;">
-		  <a href="#" ><i class="flaticon-speedometer"></i>&nbsp;DASHBOARD <i class="flaticon-chevron-pointing-to-the-left"></i></a>
+    case 'view_cotizacion';
+    include 'includes/cotizaciones/ver_cotizaciones.php';
+    break;
 
-		 </li>
+    case 'add_cotizacion';
+    include 'includes/cotizaciones/add_cotizaciones.php';
+    break;
 
-		 <li>
-		  <a href="#"><i class="flaticon-customer"></i>&nbsp;CLIENTES <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-		 
-	
-		 </li>
-		 
-		 <li>
-		  <a href="#"><i class="fa fa-truck" aria-hidden="true"></i>&nbsp;PROVEEDORES <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-		 </li>
-		 <li>
-		  <a href="#"><i class="fa fa-money" aria-hidden="true"></i>&nbsp;VENTAS <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-				<ul class="left_sidebar_second_level">
-			 		<li><a href="index.php?action=view_cotizacion">COTIZACIONES</a></li>
-		   		</ul>
-		  		<ul class="left_sidebar_second_level">
-			 		<li><a href="#">CLIENTES</a></li>
-		   		</ul>  
-		 </li>
-		 <li>
-		  <a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;LOGISTICA <i class="flaticon-chevron-pointing-to-the-left"></i></a>
+    //case 'view_cotizacion_id';
+    //include 'includes/cotizaciones/ver_cotizacione_id.php';
+    //break;
 
-		 </li>
-		 <li>
-		  <a href="#"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;ALMACÉN <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-	
-		 </li>
-		 <li>
-		  <a href="#"><i class="flaticon-gear"></i>&nbsp;OPERACIONES <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-	
-		 </li>
-		 <li>
-		  <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;PRODUCTOS <i class="flaticon-chevron-pointing-to-the-left"></i></a>
+    case 'view_clientes';
+    include 'includes/cotizaciones/ver_clientes.php';
+    break;
 
-		 </li>
-		 <li>
-		  <a href="index.php?action=view_serv"><i class="fa fa-handshake-o" aria-hidden="true"></i>&nbsp;SERVICIOS <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-		  <ul class="left_sidebar_second_level">
-			 <li><a href="index.php?action=add_serv">Agregar Servicios</a></li>
-		   </ul>
-		   <ul class="left_sidebar_second_level">
-			 <li><a href="index.php?action=view_serv">Lista de Servicios</a></li>
-		   </ul>
-		 </li>
-		 <li>
-		  <a href="#"><i class="flaticon-search-for-incidents"></i>&nbsp;INCIDENCIAS <i class="flaticon-chevron-pointing-to-the-left"></i></a>
-		 
-		   
-		 </li>
-			<?php if($_SESSION['role'] == 5){ ?>
-		 <li>
-		  <a href="#"><i class="fa fa-lock fa-2x" aria-hidden="true"></i>&nbsp;Admin <i class="flaticon-left-arrow-black-triangular-shape"></i></a>
-		   <ul class="left_sidebar_second_level">
-			 <li><a href="index.php?action=view_users">Lista de usuarios</a></li>
-		   </ul>
-		   <ul class="left_sidebar_second_level">
-			 <li><a href="index.php?action=add_rol">Agregar Rol</a></li>
-		   </ul>
-		 </li>
-			 <?php }//else{
-			 //echo "<script>alert('No sos admin')</script>";}?> 
+    case 'add_clientes';
+    include 'includes/cotizaciones/add_clientes.php';
+    break;
 
+    case 'edit_clien';
+    include 'includes/cotizaciones/edit_cliente.php';
+    break;
 
-		 </ul>
-	   </div>
-	   
-	 </div>
-	
-	 
-	 <div class="content">
-	   <div class="content_box">
-	   <?php 
-	   if(isset($_GET['action'])){
-	    $action = $_GET['action'];
-	   }else{
-	    $action ='';
-	   }
-	   
-	   switch($action){
-	    case 'add_pro';
-		include 'includes/insertar_productos.php';
-		break;
-		
-		case 'view_pro';
-		include 'includes/ver_productos.php';
-		break;
-		
-		case 'edit_serv';
-		include 'includes/edit_serv.php';
-		break;
-		
-		case 'view_serv';
-		include 'includes/ver_serv.php';
-		break;
-		
-		case 'add_serv';
-		include 'includes/agregar_serv.php';
-		break;
-		
-		case 'edit_user';
-		include 'includes/edit_usuarios.php';
-		break;
-		
-		case 'view_users';
-		include 'includes/ver_usuarios.php';
-		break;
-		
-		case 'add_rol';
-		include 'includes/agregar_rol.php';
-		break;
-
-		case 'view_cotizacion';
-		include 'includes/cotizaciones/ver_cotizaciones.php';
-		break;
-
-		case 'add_cotizacion';
-		include 'includes/cotizaciones/add_cotizaciones.php';
-		break;
-
-		case 'view_cotizacion_id';
-		include 'includes/cotizaciones/ver_cotizacione_id.php';
-		break;
-	   }
-	   ?>
-			
-	   </div><!-- /.content_box -->
-	   
-	 </div><!-- /.content -->
-	 
-   </div><!-- /.body_container -->
-   
- </div><!-- /.container -->
- 
- <script src="../ajax/jquery-3.6.0.min.js"></script>     
-</body>
-
+     }
+     ?>
+      </div><!-- /.content_box -->
+     
+   </div><!-- /.content -->
+    
+    <!-- Essential javascripts for application to work-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script type="text/javascript" src="js/plugins/chart.js"></script>
+    <script src="../ajax/jquery-3.6.0.min.js"></script> 
+    <!-- Google analytics script-->
+    <script type="text/javascript">
+      if(document.location.hostname == 'pratikborsadiya.in') {
+      	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      	ga('create', 'UA-72504830-1', 'auto');
+      	ga('send', 'pageview');
+      };
+    </script>
+    
+  </body>
 </html>
-
-
-
-<script>
-$(document).ready(function(){
-  
-  // Drop Down Menu Right
-  $(".dropdown-navbar-right").on('click',function(){
-   $(this).find(".subnavbar-right").slideToggle('fast');
-  });
-  
-  // Collapse Left Sidebar
-  $(".left_sidebar_first_level li").on('click',this,function(){
-    $(this).find(".left_sidebar_second_level").slideToggle('fast');
-  });
-  
-});
-</script>
-

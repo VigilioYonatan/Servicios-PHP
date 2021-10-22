@@ -1,84 +1,87 @@
-
-<link href="styles/ver.css" type="text/css" rel="stylesheet">
+<link href="styles/main.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 14 AND $_SESSION['role'] != 5){
   echo "<script>alert('No sos de servicios')</script>";
   echo "<script>window.open('index.php','_self')</script>";
 }else{
   ?>
 <?php include '../web/bd.php'; ?>
-<div class="view_product_box">
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-handshake-o"></i> SERVICIOS</h1>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
+          <li class="breadcrumb-item active">Lista de Servicios</li>
+          
+        </ul>
+      </div>
 
-<h2>
-<i style="color:black;"class="fa fa-handshake-o fa-1x"></i>  SERVICIOS</h2>
-<div class="border_bottom"></div>
+      <div class="row" style="font-size: 15px;">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <div class="table-responsive">
 
-<form action="" method="post" enctype="multipart/form-data" >
+                <form action="" method="post" enctype="multipart/form-data" >
+              <table class="table table-hover table-bordered" id="sampleTable">
+                  <thead align="center">
+                    <tr>
+                      
+                      <th>ID</th>
+                      <th>Codigo </th>
+                      <th>Nombre </th>
+                      <th>Tipo de Servicio</th>
+                      <th>Cat</th>
+                      <th>Detalles </th>
+                      <th>Precio </th>
+                      <th>Dias </th>
+                      <th>Editar</th>
+                      <th>Eliminar</th>
+                    </tr>
+                  </thead>
+                  <?php 
+                  $all_serv = mysqli_query($conexion,"select * from servicios order by servicio_id ");
+                  $i = 1;
 
-<table width="100%">
- <thead>
-  <tr>  
-   <th><input type="checkbox" id="checkAll" />Check</th>
-   <th>ID</th>
-   <th>Codigo </th>
-   <th>Nombre </th>
-   <th>Tipo de Servicio</th>
-   <th>Cat</th>
-   <th>Detalles </th>
-   <th>Dias </th> 
-   <th>Editar</th>
-   <th>Eliminar</th>
-  </tr>
- </thead>
- <?php 
- $all_serv = mysqli_query($conexion,"select * from servicios order by servicio_id DESC ");
- $i = 1;
+                  while($row=mysqli_fetch_array($all_serv)){
+                    $nombreRo = $row['servicio_nombre'];
+                    $codRo = $row['servicio_cod'];
+                    ?>
+                    <tbody align="center">
+                     <tr>
+
+                    <td><?php echo $i; ?></td>
+                    <td><?php echo $row['servicio_cod']; ?></td>
+                    <td><?php echo $row['servicio_nombre']; ?></td>
+                    <td><?php echo $row['servicio_tipo']; ?></td>
+                    <td><?php echo $row['servicio_cat']; ?></td>
+                    <td><?php echo $row['servicio_det']; ?></td>
+                    <td>S/.<?php echo $row['servicio_precio']; ?></td>
+                    <td><?php echo $row['servicio_time']; ?></td>
+                    <?php if ($codRo != $_SESSION['cod_user']) {?>
+                     <td class="delete"><a href="index.php?action=edit_serv&serv_id=<?php echo $row['servicio_id'];?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
+
+                     <td class="delete"><a href="index.php?action=view_serv&delete_serv=<?php echo $row['servicio_id'];?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+                   <?php } ?> 
+                 </tr>
+
+               </tbody>
+                    <?php $i++;} // End while loop ?>
+                </table>
+              </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="index.php?action=add_serv" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar Servicio</a> 
+ </main>   
+
  
- while($row=mysqli_fetch_array($all_serv)){
-  $nombreRo = $row['servicio_nombre'];
-  $codRo = $row['servicio_cod'];
- ?>
- <tbody>
-  <tr>
-  <?php if ($codRo == $_SESSION['cod_user']) {?>
-    
-   <td><input type="checkbox" name="deleteAll[]" /></td>
-   <?php }else{?>
-    <td><input type="checkbox" name="deleteAll[]" value="<?php echo $row['servicio_id'];?>" /></td>
-   <?php } ?>
-   <td class="blanco"><?php echo $i; ?></td>
-   <td class="blanco"><?php echo $row['servicio_cod']; ?></td>
-   <td class="blanco"><?php echo $row['servicio_nombre']; ?></td>
-   <td class="blanco"><?php echo $row['servicio_tipo']; ?></td>
-   <td class="blanco"><?php echo $row['servicio_cat']; ?></td>
-   <td class="blanco"><?php echo $row['servicio_det']; ?></td>
-   <td class="blanco"><?php echo $row['servicio_time']; ?></td>
-   <?php if ($codRo != $_SESSION['cod_user']) {?>
-   <td class="delete"><a href="index.php?action=edit_serv&serv_id=<?php echo $row['servicio_id'];?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
-   
-   <td class="delete"><a href="index.php?action=view_serv&delete_serv=<?php echo $row['servicio_id'];?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
-   <?php } ?> 
-  </tr>
- </tbody>
- 
- <?php $i++;} // End while loop ?>
- 
-<tr>
-<td >
-  <div id="remover"><i class="fa fa-times-circle-o " style="color:white;" aria-hidden="true"></i>
-  <input type="submit" name="delete_all" value="Remover" onclick="return confirm('Estas seguro de eliminar de eliminar a todos estos empleados!!?');"/>
-</div>
- </td>
- 
- 
-</tr> 
-</table>
-
-</form>
-
-</div><!-- /.view_product_box -->
-<a href="index.php?action=add_serv"  class="agregar"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar Servicios</a>	
-<!-- PHP CODIGO  -->
-
+<!-- PHP CODIGO  --> 
 <?php
 // Delete User cuenta
 
@@ -117,8 +120,8 @@ if(isset($_POST['deleteAll'])){
 
 <?php } ?>
 
+<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">$('#sampleTable').DataTable();</script>
 
-
-
-
-
+    

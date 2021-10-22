@@ -1,3 +1,4 @@
+<link href="styles/main.css" type="text/css" rel="stylesheet">
 <link href="styles/ver.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 5){
   echo "<script>alert('No eres de este role ')</script>";
@@ -5,91 +6,91 @@
 }else{
   ?>
 
-<div class="view_product_box">
+    <main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-users"></i> EMPLEADOS</h1>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
+          <li class="breadcrumb-item active">Lista de Empleados</li>
+          
+        </ul>
+      </div>
+      <div class="row" style="font-size: 15px;">
+        <div class="col-md-12">
+          <div class="tile">
+            <div class="tile-body">
+              <div class="table-responsive">
 
-<h2><i style="color:black;" class="fa fa-user fa-1x"></i>   EMPLEADO</h2>
-<div class="border_bottom"></div>
+                <form action="" method="post" enctype="multipart/form-data" >
+              <table class="table table-hover table-bordered" id="sampleTable" >
+                  <thead align="center">
+                    <tr>
+                      
+                      <th>ID</th>
+                      <th>Codigo </th>
+                      <th>Rol</th>
+                      <th>Estado</th>
+                      <th>Nombre</th>
+                      <th>Correo</th>
+                      <th>Imagen</th>
+                      <th>Editar</th>
+                      <th>Eliminar</th>
+                    </tr>
+                  </thead>
+                  <?php 
+                  $all_users = mysqli_query($conexion,"select * from usuarios order by user_id DESC ");
+                  $i = 1;
 
-<form action="" method="post" enctype="multipart/form-data" >
+                  while($row=mysqli_fetch_array($all_users)){
+                    $nombreRo = $row['user_rol'];
+                    $codRo = $row['user_cod_empleado'];
+                    $rolenombre =mysqli_query($conexion, "select * from roles where rol_id ='$nombreRo' ");
+                    $rowNombre = mysqli_fetch_array($rolenombre)
+                    ?>
+                    <tbody align="center">
+                     <tr>
 
-<table width="100%">
- <thead>
-  <tr>  
-   <th><input type="checkbox" id="checkAll" />Check</th>
-   <th>ID</th>
-   <th>Codigo de empleado</th>
-   <th>Rol</th>
-   <th>Estado</th>
-   <th>Nombre</th>
-   <th>Correo</th>
-   <th>Imagen</th>
-   <th>Editar</th>
-   <th>Eliminar</th>
-   
-  </tr>
- </thead>
+                       <td ><?php echo $i; ?></td>
+                       <td ><?php echo $row['user_cod_empleado']; ?></td>
+                       <td ><?php echo $rowNombre['rol_nombre']; ?></td>
+                       <td ><?php echo $row['user_estado']; ?></td>
+                       <td ><?php echo $row['user_nombre']; ?></td>
+                       <td ><?php echo $row['user_correo']; ?></td>
+                    <td>
+                           <?php if($row['user_foto'] !=''){ ?>
+                             <img src="usuarios_fotos/<?php echo $row['user_foto']; ?>" width="70" height="70" style="box-shadow: 0px 0px 5px black;" />
 
- <?php 
- $all_users = mysqli_query($conexion,"select * from usuarios order by user_id DESC ");
- $i = 1;
- 
- while($row=mysqli_fetch_array($all_users)){
-  $nombreRo = $row['user_rol'];
-  $codRo = $row['user_cod_empleado'];
-  $rolenombre =mysqli_query($conexion, "select * from roles where rol_id ='$nombreRo' ");
-  $rowNombre = mysqli_fetch_array($rolenombre)
- ?>
- 
- <tbody>
-  <tr>
-  <?php if ($codRo == $_SESSION['cod_user']) {?>
-    
-   <td><input type="checkbox" name="deleteAll[]" /></td>
-   <?php }else{?>
-    <td><input type="checkbox" name="deleteAll[]" value="<?php echo $row['user_id'];?>" /></td>
-   <?php } ?>
-   <td class="blanco"><?php echo $i; ?></td>
-   <td class="blanco"><?php echo $row['user_cod_empleado']; ?></td>
-   <td class="blanco"><?php echo $rowNombre['rol_nombre']; ?></td>
-   <td class="blanco"><?php echo $row['user_estado']; ?></td>
-   <td class="blanco"><?php echo $row['user_nombre']; ?></td>
-   <td class="blanco"><?php echo $row['user_correo']; ?></td>
-  
-   <td>
-   <?php if($row['user_foto'] !=''){ ?>
-   <img src="usuarios_fotos/<?php echo $row['user_foto']; ?>" width="70" height="70" style="box-shadow: 0px 0px 5px black;" />
-   
-   <?php }else{ ?>
-   <img src="../images/profile-icon.png" width="70" height="50" />
-   
-   <?php } ?>
+                           <?php }else{ ?>
+                             <img src="../images/profile-icon.png" width="70" height="50" />
 
-   </td>
-   <?php if ($codRo != $_SESSION['cod_user']) {?>
-   <td class="delete"><a href="index.php?action=edit_user&user_id=<?php echo $row['user_id'];?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
-   
-   <td class="delete"><a href="index.php?action=view_users&delete_user=<?php echo $row['user_id'];?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
-   <?php } ?> 
-  </tr>
- </tbody>
- 
- <?php $i++;} // End while loop ?>
- 
-<tr>
-<td >
-  <div id="remover"><i class="fa fa-times-circle-o " style="color:white;" aria-hidden="true"></i>
-  <input type="submit" name="delete_all" value="Remover" onclick="return confirm('Estas seguro de eliminar de eliminar a todos estos empleados!!?');"/>
-</div>
- </td>
- 
- 
-</tr> 
-</table>
+                           <?php } ?>
 
-</form>
+                         </td>
+                         <?php if ($codRo != $_SESSION['cod_user']) {?>
+                           <td class="delete"><a href="index.php?action=edit_user&user_id=<?php echo $row['user_id'];?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
-</div><!-- /.view_product_box -->
-<a href="../registrar.php"  class="agregar"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar Empleado</a>	
+                           <td class="delete"><a href="index.php?action=view_users&delete_user=<?php echo $row['user_id'];?>" onclick="return confirm('Estas seguro de eliminar a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+                         <?php } ?> 
+                 </tr>
+
+               </tbody>
+                    <?php $i++;} // End while loop ?>
+                </table>
+              </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="../registrar.php"  class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar Empleado</a> 
+ </main>   
+
+
+<!-- PHP CODIGO  --> 
 <?php
 // Delete User Account
 
@@ -126,5 +127,10 @@ if(isset($_POST['deleteAll'])){
 }
  ?>
 
-<?php } ?>
 
+<?php } ?>
+<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">$('#sampleTable').DataTable();</script>
+
+    

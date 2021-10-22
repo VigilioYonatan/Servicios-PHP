@@ -1,25 +1,52 @@
-<link href="styles/agregar.css" type="text/css" rel="stylesheet">
+<link href="styles/main.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 5){
   
 }else{?>
-    <div class="form_box">
-<h2><i class="fa fa-user-plus" aria-hidden="true"></i>  Agregar Rol</h2>
-<div class="border_bottom"></div>
-<form action="" method="POST" enctype="multipart/form-data">
-    <label for="">Nombre rol:</label>
-    <input type="text" name="nombre_rol" required><br>
-    <label for="">Codigo Rol:</label>
-    <input type="text" name="cod_rol" required><br>
-    <td colspan="7">
-                        <div id="guardar">
-    <input type="submit" value="Agregar" name="agregar"><i class="fa fa-check-circle-o" aria-hidden="true"></i>
-    </div>
-                    </td>
-</form>
-</div>
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-user-plus"></i> AGREGAR ROL</h1>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
+          <li class="breadcrumb-item active">Agregar Rol</li>
+          
+        </ul>
+      </div>
+      <div class="row" style="font-size: 15px;">
+        <div class="col-md-6">
+          <div class="tile">
+            <div class="tile-body">
+              <form action="" method="POST" enctype="multipart/form-data" class="form-horizontal">
+                <div class="form-group row">
+                  <label class="control-label col-md-3">Nombre Rol:</label>
+                  <div class="col-md-8">
+                    <input class="form-control" type="text" placeholder="Ingrese nombre" name="nombre_rol" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="control-label col-md-3">Codigo Rol:</label>
+                  <div class="col-md-8">
+                    <input class="form-control col-md-8" type="text" placeholder="Ingrese codigo" name="cod_rol" required>
+                  </div>
+                </div>
+                <div class="tile-footer">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-3">
+                  <button class="btn btn-success" type="submit" name="agregar"><i class="fa fa-fw fa-lg fa-check-circle"></i>Agregar</button>
+                </div>
+              </div>
+            </div>
+      </form>
+            </div>
+            
+          </div>
+        </div>
+       
+      </div>
+</main>
 
 <!-- PHP CODIGO  -->
-
 <?php
 if(isset($_POST['agregar'])){
     $nombreR = $_POST['nombre_rol'];

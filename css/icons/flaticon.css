@@ -1,57 +1,57 @@
+@charset "UTF-8";
 @font-face {
-    font-family: "flaticon";
-    src: url("./flaticon.ttf?f058c4370a9a00924a2b205cd107d788") format("truetype"),
-url("./flaticon.woff?f058c4370a9a00924a2b205cd107d788") format("woff"),
-url("./flaticon.woff2?f058c4370a9a00924a2b205cd107d788") format("woff2"),
-url("./flaticon.eot?f058c4370a9a00924a2b205cd107d788#iefix") format("embedded-opentype"),
-url("./flaticon.svg?f058c4370a9a00924a2b205cd107d788#flaticon") format("svg");
+  font-family: "flaticon";
+  src: url("./flaticon.ttf?f058c4370a9a00924a2b205cd107d788") format("truetype"), url("./flaticon.woff?f058c4370a9a00924a2b205cd107d788") format("woff"), url("./flaticon.woff2?f058c4370a9a00924a2b205cd107d788") format("woff2"), url("./flaticon.eot?f058c4370a9a00924a2b205cd107d788#iefix") format("embedded-opentype"), url("./flaticon.svg?f058c4370a9a00924a2b205cd107d788#flaticon") format("svg");
 }
 
 i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
-    font-family: flaticon !important;
-    font-style: normal;
-    font-weight: normal !important;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: flaticon !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .flaticon-caja:before {
-    content: "\f101";
+  content: "";
 }
+
 .flaticon-almacen:before {
-    content: "\f102";
+  content: "";
 }
+
 .flaticon-admin-con-ruedas-dentadas:before {
-    content: "\f103";
+  content: "";
 }
+
 .flaticon-chevron-pointing-to-the-left:before {
-    content: "\f104";
-    position:absolute;
-  top:13px;
-  right:1px;
-  padding:0 10px 0 3px;
+  content: "";
 }
-.flaticon-chevron-pointing-to-the-left:hover{
-    color: red;
-}
+
 .flaticon-repairing-service:before {
-    content: "\f105";
+  content: "";
 }
+
 .flaticon-speedometer:before {
-    content: "\f106";
+  content: "";
 }
+
 .flaticon-customer:before {
-    content: "\f107";
+  content: "";
 }
+
 .flaticon-delivery-truck:before {
-    content: "\f108";
+  content: "";
 }
+
 .flaticon-gear:before {
-    content: "\f109";
+  content: "";
 }
+
 .flaticon-search-for-incidents:before {
-    content: "\f10a";
+  content: "";
 }
+/*# sourceMappingURL=flaticon.css.map */
