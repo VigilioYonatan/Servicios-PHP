@@ -130,7 +130,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
 <!-- PHP CODIGO  -->
 <?php
 if(isset($_POST['agregarPRO'])){
-    $ruc = $_POST['ruc'];
+    $ruc2 = $_POST['ruc'];
     $razon = $_POST['razon'];
     $direccion = $_POST['direccion'];
     $contacto = $_POST['contacto'];
@@ -152,11 +152,11 @@ if(isset($_POST['agregarPRO'])){
       $cot_cod = $ser.$codRo3 ;
     }
     
-    $addServ = mysqli_query($conexion, "insert into proveedores(cod_proovedor,ruc_proovedor,razon_proovedor,direccion_proovedor,contacto_proovedor,celular1_proovedor,celular2_proovedor,email1_proovedor,email2_proovedor,web_proovedor,area_proovedor,estado_proovedor,asignado_proovedor) values('$cot_cod','$ruc','$razon','$direccion','$contacto','$celular1','$celular2','$email1','$email2','$web','$area','$estado','$asignado')");
+    $addServ = mysqli_query($conexion, "insert into proveedores(cod_proovedor,ruc_proovedor,razon_proovedor,direccion_proovedor,contacto_proovedor,celular1_proovedor,celular2_proovedor,email1_proovedor,email2_proovedor,web_proovedor,area_proovedor,estado_proovedor,asignado_proovedor) values('$cot_cod','$ruc2','$razon','$direccion','$contacto','$celular1','$celular2','$email1','$email2','$web','$area','$estado','$asignado')");
 
     if($addServ){
         echo "<script>alert('Agregado correctamente proovedor $ruc ')</script>";
-        echo "<script>window.open('index.php','_self')</script>";
+        echo "<script>window.open('index.php?action=view_proovedor','_self')</script>";
     }else{
         echo "<script>alert('No se agrego correctamente')</script>";
     }
