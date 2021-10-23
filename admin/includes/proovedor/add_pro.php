@@ -1,5 +1,5 @@
 <link href="styles/main.css" type="text/css" rel="stylesheet">
-<?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 17 AND $_SESSION['role'] != 5 ){
+<?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 9 AND $_SESSION['role'] != 5 ){
 
 
 echo "<script>alert('No puedes acceder acá ')</script>";
@@ -8,7 +8,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-user-plus"></i> AGREGAR CLIENTE</h1>
+          <h1><i class="fa fa-user-plus"></i> AGREGAR PROOVEDOR</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
@@ -77,11 +77,11 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email 2:</label>
-                       <input class="form-control" type="email"  name="email2" placeholder="email" 2" required >
+                       <input class="form-control" type="email"  name="email2" placeholder="email"  required >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Area:</label>
-                    <select class="form-control" name="area" id="entrega" required>
+                  <label for="exampleInputEmail1">Area:</label>
+                  <select class="form-control" name="area" id="entrega" required>
                     
                     <?php
                       $rol2 = 5 ;
@@ -116,7 +116,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                   
 
                   <div class="tile-footer">
-              <button class="btn btn-primary" name="agregarCli"type="submit">Guardar  <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+              <button class="btn btn-primary" name="agregarPRO"type="submit">Guardar  <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
             </div>
                 </form>
                 </div>
@@ -129,7 +129,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     </main>
 <!-- PHP CODIGO  -->
 <?php
-if(isset($_POST['agregarCli'])){
+if(isset($_POST['agregarPRO'])){
     $ruc = $_POST['ruc'];
     $razon = $_POST['razon'];
     $direccion = $_POST['direccion'];
@@ -142,22 +142,21 @@ if(isset($_POST['agregarCli'])){
     $area = $_POST['area'];
     $estado = $_POST['estado'];
     $asignado= $_POST['asignado'];
-    $all_cot = mysqli_query($conexion,"select * from clientes");
+    $all_cot = mysqli_query($conexion,"select * from proveedores");
     while($row=mysqli_fetch_array($all_cot)){
       
-      $codRo = $row['cod_cliente'];
-      $codRo2 = str_replace('CLI-','',$codRo);
+      $codRo = $row['cod_proovedor'];
+      $codRo2 = str_replace('PRO-','',$codRo);
       $codRo3 = (int)$codRo2 + 1;
-      $ser = 'CLI-';
+      $ser = 'PRO-';
       $cot_cod = $ser.$codRo3 ;
     }
     
-    $addServ = mysqli_query($conexion, "insert into clientes(cod_cliente,ruc_cliente,razon_cliente,direccion_cliente,contacto_cliente,celular1_cliente,celular2_cliente,email1_cliente,email2_cliente,web_cliente,area_cliente,estado_cliente,asignado_cliente) values('$cot_cod','$ruc','$razon','$direccion','$contacto','$celular1','$celular2','$email1','$email2','$web','$area','$estado','$asignado')");
+    $addServ = mysqli_query($conexion, "insert into proveedores(cod_proovedor,ruc_proovedor,razon_proovedor,direccion_proovedor,contacto_proovedor,celular1_proovedor,celular2_proovedor,email1_proovedor,email2_proovedor,web_proovedor,area_proovedor,estado_proovedor,asignado_proovedor) values('$cot_cod','$ruc','$razon','$direccion','$contacto','$celular1','$celular2','$email1','$email2','$web','$area','$estado','$asignado')");
 
     if($addServ){
-        ?>
-        <h2>Agregado Correctamente</h2>
-        <?php 
+        echo "<script>alert('Agregado correctamente proovedor $ruc ')</script>";
+        echo "<script>window.open('index.php','_self')</script>";
     }else{
         echo "<script>alert('No se agrego correctamente')</script>";
     }

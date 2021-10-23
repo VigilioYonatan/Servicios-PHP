@@ -6,32 +6,96 @@
   echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_self')</script>";
 }else{
   ?>
+<main class="app-content">
+      <div class="app-title">
+        <div>
+          <h1><i class="fa fa-file-text-o"></i> VER COTIZACIÓN</h1>
+        </div>
+         <ul class="app-breadcrumb breadcrumb side">
+          <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
+          <li class="breadcrumb-item"><a href="index.php?action=view_cotizacion">Cotizaciones</a></li>
+          <li class="breadcrumb-item active">Cotizacion ID</li>
+          
+        </ul>
+      </div>
+      <div class="row"  style="font-size: 15px;">
+        <div class="col-md-12">
+          <div class="tile">
+            <?php
+            $edit_cat = mysqli_query($conexion, "select * from cotizacion where cot_codigo='$_GET[cot_codigo]'");
 
-<div class="view_product_box1">
+            $fetch_cat = mysqli_fetch_array($edit_cat);
 
+            ?>
+            <section class="invoice">
+              <div class="row mb-4">
+                <div class="col-6">
+                  <h2 class="page-header"><i class="fa fa-globe"></i> Outsourcing</h2>
+                </div>
+                <div class="col-6">
+                  <h5 class="text-right">Date: <b><?php echo $fetch_cat['cot_fecha']; ?></b></h5>
+                </div>
+              </div>
+              <div class="row invoice-info">
+                <div class="col-4">
+                  <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['cot_codigo'];?></b></h4>
+                  <h5>Cliente: <b><?php echo $fetch_cat['cot_cliente'];?></b></h5>
+                  <h6>Tipo de Estado: <b><?php echo $fetch_cat['cot_estado'];?></b></h6>
+                </div>
+                <div class="col-4">
+                 <h5>Asignado: <b><?php echo $fetch_cat['cot_asignado'];?></b></h5>
+                 <h6>Tipo de Pago: <b><?php echo $fetch_cat['cot_pago'];?></b></h6>
+                 <h6>Tipo de Moneda: <b><?php echo $fetch_cat['cot_moneda'];?></b></h6>
+               </div>
+               <div class="col-4">
+                <h6>Entrega: <b><?php echo $fetch_cat['cot_entrega'];?></b></h6>
+                <h6>Expira: <b><?php echo $fetch_cat['cot_expira'];?></b></h6>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Servicio</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
 
+              <div class="row invoice-info">
+                <div class="col-6">
+                  <h5>Dirección: <b><?php echo $fetch_cat['cot_direccion'];?></b></h5>
+                </div>
+                <div class="col-11">
+                  <h5>Condiciones: <br></h5>
+                   <h6><?php echo $fetch_cat['cot_condicion'];?></h6>
+                </div>
+                <div class="col-8">
+                  <h6><?php echo $fetch_cat['cot_pie'];?></h6>
+                </div>
+              </div>
+              <div class="row d-print-none mt-2">
+                <div class="col-12 text-right"><a class="btn btn-primary" href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Imprimir</a></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
 
-<?php
-$edit_cat = mysqli_query($conexion, "select * from cotizacion where cot_codigo='$_GET[cot_codigo]'");
-
-$fetch_cat = mysqli_fetch_array($edit_cat);
-
-?>
-
-<h1 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['cot_codigo'];?></b></h1>
-<div class="border_bottom1"></div>
-<h3 >Entrega: <b><?php echo $fetch_cat['cot_entrega'];?></b></h3>
-<h3>Expira: <b><?php echo $fetch_cat['cot_expira'];?></b></h3>
-<h3 class="cliente">Cliente: <b><?php echo $fetch_cat['cot_cliente'];?></b></h3>
-<h3 class="asignado">Asignado: <b><?php echo $fetch_cat['cot_asignado'];?></b></h3>
-<h3 >Tipo de Estado: <b><?php echo $fetch_cat['cot_estado'];?></b></h3>
-<h3 >Tipo de Pago: <b><?php echo $fetch_cat['cot_pago'];?></b></h3>
-<h3>Tipo de Moneda: <b><?php echo $fetch_cat['cot_moneda'];?></b></h3>
-
-<div class="border_bottom"></div>
-<h3>Dirección: <b><?php echo $fetch_cat['cot_direccion'];?></b></h3>
-<h3>Condiciones: </h3>
-<textarea name="" id="" cols="30" rows="10"><?php echo $fetch_cat['cot_condicion'];?></textarea>
-<h3>Pie: <?php echo $fetch_cat['cot_pie'];?></h3>
-</div>
 <?php } ?>

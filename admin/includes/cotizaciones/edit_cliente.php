@@ -13,7 +13,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item "><a href="index.php?action=view_serv">Lista de Servicios</a></li>
+          <li class="breadcrumb-item "><a href="index.php?action=view_clientes">Clientes</a></li>
           <li class="breadcrumb-item active">Editar</li>
         </ul>
       </div>
@@ -33,38 +33,47 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                     <label for="exampleInputEmail1">Editar Direccion de Cliente:</label>
                     <input class="form-control" type="text"name="cliente_direccion" value="<?php echo $fetch_cat['direccion_cliente']; ?>" size="30" required >
                   </div> 
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar contacto de Cliente:</label>
-                    <input class="form-control" type="text"name="cliente_contact" value="<?php echo $fetch_cat['contacto_cliente']; ?>" size="30" required >
-                  </div>         
+                        
                   <div class="form-group">
                     <label for="exampleInputEmail1">Editar celular 1:</label>
                     <input class="form-control" type="text"name="cliente_cel1" value="<?php echo $fetch_cat['celular1_cliente']; ?>" size="30" required >
                   </div> 
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar celular 2:</label>
-                    <input class="form-control" type="text"name="cliente_cel2" value="<?php echo $fetch_cat['celular2_cliente']; ?>" size="30" required >
-                  </div> 
-                  
+
                   <div class="form-group">
                     <label for="exampleInputEmail1">Editar email 1:</label>
                     <input class="form-control" type="text"name="cliente_email1" value="<?php echo $fetch_cat['email1_cliente']; ?>" size="30" required >
                   </div> 
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar email 2:</label>
-                    <input class="form-control" type="text"name="cliente_email2" value="<?php echo $fetch_cat['email2_cliente']; ?>" size="30" required >
-                  </div> 
-                  <div class="form-group">
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">Editar contacto de Cliente:</label>
+                    <input class="form-control" type="text"name="cliente_contact" value="<?php echo $fetch_cat['contacto_cliente']; ?>" size="30" required >
+                  </div>  
+
+                  <div class="tile-footer">
+              
+            </div>
+          </div>
+              <div class="col-lg-4 offset-lg-1"><br><br>
+                <div class="form-group">
                     <label for="exampleInputEmail1">Editar Web:</label>
                     <input class="form-control" type="text"name="cliente_web" value="<?php echo $fetch_cat['web_cliente']; ?>" size="30" required >
                   </div> 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Editar area:</label>
                     <input class="form-control" type="text"name="cliente_area" value="<?php echo $fetch_cat['area_cliente']; ?>" size="30" required >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Editar celular 2:</label>
+                    <input class="form-control" type="text"name="cliente_cel2" value="<?php echo $fetch_cat['celular2_cliente']; ?>" size="30" required >
+                  </div> 
+
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Editar email 2:</label>
+                    <input class="form-control" type="text"name="cliente_email2" value="<?php echo $fetch_cat['email2_cliente']; ?>" size="30" required >
                   </div> 
                   <div class="tile-footer">
-              <button class="btn btn-primary" name="edit_cliente"type="submit">Guardar  <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-            </div>
+                    <button class="btn btn-primary" name="edit_cliente"type="submit">Guardar  <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                  </div>
+
                 </form>
                 </div>
 

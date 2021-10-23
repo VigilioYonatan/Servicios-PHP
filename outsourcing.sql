@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2021 a las 11:57:15
+-- Tiempo de generación: 23-10-2021 a las 02:53:14
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.3.30
 
@@ -55,7 +55,8 @@ CREATE TABLE `cargos` (
 
 CREATE TABLE `clientes` (
   `Id_cliente` int(10) NOT NULL,
-  `ruc_cliente` int(11) NOT NULL,
+  `cod_cliente` varchar(20) NOT NULL,
+  `ruc_cliente` int(50) NOT NULL,
   `razon_cliente` varchar(50) NOT NULL,
   `direccion_cliente` text NOT NULL,
   `contacto_cliente` varchar(100) NOT NULL,
@@ -73,9 +74,34 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`Id_cliente`, `ruc_cliente`, `razon_cliente`, `direccion_cliente`, `contacto_cliente`, `celular1_cliente`, `celular2_cliente`, `email1_cliente`, `email2_cliente`, `web_cliente`, `area_cliente`, `estado_cliente`, `asignado_cliente`) VALUES
-(6, 2012154556, 'empresa', 'direccion', 'contacto', 967575844, 968650700, 'email1@gmail.com', 'email2@gmail.com', 'www.empresa.com', 'area', 'activo', 'Yonatan'),
-(14, 2010007845, 'GlobalTec SAC', ' Jr, Niquel 240, Los Olivos 15311', 'Vallejo Gillermo Fiordo', 995645784, 995645784, 'Globaltec@gmail.com', 'Globaltec@gmail.com', 'globaltec.com.pe', 'transporte', 'potencial', 'jESUS');
+INSERT INTO `clientes` (`Id_cliente`, `cod_cliente`, `ruc_cliente`, `razon_cliente`, `direccion_cliente`, `contacto_cliente`, `celular1_cliente`, `celular2_cliente`, `email1_cliente`, `email2_cliente`, `web_cliente`, `area_cliente`, `estado_cliente`, `asignado_cliente`) VALUES
+(6, 'CLI-101', 2012154556, 'empresa', 'direccion', 'contacto', 967575844, 968650700, 'email1@gmail.com', 'email2@gmail.com', 'www.empresa.com', 'area', 'activo', 'Yonatan'),
+(14, 'CLI-102', 2010007845, 'GlobalTec SAC', ' Jr, Niquel 240, Los Olivos 15311', 'Vallejo Gillermo Fiordo', 995645784, 2147483647, 'Globaltec@gmail.com', 'Globaltec@gmail.com', 'globaltec.com.pe', 'transporte', 'potencial', 'jESUS'),
+(15, 'CLI-103', 2147483647, 'Cliente3', 'Mz u3 lt 17', 'Juan', 964533677, 978346577, 'cliente3@gmail.com', 'cliente3_2@gmail.com', 'cliente3.com', 'Logística', 'Neutro', 'Yonatan');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cliente_area`
+--
+
+CREATE TABLE `cliente_area` (
+  `area_id` int(11) NOT NULL,
+  `area_nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cliente_area`
+--
+
+INSERT INTO `cliente_area` (`area_id`, `area_nombre`) VALUES
+(1, 'Gerencia'),
+(2, 'Logística'),
+(3, 'Almacén'),
+(4, 'Sistemas'),
+(5, 'Ventas'),
+(6, 'Operaciones'),
+(7, 'Planeamiento');
 
 -- --------------------------------------------------------
 
@@ -94,7 +120,9 @@ CREATE TABLE `cliente_estado` (
 
 INSERT INTO `cliente_estado` (`id_estado`, `nombre_estado`) VALUES
 (1, 'activo'),
-(2, 'potencial');
+(2, 'potencial'),
+(3, 'Neutro'),
+(4, 'Descartado');
 
 -- --------------------------------------------------------
 
@@ -188,12 +216,30 @@ CREATE TABLE `productos` (
 --
 
 CREATE TABLE `proveedores` (
-  `Id_prove` int(10) NOT NULL,
-  `nom_prove` varchar(50) NOT NULL,
-  `Estado_prove` int(1) NOT NULL,
-  `Direccion_prove` varchar(50) NOT NULL,
-  `telefono_prove` varchar(9) NOT NULL
+  `Id_proovedor` int(10) NOT NULL,
+  `cod_proovedor` varchar(20) NOT NULL,
+  `ruc_proovedor` int(50) NOT NULL,
+  `razon_proovedor` varchar(50) NOT NULL,
+  `direccion_proovedor` text NOT NULL,
+  `contacto_proovedor` varchar(100) NOT NULL,
+  `celular1_proovedor` int(9) NOT NULL,
+  `celular2_proovedor` int(9) NOT NULL,
+  `email1_proovedor` varchar(50) NOT NULL,
+  `email2_proovedor` varchar(50) NOT NULL,
+  `web_proovedor` text NOT NULL,
+  `area_proovedor` varchar(50) NOT NULL,
+  `estado_proovedor` varchar(50) NOT NULL,
+  `asignado_proovedor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`Id_proovedor`, `cod_proovedor`, `ruc_proovedor`, `razon_proovedor`, `direccion_proovedor`, `contacto_proovedor`, `celular1_proovedor`, `celular2_proovedor`, `email1_proovedor`, `email2_proovedor`, `web_proovedor`, `area_proovedor`, `estado_proovedor`, `asignado_proovedor`) VALUES
+(1, 'PRO-100', 2147483647, 'Proovedor1', 'MZ U3 LT9', 'JUAN', 988484474, 943243456, 'proovedor1@gmail.com', 'proovedor1_1@gmail.com', 'www.proovedor.com', 'Logística', 'activo', 'Yonatan'),
+(2, 'PRO-101', 2147483647, 'Proovedor2', 'Mz u3 lt 17', 'PERSONA', 975643433, 945236775, 'proovedor2@gmail.com', 'proovedor2_1@gmail.com', 'www.proovedor2.com', 'Sistemas', 'Neutro', 'Jesus'),
+(10, 'PRO-102', 2147483647, 'Proovedor3', 'Mz UJ 34', 'Lucas', 956456776, 945345675, 'proovedor3@gmail.com', 'proovedor3_1@gmail.com', 'www.facebook.com', 'Logística', 'activo', 'Yonatan');
 
 -- --------------------------------------------------------
 
@@ -283,7 +329,7 @@ INSERT INTO `usuarios` (`user_id`, `user_cod_empleado`, `user_ip`, `user_nombre`
 (86, 'ADM12687', '::1', 'Jesus', 'Muñoz', 0, 8938832, 'jesus@gmail.com', '110d46fcd978c24f306cd7fa23464d73', 'avatars-000315108724-vg19ut-t500x500.jpg', 'en su casa', 484848423, '5', 0),
 (88, 'SER19767', '::1', 'Jesús', 'Muñoz', 1, 3442342, 'hola@gmail.com', '4d186321c1a7f0f354b297e8914ab240', 'gatito-cesped_0.jpg', 'en su casa', 46526264, '14', 0),
 (89, 'LGT47144', '::1', 'Lucas', 'Vigilio Lavado', 0, 70602063, 'lucas@gmail.com', 'dc53fc4f621c80bdc2fa0329a6123708', 'jrulzejt5j451.jpg', 'en su casa', 968662473, '9', 0),
-(90, 'SER61251', '::1', 'Mateo', 'ps', 0, 93939334, 'mateo@gmail.com', '5b4c6f05e39f90fcebd51be99338c42e', 'descarga.png', 'en su casa', 8483832, '14', 0),
+(90, 'SER61251', '::1', 'Mateo', 'ps', 1, 93939334, 'mateo@gmail.com', '5b4c6f05e39f90fcebd51be99338c42e', 'descarga.png', 'en su casa', 8483832, '14', 0),
 (91, 'INC12150', '::1', 'Elmer', 'Vigilio Lavado', 0, 94939843, 'Elmer@gmail.com', '2ed04acfdc51e5dc36b8e79c1ed44455', 'artworks-cYZUpWaeMzDRhrY7-sxFdxg-t500x500.jpg', 'en su casa', 93939345, '11', 0),
 (92, 'USE33473', '::1', 'Ericka', 'Enriquez', 1, 8383839, 'ericka@gmail.com', '9199a71a523314906ddd3a7fb56ca122', 'Prog15.jpg', 'en su casa', 93938383, '2', 0),
 (93, 'VNT44437', '::1', 'Laura', 'Bhrem', 0, 8383838, 'laura@gmail.com', '680e89809965ec41e64dc7e447f175ab', 'artworks-000087041952-9t30i4-t500x500.jpg', 'en su casa', 9292929, '7', 0),
@@ -422,7 +468,15 @@ ALTER TABLE `cargos`
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`Id_cliente`);
+  ADD PRIMARY KEY (`Id_cliente`),
+  ADD UNIQUE KEY `ruc_cliente` (`ruc_cliente`),
+  ADD KEY `ruc_cliente_2` (`ruc_cliente`);
+
+--
+-- Indices de la tabla `cliente_area`
+--
+ALTER TABLE `cliente_area`
+  ADD PRIMARY KEY (`area_id`);
 
 --
 -- Indices de la tabla `cliente_estado`
@@ -435,6 +489,12 @@ ALTER TABLE `cliente_estado`
 --
 ALTER TABLE `cotizacion`
   ADD PRIMARY KEY (`cot_id`);
+
+--
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`Id_proovedor`);
 
 --
 -- Indices de la tabla `roles`
@@ -504,19 +564,31 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `Id_cliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Id_cliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de la tabla `cliente_area`
+--
+ALTER TABLE `cliente_area`
+  MODIFY `area_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_estado`
 --
 ALTER TABLE `cliente_estado`
-  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_estado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `cotizacion`
 --
 ALTER TABLE `cotizacion`
   MODIFY `cot_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  MODIFY `Id_proovedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`

@@ -88,8 +88,13 @@ session_start();
       <ul class="app-menu" style="font-weight: bold;">
         <li><a class="app-menu__item active" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">DASHBOARD</span></a></li>
 
-        <li><a class="app-menu__item " href="#"><i class="app-menu__icon fa fa-truck" ></i><span class="app-menu__label">PROVEEDORES</span></a></li>
-
+        <li class="treeview"><a class="app-menu__item" href="index.php?action=add_proovedor" data-toggle="treeview"><i class="app-menu__icon fa fa-handshake-o"></i><span class="app-menu__label">PROOVEDORES</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="index.php?action=view_proovedor"><i class="icon fa fa-circle-o"></i> Lista de Proovedores</a></li>
+            <li><a class="treeview-item" href="index.php?action=add_proovedor"><i class="icon fa fa-circle-o"></i> Agregar Proovedores</a></li>
+            
+          </ul>
+        </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-money"></i>
           <span class="app-menu__label">VENTAS</span>
           <i class="treeview-indicator fa fa-angle-right"></i></a>
@@ -178,9 +183,9 @@ session_start();
     include 'includes/cotizaciones/add_cotizaciones.php';
     break;
 
-    //case 'view_cotizacion_id';
-    //include 'includes/cotizaciones/ver_cotizacione_id.php';
-    //break;
+    case 'view_cotizacion_id';
+    include 'includes/cotizaciones/ver_cotizacione_id.php';
+    break;
 
     case 'view_clientes';
     include 'includes/cotizaciones/ver_clientes.php';
@@ -192,6 +197,14 @@ session_start();
 
     case 'edit_clien';
     include 'includes/cotizaciones/edit_cliente.php';
+    break;
+
+    case 'add_proovedor';
+    include 'includes/proovedor/add_pro.php';
+    break;
+
+    case 'view_proovedor';
+    include 'includes/proovedor/view_pro.php';
     break;
 
      }
