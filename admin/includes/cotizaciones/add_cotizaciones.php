@@ -24,7 +24,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                 <form action="" method="POST" accept-charset="utf-8">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Cliente:</label>
-                       <input class="form-control" type="text" aria-describedby="emailHelp" name="cliente" onkeyup="GetDetail(this.value)" id="rollNo">
+                       <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="cliente" name="cliente" onkeyup="GetDetail(this.value)" id="rollNo">
                   </div>
                    
                   <div class="form-group">
@@ -158,7 +158,7 @@ CCI Soles: 009-021-0000026452345-74</textarea>
 
                   <div class="form-group">
                     <label for="exampleInputEmail1">Direccion:</label>
-                       <input class="form-control" type="text"  name="direccion" id="studentName" required >
+                       <input class="form-control" type="text"  name="direccion" id="studentName" placeholder="direccion" required >
                   </div>
 
                   <div class="form-group">
