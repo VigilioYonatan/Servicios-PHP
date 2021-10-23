@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2021 a las 02:53:14
+-- Tiempo de generación: 23-10-2021 a las 03:48:05
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.3.30
 
@@ -75,7 +75,7 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`Id_cliente`, `cod_cliente`, `ruc_cliente`, `razon_cliente`, `direccion_cliente`, `contacto_cliente`, `celular1_cliente`, `celular2_cliente`, `email1_cliente`, `email2_cliente`, `web_cliente`, `area_cliente`, `estado_cliente`, `asignado_cliente`) VALUES
-(6, 'CLI-101', 2012154556, 'empresa', 'direccion', 'contacto', 967575844, 968650700, 'email1@gmail.com', 'email2@gmail.com', 'www.empresa.com', 'area', 'activo', 'Yonatan'),
+(6, 'CLI-101', 2012154556, 'empresa', 'Jr. Plaza 343. Puente Piedra', 'contacto', 967575844, 968650700, 'email1@gmail.com', 'email2@gmail.com', 'www.empresa.com', 'area', 'activo', 'Yonatan'),
 (14, 'CLI-102', 2010007845, 'GlobalTec SAC', ' Jr, Niquel 240, Los Olivos 15311', 'Vallejo Gillermo Fiordo', 995645784, 2147483647, 'Globaltec@gmail.com', 'Globaltec@gmail.com', 'globaltec.com.pe', 'transporte', 'potencial', 'jESUS'),
 (15, 'CLI-103', 2147483647, 'Cliente3', 'Mz u3 lt 17', 'Juan', 964533677, 978346577, 'cliente3@gmail.com', 'cliente3_2@gmail.com', 'cliente3.com', 'Logística', 'Neutro', 'Yonatan');
 
@@ -218,7 +218,7 @@ CREATE TABLE `productos` (
 CREATE TABLE `proveedores` (
   `Id_proovedor` int(10) NOT NULL,
   `cod_proovedor` varchar(20) NOT NULL,
-  `ruc_proovedor` int(50) NOT NULL,
+  `ruc_proovedor` int(11) NOT NULL,
   `razon_proovedor` varchar(50) NOT NULL,
   `direccion_proovedor` text NOT NULL,
   `contacto_proovedor` varchar(100) NOT NULL,
@@ -237,9 +237,10 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`Id_proovedor`, `cod_proovedor`, `ruc_proovedor`, `razon_proovedor`, `direccion_proovedor`, `contacto_proovedor`, `celular1_proovedor`, `celular2_proovedor`, `email1_proovedor`, `email2_proovedor`, `web_proovedor`, `area_proovedor`, `estado_proovedor`, `asignado_proovedor`) VALUES
-(1, 'PRO-100', 2147483647, 'Proovedor1', 'MZ U3 LT9', 'JUAN', 988484474, 943243456, 'proovedor1@gmail.com', 'proovedor1_1@gmail.com', 'www.proovedor.com', 'Logística', 'activo', 'Yonatan'),
-(2, 'PRO-101', 2147483647, 'Proovedor2', 'Mz u3 lt 17', 'PERSONA', 975643433, 945236775, 'proovedor2@gmail.com', 'proovedor2_1@gmail.com', 'www.proovedor2.com', 'Sistemas', 'Neutro', 'Jesus'),
-(10, 'PRO-102', 2147483647, 'Proovedor3', 'Mz UJ 34', 'Lucas', 956456776, 945345675, 'proovedor3@gmail.com', 'proovedor3_1@gmail.com', 'www.facebook.com', 'Logística', 'activo', 'Yonatan');
+(1, 'PRO-100', 234343556, 'Proovedor1', 'MZ U3 LT9', 'JUAN', 988484474, 943243456, 'proovedor1@gmail.com', 'proovedor1_1@gmail.com', 'www.proovedor.com', 'Logística', 'activo', 'Yonatan'),
+(2, 'PRO-101', 233454674, 'Proovedor2', 'Mz u3 lt 17', 'PERSONA', 975643433, 945236775, 'proovedor2@gmail.com', 'proovedor2_1@gmail.com', 'www.proovedor2.com', 'Sistemas', 'Neutro', 'Jesus'),
+(10, 'PRO-102', 265656789, 'Proovedor3', 'Mz UJ 34', 'Lucas', 956456776, 945345675, 'proovedor3@gmail.com', 'proovedor3_1@gmail.com', 'www.facebook.com', 'Logística', 'activo', 'Yonatan'),
+(11, 'PRO-103', 234467890, 'proovedor4', 'Mz u3 lt 21 - puente piedra', 'Marcos', 956345346, 956456733, 'proovedor4@gmail.com', 'proovedor4@gmail.com', 'www.proovedor4.com', 'Ventas', 'Neutro', 'Yonatan');
 
 -- --------------------------------------------------------
 
@@ -588,7 +589,7 @@ ALTER TABLE `cotizacion`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `Id_proovedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Id_proovedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
