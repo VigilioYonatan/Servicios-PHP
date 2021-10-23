@@ -10,7 +10,7 @@
 if (isset($_SESSION['role'])) {
     $cliente = $_SESSION['role'];
 } else {
-    header('Location: login.php');
+    header('Location: index.php');
     die();
 }
 include('web/bd.php');
