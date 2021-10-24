@@ -21,9 +21,10 @@
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
+              <form action="" method="post" enctype="multipart/form-data" >
               <div class="table-responsive">
 
-                <form action="" method="post" enctype="multipart/form-data" >
+                
               <table class="table table-hover table-bordered" id="sampleTable">
                   <thead align="center">
                     <tr>
@@ -31,11 +32,11 @@
                       <th>ID</th>
                       <th>Codigo </th>
                       <th>Nombre </th>
-                      <th>Tipo de Servicio</th>
-                      <th>Cat</th>
-                      <th>Detalles </th>
-                      <th>Precio </th>
-                      <th>Dias </th>
+                      <th>Disponibles</th>
+                      <th>Precio</th>
+                      <th>Categoria </th>
+                      <th>Estado </th>
+                      <th>Proovedor</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
                     </tr>
@@ -54,11 +55,11 @@
                     <td><?php echo $i; ?></td>
                     <td><?php echo $row['servicio_cod']; ?></td>
                     <td><?php echo $row['servicio_nombre']; ?></td>
-                    <td><?php echo $row['servicio_tipo']; ?></td>
-                    <td><?php echo $row['servicio_cat']; ?></td>
-                    <td><?php echo $row['servicio_det']; ?></td>
-                    <td>S/.<?php echo $row['servicio_precio']; ?></td>
-                    <td><?php echo $row['servicio_time']; ?></td>
+                    <td><?php echo $row['servicio_disponibles']; ?> Disponibles</td>
+                    <td>S/.<?php echo $row['servicio_pventa']; ?></td>
+                    <td><?php echo $row['servicio_categoria']; ?></td>
+                    <td><?php echo $row['servicio_estado']; ?></td>
+                    <td><?php echo $row['servicio_proveedor']; ?></td>
                     <?php if ($codRo != $_SESSION['cod_user']) {?>
                      <td class="delete"><a href="index.php?action=edit_serv&serv_id=<?php echo $row['servicio_id'];?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
@@ -69,9 +70,9 @@
                </tbody>
                     <?php $i++;} // End while loop ?>
                 </table>
-              </form>
+             </div>
 
-              </div>
+               </form>
             </div>
           </div>
         </div>

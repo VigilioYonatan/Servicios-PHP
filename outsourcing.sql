@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2021 a las 03:48:05
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 7.3.30
+-- Tiempo de generación: 23-10-2021 a las 22:34:11
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -77,7 +77,7 @@ CREATE TABLE `clientes` (
 INSERT INTO `clientes` (`Id_cliente`, `cod_cliente`, `ruc_cliente`, `razon_cliente`, `direccion_cliente`, `contacto_cliente`, `celular1_cliente`, `celular2_cliente`, `email1_cliente`, `email2_cliente`, `web_cliente`, `area_cliente`, `estado_cliente`, `asignado_cliente`) VALUES
 (6, 'CLI-101', 2012154556, 'empresa', 'Jr. Plaza 343. Puente Piedra', 'contacto', 967575844, 968650700, 'email1@gmail.com', 'email2@gmail.com', 'www.empresa.com', 'area', 'activo', 'Yonatan'),
 (14, 'CLI-102', 2010007845, 'GlobalTec SAC', ' Jr, Niquel 240, Los Olivos 15311', 'Vallejo Gillermo Fiordo', 995645784, 2147483647, 'Globaltec@gmail.com', 'Globaltec@gmail.com', 'globaltec.com.pe', 'transporte', 'potencial', 'jESUS'),
-(15, 'CLI-103', 2147483647, 'Cliente3', 'Mz u3 lt 17', 'Juan', 964533677, 978346577, 'cliente3@gmail.com', 'cliente3_2@gmail.com', 'cliente3.com', 'Logística', 'Neutro', 'Yonatan');
+(19, 'CLI-103', 2147483647, 'Cliente4', 'Jr.Santa Rosa', 'jose olaya', 930904758, 963852741, 'cliente3@gmail.com', 'cli@gmail.com', 'cliente3.com', 'Logística', 'Neutro', 'Yonatan');
 
 -- --------------------------------------------------------
 
@@ -151,11 +151,9 @@ CREATE TABLE `cotizacion` (
 --
 
 INSERT INTO `cotizacion` (`cot_id`, `cot_codigo`, `cot_cliente`, `cot_asignado`, `cot_estado`, `cot_pago`, `cot_moneda`, `cot_entrega`, `cot_expira`, `cot_direccion`, `cot_condicion`, `cot_pie`, `cot_fecha`) VALUES
-(22, 'COT-101', 'Jorge clliente', 'Yonatan', 'Abierto', 'efectivo', 'Dolares', '10 dias', '10 dias', 'su casa ', 'Cuenta corriente en Dolares         Bco. Scotiabank: 000-34533433\r\nCCI DOLARES: 009-021-0000463603-77\r\nCuenta corriente en soles Bco.\r\n Scotiabank: 2824507\r\nCCI Soles: 009-021-0000026452345-74', 'Telef: 01-05440920 Celulares: 958529197\r\n        9', '2021-10-16 00:00:00'),
+(22, 'COT-101', '  Jorge clliente  ', 'Yonatan  ', '  Pendiente', '15 dias', 'Dolares', '10 dias', '10 dias', 'su casa ', 'Cuenta corriente en Dolares         Bco. Scotiabank: 000-34533433\r\nCCI DOLARES: 009-021-0000463603-77\r\nCuenta corriente en soles Bco.\r\n Scotiabank: 2824507\r\nCCI Soles: 009-021-0000026452345-74', 'Telef: 01-05440920 Celulares: 958529197\r\n        9', '2021-10-16 00:00:00'),
 (23, 'COT-102', 'Jorge cliente', 'Yonatan', 'Abierto', 'efectivo', 'Soles', '10 dias', '15 dias', 'en su casa', 'Cuenta corriente en Dolares         Bco. Scotiabank: 000-34533433\r\nCCI DOLARES: 009-021-0000463603-77\r\nCuenta corriente en soles Bco.\r\n Scotiabank: 2824507\r\nCCI Soles: 009-021-0000026452345-74', 'Telef: 01-05440920 Celulares: 958529197\r\n        9', '2021-10-16 00:00:00'),
-(24, 'COT-103', 'Jorge cliente', 'Yonatan', 'Cerrado', '10 dias', 'Soles', '15 dias', '10 dias', 'en su casa', 'Cuenta corriente en Dolares         Bco. Scotiabank: 000-34533433\r\nCCI DOLARES: 009-021-0000463603-77\r\nCuenta corriente en soles Bco.\r\n Scotiabank: 2824507\r\nCCI Soles: 009-021-0000026452345-74', 'Telef: 01-05440920 Celulares: 958529197\r\n        9', '2021-10-16 07:59:41'),
-(25, 'COT-104', 'Jorge cliente', 'Laura', 'Abierto', '10 dias', 'Dolares', '15 dias', '15 dias', 'en su casa', 'Cuenta corriente en Dolares         Bco. Scotiabank: 000-34533433\r\nCCI DOLARES: 009-021-0000463603-77\r\nCuenta corriente en soles Bco.\r\n Scotiabank: 2824507\r\nCCI Soles: 009-021-0000026452345-74', 'Telef: 01-05440920 Celulares: 958529197\r\n        9', '2021-10-17 11:16:42'),
-(26, 'COT-105', 'Jesús', 'Yonatan', 'Abierto', '15 dias', 'Soles', '15 dias', '15 dias', 'en su casa', 'Cuenta corriente en Dolares         Bco. Scotiabank: 000-34533433\r\nCCI DOLARES: 009-021-0000463603-77\r\nCuenta corriente en soles Bco.\r\n Scotiabank: 2824507\r\nCCI Soles: 009-021-0000026452345-74', 'Telef: 01-05440920 Celulares: 958529197\r\n        9', '2021-10-19 18:24:26');
+(24, 'COT-103', 'Jorge cliente', 'Yonatan', 'Cerrado', '10 dias', 'Soles', '15 dias', '10 dias', 'en su casa', 'Cuenta corriente en Dolares         Bco. Scotiabank: 000-34533433\r\nCCI DOLARES: 009-021-0000463603-77\r\nCuenta corriente en soles Bco.\r\n Scotiabank: 2824507\r\nCCI Soles: 009-021-0000026452345-74', 'Telef: 01-05440920 Celulares: 958529197\r\n        9', '2021-10-16 07:59:41');
 
 -- --------------------------------------------------------
 
@@ -279,23 +277,43 @@ CREATE TABLE `servicios` (
   `servicio_id` int(10) NOT NULL,
   `servicio_cod` varchar(15) NOT NULL,
   `servicio_nombre` varchar(50) NOT NULL,
-  `servicio_tipo` varchar(100) NOT NULL,
-  `servicio_precio` int(11) NOT NULL,
-  `servicio_cat` varchar(50) NOT NULL,
-  `servicio_det` varchar(150) NOT NULL,
-  `servicio_time` int(11) NOT NULL
+  `servicio_desc` text NOT NULL,
+  `servicio_mat` text NOT NULL,
+  `servicio_disponibles` int(11) NOT NULL,
+  `servicio_pventa` varchar(50) NOT NULL,
+  `servicio_categoria` varchar(50) NOT NULL,
+  `servicio_estado` tinyint(1) NOT NULL,
+  `servicio_proveedor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `servicios`
 --
 
-INSERT INTO `servicios` (`servicio_id`, `servicio_cod`, `servicio_nombre`, `servicio_tipo`, `servicio_precio`, `servicio_cat`, `servicio_det`, `servicio_time`) VALUES
-(23, 'SER100001', 'Mantenimiento De CPU', 'Hardware', 55, 'CPU', 'Mantenimiento de CPU para no tener complicaciones.', 1),
-(31, 'SER100002', 'Cambio de Disco HDD a SSD', 'Hardware', 300, 'CPU', 'Cambio de Disco HDD a SSD para mas velocidad', 1),
-(32, 'SER100003', 'Formateo de PC', 'Software', 50, 'Servidores', 'Formateo de PC y instalacion de windows.', 3),
-(43, 'SER100004', 'Ampliar Ram', 'Hardware', 250, 'CPU', 'Amplia tu ram para mas velocidad en tu pc', 1),
-(47, 'SER100005', 'Instalacion de Programas', 'Software', 50, 'CPU', 'Instalamos programas crackeados xD', 4);
+INSERT INTO `servicios` (`servicio_id`, `servicio_cod`, `servicio_nombre`, `servicio_desc`, `servicio_mat`, `servicio_disponibles`, `servicio_pventa`, `servicio_categoria`, `servicio_estado`, `servicio_proveedor`) VALUES
+(49, 'SER-100', 'Mantenimiento de CPU', 'Mantenimiento , limpieza para tu CPU.\r\nUna buena limpieza a tu CPU, le da mas años de vida a tu pc.', 'destornillador y aire comprimido', 2, '60', 'Soporte Técnico', 0, 'Proovedor3    '),
+(50, 'SER-101', 'Formateo de Pc', 'Formateamos tu pc para liberar virus y tener un limpio sistema Operativo y ademas instalamos los drivers y programas que nos pidas.', 'Discos Instaladores', 3, '30', 'Soporte Técnico', 1, 'Proovedor2'),
+(52, 'SER-102', 'Limpieza de pc', 'Limpiamos tu pc y liberación de virus', 'Antivirus', 1, '20', 'Soporte Técnico', 1, 'Proovedor1       ');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `serv_categoria`
+--
+
+CREATE TABLE `serv_categoria` (
+  `id_categoria` int(11) NOT NULL,
+  `nombre_categoria` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `serv_categoria`
+--
+
+INSERT INTO `serv_categoria` (`id_categoria`, `nombre_categoria`) VALUES
+(1, 'Redes'),
+(2, 'Desarrollo'),
+(3, 'Soporte Técnico');
 
 -- --------------------------------------------------------
 
@@ -326,7 +344,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`user_id`, `user_cod_empleado`, `user_ip`, `user_nombre`, `user_apellido`, `user_estado`, `user_dni`, `user_correo`, `user_contraseña`, `user_foto`, `user_direccion`, `user_telefono`, `user_rol`, `cargo_id`) VALUES
 (84, 'ADM34191', '::1', 'Yonatan', 'Vigilio Lavado', 1, 70602063, 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', 'REAPER.jpg', 'MZ U3 LT 17 - PUENTE PIEDRA', 968662473, '5', 0),
-(85, 'USE31735', '::1', 'Rome', 'In silver', 0, 9459448, 'rome@gmail.com', '60d99e58d66a5e0f4f89ec3ddd1d9a80', 'artworks-Hj7CPjY6pMuIj8t8-7NBKSA-t500x500.jpg', 'en su casa', 939337843, '2', 0),
+(85, 'USE31735', '::1', 'Rome', 'In silver', 1, 9459448, 'rome@gmail.com', '60d99e58d66a5e0f4f89ec3ddd1d9a80', 'artworks-Hj7CPjY6pMuIj8t8-7NBKSA-t500x500.jpg', 'en su casa', 939337843, '2', 0),
 (86, 'ADM12687', '::1', 'Jesus', 'Muñoz', 0, 8938832, 'jesus@gmail.com', '110d46fcd978c24f306cd7fa23464d73', 'avatars-000315108724-vg19ut-t500x500.jpg', 'en su casa', 484848423, '5', 0),
 (88, 'SER19767', '::1', 'Jesús', 'Muñoz', 1, 3442342, 'hola@gmail.com', '4d186321c1a7f0f354b297e8914ab240', 'gatito-cesped_0.jpg', 'en su casa', 46526264, '14', 0),
 (89, 'LGT47144', '::1', 'Lucas', 'Vigilio Lavado', 0, 70602063, 'lucas@gmail.com', 'dc53fc4f621c80bdc2fa0329a6123708', 'jrulzejt5j451.jpg', 'en su casa', 968662473, '9', 0),
@@ -510,6 +528,12 @@ ALTER TABLE `servicios`
   ADD PRIMARY KEY (`servicio_id`);
 
 --
+-- Indices de la tabla `serv_categoria`
+--
+ALTER TABLE `serv_categoria`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -565,7 +589,7 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `Id_cliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Id_cliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente_area`
@@ -589,19 +613,25 @@ ALTER TABLE `cotizacion`
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `Id_proovedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `Id_proovedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `rol_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `rol_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios`
 --
 ALTER TABLE `servicios`
-  MODIFY `servicio_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `servicio_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT de la tabla `serv_categoria`
+--
+ALTER TABLE `serv_categoria`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

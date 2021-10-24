@@ -185,8 +185,9 @@ www.chrometales.com                      </textarea>
 
         <div class="col-md-12">
           <div class="tile">
+            <table class="table table-hover table-bordered" id="dynamic_field">
             <div class="table-responsive">
-              <table class="table table-hover table-bordered" id="dynamic_field">
+              
                 <tr>
                   <th>Item</th><th>Cantidad</th><th>PrecioV</th><th>Total</th><th>PrecioN</th>
                 </tr>
@@ -199,7 +200,7 @@ www.chrometales.com                      </textarea>
                   <td><b><input type="text" id="totalserv" class="form-control name_list"></b></td>
                   <td><b><?php echo $entrega_nombre;?></b></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>
                 </tr>
-
+</div>
               </table>
 
               
@@ -222,7 +223,7 @@ www.chrometales.com                      </textarea>
                     <input class="form-control" type="text">
                  </div>
                 </div>   
-        </div>
+       
       </div>
 
           </div>

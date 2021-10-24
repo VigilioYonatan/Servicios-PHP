@@ -9,7 +9,7 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-users"></i> PROOVEDORES</h1>
+          <h1><i class="fa fa-truck"></i> PROOVEDORES</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
@@ -22,18 +22,16 @@
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              <div class="table-responsive">
+              <form action="" method="post" enctype="multipart/form-data" >
 
-                <form action="" method="post" enctype="multipart/form-data" >
-              <table class="table table-hover table-bordered" id="sampleTable">
+                <div class="table-responsive">
+                  <table class="table table-hover table-bordered" id="sampleTable">
                   <thead align="center">
                     <tr>
                       
-                      <th>ID</th>
                       <th>Codigo</th>
                       <th>RUC</th>
                       <th>Razon Social</th>
-                      <th>Email</th>
                       <th>Area</th>
                       <th>Estado</th>
                       <th>Asignado</th>
@@ -54,11 +52,9 @@
                     <tbody align="center">
                       <tr>
                         
-                       <td><?php echo $i; ?></td>
                        <td><?php echo $row['cod_proovedor']; ?></td>
                        <td><?php echo $row['ruc_proovedor']; ?></td>
                        <td><?php echo $row['razon_proovedor']; ?></td>
-                       <td><?php echo $row['email1_proovedor']; ?></td>
                        <td><?php echo $row['area_proovedor']; ?></td>
                        <td><?php echo $row['estado_proovedor']; ?></td>
                        <td><?php echo $row['asignado_proovedor']; ?></td>
@@ -66,16 +62,16 @@
 
                      
                       
-                           <td class="delete"><a href="index.php?action=edit_clien&ruc=<?php echo $row['ruc_proovedor']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
+                           <td class="delete"><a href="index.php?action=edit_proovedor&ruc=<?php echo $row['ruc_proovedor']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
-                           <td class="delete"><a href="index.php?action=view_clientes&delete_cliente=<?php echo $row['ruc_proovedor']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+                           <td class="delete"><a href="index.php?action=view_proovedor&delete_pro=<?php echo $row['ruc_proovedor']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
                         </tr>
                     </tbody>
                     <?php $i++;} // End while loop ?>
                 </table>
-              </form>
-
               </div>
+
+              </form>
             </div>
           </div>
         </div>
@@ -90,12 +86,12 @@
 <?php
 // Delete User cuenta
 
-if(isset($_GET['delete_cliente'])){
-  $delete_cliente = mysqli_query($conexion,"delete from clientes where ruc_cliente='$_GET[delete_cliente]' ");
+if(isset($_GET['delete_pro'])){
+  $delete_pro = mysqli_query($conexion,"delete from proveedores where ruc_proovedor='$_GET[delete_pro]' ");
   
-  if($delete_cliente){
+  if($delete_pro){
   
-  echo "<script>window.open('index.php?action=view_clientes','_self')</script>";
+  echo "<script>window.open('index.php?action=view_proovedor','_self')</script>";
   
    
     }

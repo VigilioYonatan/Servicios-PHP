@@ -22,18 +22,17 @@
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
+              <form action="" method="post" enctype="multipart/form-data" >
               <div class="table-responsive">
 
-                <form action="" method="post" enctype="multipart/form-data" >
+                
               <table class="table table-hover table-bordered" id="sampleTable">
                   <thead align="center">
                     <tr>
                       
-                      <th>ID</th>
                       <th>CODIGO</th>
                       <th>RUC</th>
                       <th>Razon Social</th>
-                      <th>Email</th>
                       <th>Area</th>
                       <th>Estado</th>
                       <th>Asignado</th>
@@ -53,12 +52,10 @@
 
                     <tbody align="center">
                       <tr>
-                        
-                       <td><?php echo $i; ?></td>
+
                        <td><?php echo $row['cod_cliente']; ?></td>
                        <td><?php echo $row['ruc_cliente']; ?></td>
                        <td><?php echo $row['razon_cliente']; ?></td>
-                       <td><?php echo $row['email1_cliente']; ?></td>
                        <td><?php echo $row['area_cliente']; ?></td>
                        <td><?php echo $row['estado_cliente']; ?></td>
                        <td><?php echo $row['asignado_cliente']; ?></td>
@@ -72,10 +69,10 @@
                         </tr>
                     </tbody>
                     <?php $i++;} // End while loop ?>
-                </table>
+                  </table>
+                </div>
               </form>
-
-              </div>
+              
             </div>
           </div>
         </div>

@@ -77,7 +77,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Email 2:</label>
-                       <input class="form-control" type="email"  name="email2" placeholder="email" 2" required >
+                       <input class="form-control" type="email"  name="email2" placeholder="email" required >
                   </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Area:</label>
@@ -155,9 +155,8 @@ if(isset($_POST['agregarCli'])){
     $addServ = mysqli_query($conexion, "insert into clientes(cod_cliente,ruc_cliente,razon_cliente,direccion_cliente,contacto_cliente,celular1_cliente,celular2_cliente,email1_cliente,email2_cliente,web_cliente,area_cliente,estado_cliente,asignado_cliente) values('$cot_cod','$ruc','$razon','$direccion','$contacto','$celular1','$celular2','$email1','$email2','$web','$area','$estado','$asignado')");
 
     if($addServ){
-        ?>
-        <h2>Agregado Correctamente</h2>
-        <?php 
+        echo "<script>alert('Agregado correctamente cliente $ruc ')</script>";
+        echo "<script>window.open('index.php?action=view_clientes','_self')</script>";
     }else{
         echo "<script>alert('No se agrego correctamente')</script>";
     }

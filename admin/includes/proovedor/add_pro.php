@@ -8,11 +8,11 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-user-plus"></i> AGREGAR PROOVEDOR</h1>
+          <h1><i class="fa fa-truck"></i> <i class="fa fa-plus"></i> AGREGAR PROVEEDOR</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item "><a href="index.php?action=view_clientes">Lista de Clientes</a></li>
+          <li class="breadcrumb-item "><a href="index.php?action=view_proovedor">Lista de Proveedores</a></li>
           <li class="breadcrumb-item active">Agregar</li>
         </ul>
       </div>

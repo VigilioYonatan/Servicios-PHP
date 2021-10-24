@@ -57,9 +57,8 @@ if(isset($_POST['agregar'])){
     $agregarRol2 = mysqli_query($conexion, $agregarRol);
 
     if($agregarRol2){
-        ?>
-        <h3 style="background-color: white; padding:10px; text-align:center;">Rol agregado Correctamente<a style="text-decoration: none; color:#0d9d94; padding:0px 10px;" href="index.php?action=view_users">Ver Lista de usuarios</a></h3>
-        <?php 
+         echo "<script>alert('Se guardo correctamente $ruc ')</script>";
+        echo "<script>window.open('index.php?action=add_rol','_self')</script>";
     }else{
         echo "<script>alert('Hubo un error!!!')</script>";
     }

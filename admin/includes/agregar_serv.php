@@ -23,48 +23,90 @@
             <div class="row">
               <div class="col-lg-4 offset-lg-1">
                 <form action="" method="POST" accept-charset="utf-8">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">CODIGO:</label>
+                       <input class="form-control" type="text" placeholder="Ingrese codigo" name="codigo_serv" required>
+                  </div>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Nombre del Servicio:</label>
                        <input class="form-control" type="text" placeholder="Ingrese nombre" name="nombre_serv" required>
                  
                   </div>
-                   
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Categoria de Servicio:</label>
-                    <select class="form-control" name="cat_serv" id="">
-                      <option value="Servidores">Servidores</option>
-                      <option value="CPU">CPU</option>
-                    </select>
+                    <label for="exampleInputEmail1">Descripcion:</label>
+                    <textarea class="form-control" name="desc_serv" id="" cols="40" rows="5" required></textarea>
                   </div>
-                   <div class="form-group">
-                    <label for="exampleInputEmail1">Precio:</label>
-                       <input class="form-control" type="text" placeholder="Ingrese precio" name="precio_serv" required>
-                 
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Materiales</label>
+                    <textarea class="form-control" name="mat_serv" id="" cols="40" rows="5" required></textarea>
                   </div>
-                  <div class="tile-footer">
+
+                   <div class="tile-footer">
               
             </div>
               </div>
 
               <div class="col-lg-4 offset-lg-1">
-
+                  
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Tipo de Servicio:</label>
-                    <select class="form-control" name="tipo_serv" id="" required>
-                      <option value="Software">Software</option>
-                      <option value="Hardware">Hardware</option>
-                      <option value="General">General</option>
+                    <label for="exampleInputEmail1">Disponibles</label>
+                    <input class="form-control" type="number" placeholder="Ingrese precio" name="dis_serv" required>
+                  </div>
+                   
+                  <div class="form-group">
+                   <label for="exampleInputEmail1">Precio:</label>
+                      <input class="form-control" type="text" placeholder="Ingrese precio" name="precio_serv" required>
+                
+                 </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Categoria de Servicio:</label>
+                    <select class="form-control" name="cat_serv" id="entrega" required>
+                      <?php
+                     
+
+                      $get_asignado = "select * from serv_categoria";
+                      $get_asignado2 = mysqli_query($conexion,$get_asignado);
+                      while ($row_a = mysqli_fetch_array($get_asignado2)){
+                        $asignados = $row_a['nombre_categoria'];
+                        echo "<option value='$asignados'>$asignados</option>";
+                      }
+
+                      ?>
                     </select>
                   </div>
+                  
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Tiempo de Servicio:</label>
-                       <input class="form-control" type="number" placeholder="Ingrese tiempo" name="time_serv"  min="0" max="31"  required>
-                 
-                  </div>
+      <label for="exampleInputEmail1">Editar estado:</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="estado_serv" value="1">Activo
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="estado" value="0">No Activo
+              </label>
+            </div>
+          
+        </div>
+                  
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Detalles del Servicio:</label>
-                    <textarea class="form-control" name="det_serv" id="" cols="40" rows="5" required></textarea>
+                    <label for="exampleInputEmail1">PROOVEDOR:</label>
+                    <select class="form-control" name="pro_serv" id="entrega" required>
+                      <?php
+                     
+
+                      $get_asignado = "select * from proveedores";
+                      $get_asignado2 = mysqli_query($conexion,$get_asignado);
+                      while ($row_a = mysqli_fetch_array($get_asignado2)){
+                        $asignados = $row_a['razon_proovedor'];
+                        echo "<option value='$asignados'>$asignados</option>";
+                      }
+
+                      ?>
+                    </select>
                   </div>
+
 
                   <div class="tile-footer">
               <button class="btn btn-primary" name="agregar_serv"type="submit">Guardar  <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
@@ -82,28 +124,30 @@
 <!-- PHP CODIGO  -->
 <?php
  if(isset($_POST['agregar_serv'])){
+   $codigo_serv = $_POST['codigo_serv'];
     $nombre_serv = $_POST['nombre_serv'];
-    $tipo_serv = $_POST['tipo_serv'];
-    $cat_serv = $_POST['cat_serv'];
-    $time_serv = $_POST['time_serv'];
+    $desc_serv = trim(mysqli_real_escape_string($conexion,$_POST['desc_serv']));;
+    $mat_serv = trim(mysqli_real_escape_string($conexion,$_POST['mat_serv']));;
+    $dis_serv = $_POST['dis_serv'];
     $precio_serv = $_POST['precio_serv'];
-    $det_serv = $_POST['det_serv'];
+    $cat_serv = $_POST['cat_serv'];
+    $estado_serv = $_POST['estado_serv'];
+    $pro_serv = $_POST['pro_serv'];
 
-    $all_serv = mysqli_query($conexion,"select * from servicios  ");
-    while($row=mysqli_fetch_array($all_serv)){
 
-      $codRo = $row['servicio_cod'];
-      $codRo2 = str_replace('SER','',$codRo);
-      $codRo3 = (int)$codRo2 + 1;
-      $ser = 'SER';
-    }
+   
 
-    $addServ = mysqli_query($conexion, "insert into servicios(servicio_cod,servicio_nombre,servicio_tipo,servicio_precio,servicio_cat,servicio_det,servicio_time) values('$ser$codRo3','$nombre_serv','$tipo_serv','$precio_serv','$cat_serv','$det_serv','$time_serv')");
+    $addServ = mysqli_query($conexion, "insert into servicios(servicio_cod,servicio_nombre,servicio_desc,servicio_mat,servicio_disponibles,servicio_pventa,servicio_categoria,servicio_estado,servicio_proveedor) values('$codigo_serv','$nombre_serv','$desc_serv','$mat_serv','$dis_serv','$precio_serv','$cat_serv','$estado_serv','$pro_serv')");
 
-    ?>
+   if ($addServ){
+     echo "<script>alert('Servicio Agregado correctamente')</script>";
+     echo "<script>window.open('index.php?action=view_serv','_self')</script>";
+   }else{
+     echo "<script>alert('No agregado correctamente')</script>";
+   }
 
-  <h3 style="background-color: white; padding:10px; text-align:center;">Servicio agregado Correctamente<a style="text-decoration: none; color:#0d9d94; padding:0px 10px;" href="index.php?action=view_serv">Ver Lista de servicios</a></h3>
-  <?php 
+ 
+ 
     
     
  }

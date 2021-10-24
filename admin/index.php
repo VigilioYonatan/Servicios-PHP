@@ -86,14 +86,10 @@ session_start();
         </div>
       </div>
       <ul class="app-menu" style="font-weight: bold;">
-        <li><a class="app-menu__item active" href="#"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">DASHBOARD</span></a></li>
+        <li><a class="app-menu__item " href="#"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">DASHBOARD</span></a></li>
 
-        <li class="treeview"><a class="app-menu__item" href="index.php?action=add_proovedor" data-toggle="treeview"><i class="app-menu__icon fa fa-handshake-o"></i><span class="app-menu__label">PROOVEDORES</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="index.php?action=view_proovedor"><i class="icon fa fa-circle-o"></i> Lista de Proovedores</a></li>
-            <li><a class="treeview-item" href="index.php?action=add_proovedor"><i class="icon fa fa-circle-o"></i> Agregar Proovedores</a></li>
-            
-          </ul>
+        <li><a class="app-menu__item" href="index.php?action=view_proovedor" ><i class="app-menu__icon fa fa-truck"></i><span class="app-menu__label">PROOVEDORES</span></a>
+         
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-money"></i>
           <span class="app-menu__label">VENTAS</span>
@@ -101,6 +97,8 @@ session_start();
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="index.php?action=view_cotizacion"><i class="icon fa fa-circle-o"></i> Cotizaciones</a></li>
             <li><a class="treeview-item" href="index.php?action=view_clientes" ><i class="icon fa fa-circle-o"></i> Clientes</a></li>
+            <li><a class="treeview-item" href="index.php?action=view_proovedor"><i class="icon fa fa-circle-o"></i> Proveedores</a></li>
+           
            
           </ul>
         </li>
@@ -143,13 +141,7 @@ session_start();
      }
      
      switch($action){
-      case 'add_pro';
-    include 'includes/insertar_productos.php';
-    break;
-    
-    case 'view_pro';
-    include 'includes/ver_productos.php';
-    break;
+      
     
     case 'edit_serv';
     include 'includes/edit_serv.php';
@@ -177,6 +169,10 @@ session_start();
 
     case 'view_cotizacion';
     include 'includes/cotizaciones/ver_cotizaciones.php';
+    break;
+
+    case 'edit_cotizacion';
+    include 'includes/cotizaciones/edit_cotizaciones.php';
     break;
 
     case 'add_cotizacion';
@@ -207,6 +203,10 @@ session_start();
     include 'includes/proovedor/view_pro.php';
     break;
 
+    case 'edit_proovedor';
+    include 'includes/proovedor/edit_pro.php';
+    break;
+
      }
      ?>
       </div><!-- /.content_box -->
@@ -214,6 +214,7 @@ session_start();
    </div><!-- /.content -->
     
     <!-- Essential javascripts for application to work-->
+
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

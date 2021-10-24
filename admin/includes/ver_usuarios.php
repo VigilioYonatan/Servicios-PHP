@@ -21,9 +21,9 @@
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
-              <div class="table-responsive">
+              <form action="" method="post" enctype="multipart/form-data" >
 
-                <form action="" method="post" enctype="multipart/form-data" >
+                <div class="table-responsive">
               <table class="table table-hover table-bordered" id="sampleTable" >
                   <thead align="center">
                     <tr>
@@ -78,9 +78,10 @@
                </tbody>
                     <?php $i++;} // End while loop ?>
                 </table>
+                </div>
               </form>
 
-              </div>
+              
             </div>
           </div>
         </div>

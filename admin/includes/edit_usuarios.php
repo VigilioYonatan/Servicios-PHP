@@ -141,10 +141,9 @@ while ($row_cats = mysqli_fetch_array($run_cats)) {
     
         
       if ($run_cat ) {
-        ?>
-        <h3 style="background-color: white; padding:10px; text-align:center;">Usuario Editado correctamente<a style="text-decoration: none; color:#0d9d94; padding:0px 10px;" href="index.php?action=view_users">Ver Lista de los usuarios</a></h3>
-        <?php 
-        
+
+        echo "<script>alert('Se guardo correctamente $ruc ')</script>";
+        echo "<script>window.open('index.php?action=view_users','_self')</script>";
       }else{
         echo "<script>alert('Empleado  no actualizado correctamente!')</script>";
       }

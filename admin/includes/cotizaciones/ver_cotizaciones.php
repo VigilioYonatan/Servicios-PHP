@@ -21,14 +21,14 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
+              <form action="" method="post" enctype="multipart/form-data" >
               <div class="table-responsive">
 
-                <form action="" method="post" enctype="multipart/form-data" >
+                
               <table class="table table-hover table-bordered" id="sampleTable">
                   <thead align="center">
                     <tr>
                       
-                      <th>ID</th>
                       <th>Codigo </th>
                       <th>Cliente</th>
                       <th>Asignado</th>
@@ -36,6 +36,8 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                       <th>Pago</th>
                       <th>Moneda</th> 
                       <th>Fecha de cotizacion</th>
+                      <th>Editar</th>
+                      <th>Eliminar</th>
                     </tr>
                   </thead>
                   <?php 
@@ -49,7 +51,6 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                     <tbody align="center">
                       <tr>
                         
-                       <td ><?php echo $i; ?></td>
                        <td  ><a href="index.php?action=view_cotizacion_id&cot_codigo=<?php echo $row['cot_codigo'];?>"style="color:#dc3545;"><?php echo $row['cot_codigo']; ?></a></td>
                        <td><?php echo $row['cot_cliente']; ?></td>
                        <td><?php echo $row['cot_asignado']; ?></td>
@@ -58,14 +59,18 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                        <td><?php echo $row['cot_moneda']; ?></td>
                        <td><?php echo $row['cot_fecha']; ?></td>
 
+                           <td class="delete"><a href="index.php?action=edit_cotizacion&ruc=<?php echo $row['cot_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
+
+                           <td class="delete"><a href="index.php?action=view_cotizacion&delete_cotizacion=<?php echo $row['cot_id']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+
                       </tr>
 
                     </tbody>
                     <?php $i++;} // End while loop ?>
-                </table>
+                  </table>
+                </div>
               </form>
-
-              </div>
+              
             </div>
           </div>
         </div>
@@ -76,7 +81,18 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
 
  
 <!-- PHP CODIGO  --> 
+<?php
+if(isset($_GET['delete_cotizacion'])){
+  $delete_serv = mysqli_query($conexion,"delete from cotizacion where cot_id='$_GET[delete_cotizacion]' ");
 
+  if($delete_serv){
+
+  echo "<script>window.open('index.php?action=view_cotizacion','_self')</script>";
+
+
+    }
+  }
+  ?>
 
 <?php } ?>
 
