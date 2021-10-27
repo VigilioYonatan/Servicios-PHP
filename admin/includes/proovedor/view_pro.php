@@ -51,8 +51,7 @@
 
                     <tbody align="center">
                       <tr>
-                        
-                       <td><?php echo $row['cod_proovedor']; ?></td>
+                       <td><a href="index.php?action=view_proovedor_id&pro_codigo=<?php echo $row['cod_proovedor'];?>"> <?php echo $row['cod_proovedor']; ?></a></td>
                        <td><?php echo $row['ruc_proovedor']; ?></td>
                        <td><?php echo $row['razon_proovedor']; ?></td>
                        <td><?php echo $row['area_proovedor']; ?></td>

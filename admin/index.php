@@ -150,6 +150,9 @@ session_start();
     case 'view_serv';
     include 'includes/ver_serv.php';
     break;
+    case 'view_serv_id';
+    include 'includes/ver_serv_id.php';
+    break;
     
     case 'add_serv';
     include 'includes/agregar_serv.php';
@@ -162,6 +165,7 @@ session_start();
     case 'view_users';
     include 'includes/ver_usuarios.php';
     break;
+
     
     case 'add_rol';
     include 'includes/agregar_rol.php';
@@ -187,6 +191,10 @@ session_start();
     include 'includes/cotizaciones/ver_clientes.php';
     break;
 
+    case 'view_cliente_id';
+    include 'includes/cotizaciones/ver_clientes_id.php';
+    break;
+
     case 'add_clientes';
     include 'includes/cotizaciones/add_clientes.php';
     break;
@@ -201,6 +209,10 @@ session_start();
 
     case 'view_proovedor';
     include 'includes/proovedor/view_pro.php';
+    break;
+
+    case 'view_proovedor_id';
+    include 'includes/proovedor/view_proovedor_id.php';
     break;
 
     case 'edit_proovedor';

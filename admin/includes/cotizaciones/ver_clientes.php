@@ -52,8 +52,7 @@
 
                     <tbody align="center">
                       <tr>
-
-                       <td><?php echo $row['cod_cliente']; ?></td>
+                       <td><a href="index.php?action=view_cliente_id&cliente_codigo=<?php echo $row['cod_cliente'];?>"><?php echo $row['cod_cliente']; ?></a></td>
                        <td><?php echo $row['ruc_cliente']; ?></td>
                        <td><?php echo $row['razon_cliente']; ?></td>
                        <td><?php echo $row['area_cliente']; ?></td>

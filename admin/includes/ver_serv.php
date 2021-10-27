@@ -53,7 +53,8 @@
                      <tr>
 
                     <td><?php echo $i; ?></td>
-                    <td><?php echo $row['servicio_cod']; ?></td>
+             
+                    <td><a href="index.php?action=view_serv_id&servicio_codigo=<?php echo $row['servicio_cod'];?>"><?php echo $row['servicio_cod']; ?></a> </td>
                     <td><?php echo $row['servicio_nombre']; ?></td>
                     <td><?php echo $row['servicio_disponibles']; ?> Disponibles</td>
                     <td>S/.<?php echo $row['servicio_pventa']; ?></td>
