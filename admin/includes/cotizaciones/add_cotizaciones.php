@@ -1,3 +1,4 @@
+
 <link href="styles/main.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 17 AND $_SESSION['role'] != 5 ){
 
@@ -26,7 +27,25 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                     <label for="exampleInputEmail1">Cliente:</label>
                        <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="cliente" name="cliente" onkeyup="GetDetail(this.value)" id="rollNo">
                   </div>
-                   
+                   <script type="text/javascript">
+                      $(document).ready(function(){
+                        $("#rollNo").typeahead({
+                          source: function(query,resultado){
+                            $.ajax({
+                              url: "accion.php",
+                              type: "POST",
+                              dataType: "json",
+                              data: {query: query},
+                              success: function(data){
+                                resultado($.map(data, function(item){
+                                    return item;
+                                }));
+                              }
+                            });
+                          }
+                        });
+                      });
+                   </script>
                   <div class="form-group">
                     <label for="exampleInputEmail1">Estado:</label>
                     <select class="form-control"name="estado" id="estado" required>

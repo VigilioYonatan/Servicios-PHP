@@ -17,7 +17,11 @@
           
         </ul>
       </div>
-
+      <form action="buscador_prov.php" method="get">
+      <label>Buscar: </label>
+      <input type="text" name="buscador_prov" placeholder="Buscar">
+      <input type="submit" name="buscar_prov">
+    </form>
       <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
           <div class="tile">
@@ -25,7 +29,7 @@
               <form action="" method="post" enctype="multipart/form-data" >
 
                 <div class="table-responsive">
-                  <table class="table table-hover table-bordered" id="sampleTable">
+                  <table class="table table-hover table-bordered">
                   <thead align="center">
                     <tr>
                       

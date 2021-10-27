@@ -1,3 +1,5 @@
+
+<?php include('cabeza.php'); ?>
 <link href="styles/main.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 17 AND $_SESSION['role'] != 5 ){
 
@@ -5,6 +7,7 @@
 echo "<script>alert('No puedes acceder acá ')</script>";
 echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_self')</script>";
 }else{ ?>
+
     <main class="app-content">
       <div class="app-title">
         <div>
@@ -45,29 +48,52 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                     </tr>
                   </thead>
                   <?php 
-                  $all_cot = mysqli_query($conexion,"select * from cotizacion order by cot_id ");
-                  $i = 1;
+                  if (isset($_GET['buscar_coti'])) {
 
-                  while($row=mysqli_fetch_array($all_cot)){
-                    $nombreRo = $row['cot_cliente'];
-                    $codRo = $row['cot_codigo'];
-                    ?>
-                    <tbody align="center">
-                      <tr>
-                        
-                       <td  ><a href="index.php?action=view_cotizacion_id&cot_codigo=<?php echo $row['cot_codigo'];?>"style="color:#dc3545;"><?php echo $row['cot_codigo']; ?></a></td>
-                       <td><?php echo $row['cot_cliente']; ?></td>
-                       <td><?php echo $row['cot_asignado']; ?></td>
-                       <td><?php echo $row['cot_estado']; ?></td>
-                       <td><?php echo $row['cot_pago']; ?></td>
-                       <td><?php echo $row['cot_moneda']; ?></td>
-                       <td><?php echo $row['cot_fecha']; ?></td>
+                    $search_query = $_GET['buscador_coti'];
+                    $i = 1;
 
-                           <td class="delete"><a href="index.php?action=edit_cotizacion&ruc=<?php echo $row['cot_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
+                    $run_query_by_pro_ids = mysqli_query($conexion, "select * from cotizacion where cot_cliente like '%$search_query%' ");
 
-                           <td class="delete"><a href="index.php?action=view_cotizacion&delete_cotizacion=<?php echo $row['cot_id']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+                    if ($run_query_by_pro_ids) {
 
-                      </tr>
+                        while ($row_pro = $run_query_by_pro_ids->fetch_array()) {
+
+                            $pro_id = $row_pro['cot_id'];
+                            $pro_cod = $row_pro['cot_codigo'];
+                            $pro_cliente = $row_pro['cot_cliente'];
+                            $pro_asignado  = $row_pro['cot_asignado'];
+                            $pro_estado = $row_pro['cot_estado'];
+                            $pro_pago = $row_pro['cot_pago'];
+                            $pro_moneda = $row_pro['cot_moneda'];
+                            $pro_fecha = $row_pro['cot_fecha'];
+
+
+                            echo "
+                                <tr>
+
+                                        <td><a href='index.php?action=view_cotizacion_id&cot_codigo=$pro_cod'>$pro_cod</a> </td>
+                                        <td>$pro_cod </td>
+                                        <td>$pro_cliente</td>
+                                        <td>$pro_asignado</td>
+                                        <td>$pro_estado</td>
+                                        <td>$pro_pago</td>
+                                        <td>$pro_moneda</td>
+                                        <td>$pro_fecha</td>
+                                        
+                                        <?php if ($pro_cod != $_SESSION[cod_user]) {?>
+                                        <td class='delete'><a href='index.php?action=edit_cotizacion&ruc=$pro_cod' ><i class='fa fa-pencil fa-2x' aria-hidden='true'></i></a></td>
+
+                                        <td class='delete'><a href='index.php?action=view_cotizacion&delete_cotizacion=$pro_id' onclick='return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');'><i class='fa fa-trash fa-2x' aria-hidden='true'></i></a></td>
+                                        <?php } ?> 
+                                        ";
+                        }
+                    } else {
+                        echo "<script>alert('No sé encontro')</script>";
+                    }
+
+
+                ?>
 
                     </tbody>
                     <?php $i++;} // End while loop ?>
@@ -100,8 +126,5 @@ if(isset($_GET['delete_cotizacion'])){
 
 <?php } ?>
 
-<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript">$('#sampleTable').DataTable();</script>
-
+<?php include('pie.php'); ?>
     

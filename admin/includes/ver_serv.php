@@ -16,16 +16,19 @@
           
         </ul>
       </div>
-
-      <div class="row" style="font-size: 15px;">
+        <form action="buscador_serv.php" method="get">
+          <label>Buscar: </label>
+          <input type="text" name="buscador" placeholder="Buscar">
+          <input type="submit" name="buscar_serv">
+        </form>
+        <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
           <div class="tile">
             <div class="tile-body">
               <form action="" method="post" enctype="multipart/form-data" >
               <div class="table-responsive">
-
                 
-              <table class="table table-hover table-bordered" id="sampleTable">
+              <table class="table table-hover table-bordered">
                   <thead align="center">
                     <tr>
                       

@@ -84,7 +84,7 @@
             </div>
             <div class="form-check">
               <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="estado" value="0">No Activo
+                <input class="form-check-input" type="radio" name="estado_serv" value="0">No Activo
               </label>
             </div>
           
