@@ -64,15 +64,22 @@
                         <th>Total</th>
                       </tr>
                     </thead>
+                    <?php 
+                    $i = 1;
+                      $edit_cat2 = mysqli_query($conexion, "select * from cotizacion_servicio where cod_cot='$_GET[cot_codigo]'");
+                      
+                      while($row = mysqli_fetch_array($edit_cat2)){;
+                    ?>
                     <tbody>
                       <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?php echo $i ?></td>
+                        <td><?php echo $row['nombre_cot']; ?></td>
+                        <td><?php echo $row['cantidad_cot']; ?></td>
+                        <td><?php echo $row['precio_cot']; ?></td>
                         <td></td>
                       </tr>
                     </tbody>
+                        <?php  $i++; } ?>
                   </table>
                 </div>
               </div>

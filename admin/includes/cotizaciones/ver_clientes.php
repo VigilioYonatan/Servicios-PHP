@@ -1,4 +1,5 @@
 <link href="styles/main.css" type="text/css" rel="stylesheet">
+<link href="styles/ver.css" type="text/css" rel="stylesheet">
 <?php if ($_SESSION['role'] != 7 and $_SESSION['role'] != 17 and $_SESSION['role'] != 5) {
 
 
@@ -19,8 +20,8 @@
     </div>
     <form action="buscador_cliente.php" method="get">
       <label>Buscar: </label>
-      <input type="text" name="buscador_serv" placeholder="Buscar">
-      <input type="submit" name="buscar_serv">
+      <input id="buscar_coti" type="text" name="buscador_serv" >
+      <input type="submit" name="buscar_serv" class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
     </form>
     <div class="row" style="font-size: 15px;">
       <div class="col-md-12">
@@ -56,7 +57,7 @@
 
                     <tbody align="center">
                       <tr>
-                        <td><a href="index.php?action=view_cliente_id&cliente_codigo=<?php echo $row['cod_cliente']; ?>"><?php echo $row['cod_cliente']; ?></a></td>
+                        <td><a href="index.php?action=view_cliente_id&cliente_codigo=<?php echo $row['cod_cliente']; ?>"style="color:#dc3545;"><?php echo $row['cod_cliente']; ?></a></td>
                         <td><?php echo $row['ruc_cliente']; ?></td>
                         <td><?php echo $row['razon_cliente']; ?></td>
                         <td><?php echo $row['area_cliente']; ?></td>

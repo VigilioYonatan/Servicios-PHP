@@ -1,4 +1,5 @@
 <link href="styles/main.css" type="text/css" rel="stylesheet">
+<link href="styles/ver.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 14 AND $_SESSION['role'] != 5){
   echo "<script>alert('No sos de servicios')</script>";
   echo "<script>window.open('index.php','_self')</script>";
@@ -18,8 +19,8 @@
       </div>
         <form action="buscador_serv.php" method="get">
           <label>Buscar: </label>
-          <input type="text" name="buscador" placeholder="Buscar">
-          <input type="submit" name="buscar_serv">
+          <input type="text" id="buscar_coti"name="buscador">
+          <input type="submit" name="buscar_serv"  class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
         </form>
         <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
@@ -32,7 +33,7 @@
                   <thead align="center">
                     <tr>
                       
-                      <th>ID</th>
+          
                       <th>Codigo </th>
                       <th>Nombre </th>
                       <th>Disponibles</th>
@@ -54,10 +55,8 @@
                     ?>
                     <tbody align="center">
                      <tr>
-
-                    <td><?php echo $i; ?></td>
              
-                    <td><a href="index.php?action=view_serv_id&servicio_codigo=<?php echo $row['servicio_cod'];?>"><?php echo $row['servicio_cod']; ?></a> </td>
+                    <td><a href="index.php?action=view_serv_id&servicio_codigo=<?php echo $row['servicio_cod'];?>" style="color:#dc3545;"><?php echo $row['servicio_cod']; ?></a> </td>
                     <td><?php echo $row['servicio_nombre']; ?></td>
                     <td><?php echo $row['servicio_disponibles']; ?> Disponibles</td>
                     <td>S/.<?php echo $row['servicio_pventa']; ?></td>

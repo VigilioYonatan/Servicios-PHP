@@ -198,56 +198,8 @@ www.chrometales.com                      </textarea>
 
             </div>
 
-            <div>
-              <button type="button" name="add" id="add" class="btn btn-success" style="margin-bottom: 20px;"><i class="fa fa-check-circle-o" aria-hidden="true"></i>Agregar Servicio</button>
-            </div>
 
-        <div class="col-md-12">
-          <div class="tile">
-            <table class="table table-hover table-bordered" id="dynamic_field">
-            <div class="table-responsive">
-              
-                <tr>
-                  <th>Item</th><th>Cantidad</th><th>PrecioV</th><th>Total</th><th>PrecioN</th>
-                </tr>
-                <tr id="row'+i+'">
-                  <td><input type="text" onkeyup="Getprecio(this.value)" id="rollNo2" name="name[]" placeholder="Escriba el servicio" class="form-control name_list" /></td>
-
-                  <td><input type="number" name="name[]" placeholder="cantidad" id="cantserv" class="form-control name_list" /></td>
-
-                  <td><input type="text" id="studentName2" class="form-control name_list"></td>
-                  <td><b><input type="text" id="totalserv" class="form-control name_list"></b></td>
-                  <td><b><?php echo $entrega_nombre;?></b></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td>
-                </tr>
-</div>
-              </table>
-
-              
-               <div class="col-lg-4 offset-lg-1">
-              <div class="form-group row">
-                  <label class="control-label col-md-3">Subtotal:</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="text">
-                 </div>
-                </div>
-                <div class="form-group row">
-                  <label class="control-label col-md-3">IGV:</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="text">
-                 </div>
-                </div>
-                <div class="form-group row">
-                  <label class="control-label col-md-3">Total:</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="text">
-                 </div>
-                </div>   
-       
-      </div>
-
-          </div>
-        </div>
-      </div>
+        
     </main>
 <!-- PHP CODIGO  -->
 <?php
@@ -276,9 +228,8 @@ if(isset($_POST['agregarCot'])){
     $addServ = mysqli_query($conexion, "insert into cotizacion(cot_codigo,cot_cliente,cot_asignado,cot_estado,cot_pago,cot_moneda,cot_entrega,cot_expira,cot_direccion,cot_condicion,cot_pie) values('$cot_cod','$cliente','$asignado','$estado','$pago','$moneda','$entrega','$expira','$direccion','$condicion','$pie')");
 
     if($addServ){
-        ?>
-        <h2>Agregado Correctamente</h2>
-        <?php 
+        echo"<script>alert('agregado cotizacion correctamente')</script>";
+        echo "<script>window.open('index.php?action=view_cotizacion','_self')</script>";
     }else{
         echo "<script>alert('No se agrego correctamente')</script>";
     }

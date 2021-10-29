@@ -1,4 +1,5 @@
 <link href="styles/main.css" type="text/css" rel="stylesheet">
+<link href="styles/ver.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 9 AND $_SESSION['role'] != 5 ){
 
 
@@ -19,8 +20,8 @@
       </div>
       <form action="buscador_prov.php" method="get">
       <label>Buscar: </label>
-      <input type="text" name="buscador_prov" placeholder="Buscar">
-      <input type="submit" name="buscar_prov">
+      <input type="text" id="buscar_coti" name="buscador_prov">
+      <input type="submit" name="buscar_prov"class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
     </form>
       <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
@@ -55,7 +56,7 @@
 
                     <tbody align="center">
                       <tr>
-                       <td><a href="index.php?action=view_proovedor_id&pro_codigo=<?php echo $row['cod_proovedor'];?>"> <?php echo $row['cod_proovedor']; ?></a></td>
+                       <td><a href="index.php?action=view_proovedor_id&pro_codigo=<?php echo $row['cod_proovedor'];?>"style="color:#dc3545;"> <?php echo $row['cod_proovedor']; ?></a></td>
                        <td><?php echo $row['ruc_proovedor']; ?></td>
                        <td><?php echo $row['razon_proovedor']; ?></td>
                        <td><?php echo $row['area_proovedor']; ?></td>

@@ -1,4 +1,5 @@
 <link href="styles/main.css" type="text/css" rel="stylesheet">
+<link href="styles/ver.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 17 AND $_SESSION['role'] != 5 ){
 
 
@@ -16,10 +17,14 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
           
         </ul>
       </div>
+      <style type="text/css">
+        
+      </style>
       <form action="buscador_coti.php" method="get">
       <label>Buscar: </label>
-      <input type="text" name="buscador_coti" placeholder="Buscar">
-      <input type="submit" name="buscar_coti">
+      <input id="buscar_coti" type="text" name="buscador_coti" >
+      <input type="submit" name="buscar_coti" class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
+
     </form>
       <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
@@ -40,6 +45,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                       <th>Pago</th>
                       <th>Moneda</th> 
                       <th>Fecha de cotizacion</th>
+                      <th>Agregar tabla</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
                     </tr>
@@ -62,7 +68,8 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                        <td><?php echo $row['cot_pago']; ?></td>
                        <td><?php echo $row['cot_moneda']; ?></td>
                        <td><?php echo $row['cot_fecha']; ?></td>
-
+                       <td><a href="index.php?action=list_servicio&ruc=<?php echo $row['cot_codigo']; ?>" >Tabla</a></td> 
+                      <!-- <td><a href="lista_servicio.php?ruc=<?php echo $row['cot_codigo']; ?>" >Tabla</a></td>  -->
                            <td class="delete"><a href="index.php?action=edit_cotizacion&ruc=<?php echo $row['cot_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
                            <td class="delete"><a href="index.php?action=view_cotizacion&delete_cotizacion=<?php echo $row['cot_id']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
@@ -81,6 +88,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
       </div>
 
       <a href="index.php?action=add_cotizacion" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar Cotización</a> 
+
  </main>   
 
  

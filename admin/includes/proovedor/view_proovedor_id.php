@@ -28,29 +28,45 @@
 
             ?>
             <section class="invoice">
+              <div class="row mb-4">
+                <div class="col-6">
+                  <h2 class="page-header"><i class="fa fa-globe"></i> Outsourcing</h2>
+                </div>
+                <div class="col-6">
+                  <h5 class="text-right">RUC: <b><?php echo $fetch_cat['ruc_proovedor'];?></b></h5>
+                 </div>
+               </div>
               <div class="row invoice-info">
                 <div class="col-4">
                   <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['cod_proovedor'];?></b></h4>
-                  <h4>RUC: <b><?php echo $fetch_cat['ruc_proovedor'];?></b></h4>
-                  <h4>Razón social: <b><?php echo $fetch_cat['razon_proovedor'];?></b></h4>
-                  <h4>Direccón del Proovedor: <b><?php echo $fetch_cat['direccion_proovedor'];?></b></h4>
-                  <h4>Contacto del Proovedor: <b><?php echo $fetch_cat['contacto_proovedor'];?></b></h4>
-                  <h4>Celular 1: <b><?php echo $fetch_cat['celular1_proovedor'];?></b></h4>
-                  <h4>Celular 2: <b><?php echo $fetch_cat['celular2_proovedor'];?></b></h4>
-                 
+                
+                  <h5>Razón social: <b><?php echo $fetch_cat['razon_proovedor'];?></b></h5>
+                   <h6>Estado Proovedor: <b><?php echo $fetch_cat['estado_proovedor'];?></b></h6>
+                 </div>
+                 <div class="col-4">
+                  <h5>Contacto del Proovedor: <b><?php echo $fetch_cat['contacto_proovedor'];?></b></h5>
+                  <h5>Asignado Proovedor: <b><?php echo $fetch_cat['asignado_proovedor'];?></b></h5>
+                  <h6>Area Proovedor: <b><?php echo $fetch_cat['area_proovedor'];?></b></h6>
+                  
                 </div>
                 <div class="col-4">
-                  <h4>Email 1: <b><?php echo $fetch_cat['email1_proovedor'];?></b></h4>
-                  <h4>Email 2: <b><?php echo $fetch_cat['email2_proovedor'];?></b></h4>
-                  <h4>Web Proovedor: <b><?php echo $fetch_cat['web_proovedor'];?></b></h4>
-                  <h4>Area Proovedor: <b><?php echo $fetch_cat['area_proovedor'];?></b></h4>
-                  <h4>Estado Proovedor: <b><?php echo $fetch_cat['estado_proovedor'];?></b></h4>
-                  <h4>Asignado Proovedor: <b><?php echo $fetch_cat['asignado_proovedor'];?></b></h4>
+                  <h6>Email 1: <b><?php echo $fetch_cat['email1_proovedor'];?></b></h6>
+                  <h6>Email 2: <b><?php echo $fetch_cat['email2_proovedor'];?></b></h6>
+                  <h6>Celular 1: <b><?php echo $fetch_cat['celular1_proovedor'];?></b></h6>
+                  <h6>Celular 2: <b><?php echo $fetch_cat['celular2_proovedor'];?></b></h6>
+                  <h6>Web Proovedor: <b><?php echo $fetch_cat['web_proovedor'];?></b></h6>
                 </div>
-            </section>
-          </div>
+              </div>
+              <div class="row invoice-info">
+                <div class="col-11">
+                  <h5>Dirección del Proovedor: <b><?php echo $fetch_cat['direccion_proovedor'];?></b></h5>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
-    </main>
+    </div>
+  </main>
 
 <?php } ?>

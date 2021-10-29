@@ -13,15 +13,15 @@
         </div>
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-            <li class="breadcrumb-item active">Lista de Servicios</li>
+            <li class="breadcrumb-item active"><a href="index.php?action=view_serv">Lista de Servicios</a></li>
 
         </ul>
     </div>
     <form action="buscador_serv.php" method="get">
-        <label>Buscar: </label>
-        <input type="text" name="buscador" placeholder="Buscar">
-        <input type="submit" name="buscar_serv">
-    </form>
+          <label>Buscar: </label>
+          <input type="text" id="buscar_coti"name="buscador">
+          <input type="submit" name="buscar_serv"  class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
+        </form>
     <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
             <div class="tile">
@@ -33,7 +33,6 @@
                                 <thead align="center">
                                     <tr>
 
-                                        <th>ID</th>
                                         <th>Codigo </th>
                                         <th>Nombre </th>
                                         <th>Disponibles</th>
@@ -68,9 +67,8 @@
 
 
                                             echo "
-                                <tr>
-                                        <td> $i</td>
-                                        <td><a href='index.php?action=view_serv_id&servicio_codigo=$pro_cod'>$pro_cod</a> </td>
+                                <tr align='center'>
+                                        <td><a href='index.php?action=view_serv_id&servicio_codigo=$pro_cod'style='color:#dc3545;'>$pro_cod</a> </td>
                                         <td>$pro_nombre</td>
                                         <td>$pro_disp Disponibles</td>
                                         <td>S/.$pro_precio</td>

@@ -16,15 +16,15 @@
             </div>
             <ul class="app-breadcrumb breadcrumb side">
                 <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-                <li class="breadcrumb-item active">Clientes</li>
+                <li class="breadcrumb-item active"><a href="index.php?action=view_clientes">Clientes</a></li>
 
             </ul>
         </div>
-        <form action="buscador_cliente.php" method="get">
-            <label>Buscar: </label>
-            <input type="text" name="buscador_serv" placeholder="Buscar">
-            <input type="submit" name="buscar_serv" value="buscar">
-        </form>
+         <form action="buscador_cliente.php" method="get">
+      <label>Buscar: </label>
+      <input id="buscar_coti" type="text" name="buscador_serv" >
+      <input type="submit" name="buscar_serv" class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
+    </form>
         <div class="row" style="font-size: 15px;">
             <div class="col-md-12">
                 <div class="tile">
@@ -71,25 +71,25 @@
 
 
                                                 echo "
-                                                    <tr>
-        
-                                                            <td><a href='index.php?action=view_cliente_id&cliente_codigo==$pro_cod'>$pro_cod</a> </td>
-                                                            <td>$pro_ruc</td>
-                                                            <td>$pro_razon</td>
-                                                            <td>$pro_area</td>
-                                                            <td>$pro_estado</td>
-                                                            <td>$pro_asignado</td>
-                                                            <td><a href='https://$pro_web' target='?blank'>$pro_web</a></td>
-                                                            <?php if ($pro_cod != $_SESSION[cod_user]) {?>
-                                                            <td class='delete'><a href='index.php?action=edit_clien&ruc= $pro_ruc' ><i class='fa fa-pencil fa-2x' aria-hidden='true'></i></a></td>
+                                                <tr align='center'>
 
-                                                            <td class='delete'><a href='index.php?action=view_clientes&delete_cliente=$pro_ruc' onclick='return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');'><i class='fa fa-trash fa-2x' aria-hidden='true'></i></a></td>
-                                                            <?php } ?> 
-                                                            ";
+                                                <td><a href='index.php?action=view_cliente_id&cliente_codigo=$pro_cod'style='color:#dc3545;'>$pro_cod</a> </td>
+                                                <td>$pro_ruc</td>
+                                                <td>$pro_razon</td>
+                                                <td>$pro_area</td>
+                                                <td>$pro_estado</td>
+                                                <td>$pro_asignado</td>
+                                                <td><a href='https://$pro_web' target='?blank'>$pro_web</a></td>
+                                                <?php if ($pro_cod != $_SESSION[cod_user]) {?>
+                                                    <td class='delete'><a href='index.php?action=edit_clien&ruc= $pro_ruc' ><i class='fa fa-pencil fa-2x' aria-hidden='true'></i></a></td>
+
+                                                    <td class='delete'><a href='index.php?action=view_clientes&delete_cliente=$pro_ruc' onclick='return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');'><i class='fa fa-trash fa-2x' aria-hidden='true'></i></a></td>
+                                                    <?php } ?> 
+                                                    ";
+                                                }
+                                            } else {
+                                                echo "<script>alert('No sé encontro')</script>";
                                             }
-                                        } else {
-                                            echo "<script>alert('No sé encontro')</script>";
-                                        }
 
 
                                     ?>

@@ -16,14 +16,14 @@
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item active">Proovedores</li>
+          <li class="breadcrumb-item active"><a href="index.php?action=view_proovedor">Proovedores</a></li>
           
         </ul>
       </div>
       <form action="buscador_prov.php" method="get">
       <label>Buscar: </label>
-      <input type="text" name="buscador_prov" placeholder="Buscar">
-      <input type="submit" name="buscar_prov">
+      <input type="text" id="buscar_coti" name="buscador_prov">
+      <input type="submit" name="buscar_prov"class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
     </form>
       <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
@@ -70,9 +70,9 @@
                         
 
                             echo "
-                                <tr>
+                                <tr align='center'>
 
-                                        <td><a href='index.php?action=view_proovedor_id&pro_codigo=$pro_cod'>$pro_cod</a> </td>
+                                        <td><a href='index.php?action=view_proovedor_id&pro_codigo=$pro_cod'style='color:#dc3545;'>$pro_cod</a> </td>
                                         <td>$pro_ruc </td>
                                         <td>$pro_razon</td>
                                         <td>$pro_area</td>

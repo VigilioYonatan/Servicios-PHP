@@ -15,14 +15,14 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item active">Cotizaciones</li>
+          <li class="breadcrumb-item active"><a href="index.php?action=view_cotizacion">Cotizaciones</a></li>
           
         </ul>
       </div>
-      <form action="buscador_coti.php" method="get">
+     <form action="buscador_coti.php" method="get">
       <label>Buscar: </label>
-      <input type="text" name="buscador_coti" placeholder="Buscar">
-      <input type="submit" name="buscar_coti">
+      <input id="buscar_coti" type="text" name="buscador_coti" >
+      <input type="submit" name="buscar_coti" class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
     </form>
       <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
@@ -43,6 +43,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                       <th>Pago</th>
                       <th>Moneda</th> 
                       <th>Fecha de cotizacion</th>
+                      <th>Agregar tabla</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
                     </tr>
@@ -70,17 +71,16 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
 
 
                             echo "
-                                <tr>
+                                <tr align='center'>
 
-                                        <td><a href='index.php?action=view_cotizacion_id&cot_codigo=$pro_cod'>$pro_cod</a> </td>
-                                        <td>$pro_cod </td>
+                                        <td ><a href='index.php?action=view_cotizacion_id&cot_codigo=$pro_cod'style='color:#dc3545;'>$pro_cod </a> </td>
                                         <td>$pro_cliente</td>
                                         <td>$pro_asignado</td>
                                         <td>$pro_estado</td>
                                         <td>$pro_pago</td>
                                         <td>$pro_moneda</td>
                                         <td>$pro_fecha</td>
-                                        
+                                        <td><a href='index.php?action=list_servicio&ruc=$row_pro[cot_codigo]' >Tabla</a></td> 
                                         <?php if ($pro_cod != $_SESSION[cod_user]) {?>
                                         <td class='delete'><a href='index.php?action=edit_cotizacion&ruc=$pro_cod' ><i class='fa fa-pencil fa-2x' aria-hidden='true'></i></a></td>
 

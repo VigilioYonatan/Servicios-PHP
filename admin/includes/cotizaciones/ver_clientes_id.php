@@ -28,25 +28,44 @@
 
             ?>
             <section class="invoice">
-              <div class="row invoice-info">
+              <div class="row mb-4">
+                <div class="col-6">
+                  <h2 class="page-header"><i class="fa fa-globe"></i> Outsourcing</h2>
+                </div>
+                <div class="col-6">
+                  <h5 class="text-right">RUC: <b><?php echo $fetch_cat['ruc_cliente'];?></b></h5>
+                 </div>
+               </div>
+                <div class="row invoice-info">
+                  <div class="col-4">
+                 <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['cod_cliente'];?></b></h4>
+               
+                  <h5>Razón Cliente: <b><?php echo $fetch_cat['razon_cliente'];?></b></h5>
+                  <h6>Estado Cliente: <b><?php echo $fetch_cat['estado_cliente'];?></b></h6>
+                </div>
+
                 <div class="col-4">
-                  <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['cod_cliente'];?></b></h4>
-                  <h4>RUC: <b><?php echo $fetch_cat['ruc_cliente'];?></b></h4>
-                  <h4>Razón Cliente: <b><?php echo $fetch_cat['razon_cliente'];?></b></h4>
-                  <h4>Direccón del Cliente: <b><?php echo $fetch_cat['direccion_cliente'];?></b></h4>
-                  <h4>Contacto del Cliente: <b><?php echo $fetch_cat['contacto_cliente'];?></b></h4>
-                  <h4>Celular 1: <b><?php echo $fetch_cat['celular1_cliente'];?></b></h4>
-                  <h4>Celular 2: <b><?php echo $fetch_cat['celular2_cliente'];?></b></h4>
-                 
+                  <h5>Contacto del Cliente: <b><?php echo $fetch_cat['contacto_cliente'];?></b></h5>
+                  <h5>Asignado Cliente: <b><?php echo $fetch_cat['asignado_cliente'];?></b></h5>
+                 <h6>Area Cliente: <b><?php echo $fetch_cat['area_cliente'];?></b></h6>
+                  
+                  
                 </div>
                 <div class="col-4">
-                  <h4>Email 1: <b><?php echo $fetch_cat['email1_cliente'];?></b></h4>
-                  <h4>Email 2: <b><?php echo $fetch_cat['email2_cliente'];?></b></h4>
-                  <h4>Web Cliente: <b><?php echo $fetch_cat['web_cliente'];?></b></h4>
-                  <h4>Area Cliente: <b><?php echo $fetch_cat['area_cliente'];?></b></h4>
-                  <h4>Estado Cliente: <b><?php echo $fetch_cat['estado_cliente'];?></b></h4>
-                  <h4>Asignado Cliente: <b><?php echo $fetch_cat['asignado_cliente'];?></b></h4>
+                  <h6>Email 1: <b><?php echo $fetch_cat['email1_cliente'];?></b></h6>
+                  <h6>Email 2: <b><?php echo $fetch_cat['email2_cliente'];?></b></h6>
+                  <h6>Celular 1: <b><?php echo $fetch_cat['celular1_cliente'];?></b></h6>
+                  <h6>Celular 2: <b><?php echo $fetch_cat['celular2_cliente'];?></b></h6>
+                  <h6>Web Cliente: <b><?php echo $fetch_cat['web_cliente'];?></b></h6>
                 </div>
+              </div>
+                <div class="row invoice-info">
+                  <div class="col-11">
+                    <h5>Dirección del Cliente: <b><?php echo $fetch_cat['direccion_cliente'];?></b></h5>
+                  </div>
+                  
+                </div>
+              </div>
             </section>
           </div>
         </div>

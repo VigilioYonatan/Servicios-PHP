@@ -23,8 +23,16 @@
     include 'includes/ver_serv_id.php';
     break;
     
+    
     case 'add_serv';
     include 'includes/agregar_serv.php';
+    break;
+
+    case 'list_servicio';
+    include 'includes/list_servicio.php';
+    break;
+    case 'lista_serv';
+    include 'includes/lista_serv.php';
     break;
 
     case 'buscador_serv';
@@ -54,6 +62,9 @@
 
     case 'add_cotizacion';
     include 'includes/cotizaciones/add_cotizaciones.php';
+    break;
+    case 'tabla_id';
+    include 'includes/cotizaciones/tabla_id.php';
     break;
 
     case 'view_cotizacion_id';
