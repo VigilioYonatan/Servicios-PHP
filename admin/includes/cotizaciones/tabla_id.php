@@ -1,8 +1,9 @@
+<link href="styles/main.css" type="text/css" rel="stylesheet">
 <main class="app-content">
     <div class="app-title">
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-            <li class="breadcrumb-item active"><a href="index.php?action=view_serv">Lista de Servicios</a></li>
+            <li class="breadcrumb-item active">Lista de Pedidos</li>
 
         </ul>
     </div>
@@ -12,7 +13,7 @@
                 <div class="tile-body">
                     <form action="" method="post" enctype="multipart/form-data">
                         <div class="table-responsive">
-                            <label for="">CODIGO:<?php echo $_GET['cod_codigo']; ?> </label>
+                            <h4  style="color:#dc3545;"><?php echo $_GET['cod_codigo']; ?> </h4>
                             <table class="table table-hover table-bordered">
                                 <thead align="center">
                                     <tr>
@@ -21,6 +22,7 @@
                                         <th>Servicio </th>
                                         <th>Cantidad</th>
                                         <th>Precio</th>
+                                   
                
                                     </tr>
                                 </thead>
@@ -73,20 +75,24 @@
 		   <br />
 		   <!-- <img src="admin/productos_imagenes/<?php echo $product_image; ?> " style="width: 100px;" /> -->
 		   </td>
-		   <td><input type="text" size="4" name="qty" value="<?php echo $qty; ?>" /></td>
+		   <td><input type="text" class="qty_id"  data-id="<?php echo $product_id; ?>" size="4" name="qty" value="<?php echo $qty; ?>" /></td>
 		   <td><?php echo "S./" . $sing_price; ?></td>
+		  
 		 </tr>
 
          <?php }} ?>
          
 	
 	    <tr align="center">
-		   <td colspan="1"><input type="submit" name="update_cart" value="Actualizar" /></td>
-		   <td><input type="submit" name="continue" value="Agregar mas Servicios" /></td>
+		   <td colspan="1"><input class="btn btn-info" type="submit" name="update_cart" value="Actualizar" /></td>
+		   <td><input class="btn btn-primary" type="submit" name="continue" value="Agregar mas Servicios" /></td>
 		 
 		</tr>
 	   </table>
 	   </form>
+       <input type="hidden" class="hidden_ip" value="<?php echo $_GET['cod_codigo']; ?>">
+	 
+	 <div class="load_ajax"></div>
 
 		   <?php $total = 0;
                     $igv = 0;
@@ -116,9 +122,11 @@
        }	   
    }
    
-   echo "<h3>Subtotal: S/.$total</h3>
-        <h3>IGV: S/.$igv</h3>
-        <h3>TOTAL: S/.$todo </h3>"; ?> 
+   echo "
+   <div style='text-align:right;'>
+   <h5>Subtotal: S/.$total</h5>
+   <h5>IGV: S/.$igv</h5>
+   <h4 style='color:#dc3545;''>TOTAL: S/.$todo </h4></div>"; ?> 
            <?php //cart();?>
            
     <?php if(isset($_GET['ser_codigo'])){
@@ -149,6 +157,42 @@
          
         }
       }?>
+      <script>
+	  $(document).ready(function(){
+	    
+	   $(".qty_id").on("keyup", function(){
+	    
+	    var pro_id = $(this).data("id");
+	    
+	    var qty = $(this).val();
+	    
+	    var ip = $(".hidden_ip").val();
+	    
+	    //alert(ip);
+	    
+	    // Update servicios cantidad in ajax and php
+	    $.ajax({
+	    url:'update_qty_ajax.php',
+	    type:'post',
+	    data:{id:pro_id,quantity:qty,ip:ip},
+	    dataType:'html',
+	    success:function(update_qty){
+	     
+	     //alert(update_qty);
+	     
+	     if(update_qty == 1){
+	       $(".load_ajax").html('Your quantity was updated successfully!');
+	     }
+	        
+	    }
+	    
+	    });
+	    
+	   });
+	   
+	  });   
+	     
+	 </script>  
 
 	   <?php 
 	   if(isset($_POST['remove'])){

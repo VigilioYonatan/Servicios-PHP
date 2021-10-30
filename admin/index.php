@@ -102,6 +102,11 @@
     case 'edit_proovedor';
     include 'includes/proovedor/edit_pro.php';
     break;
+    case 'lista_operaciones';
+    include 'includes/operaciones/lista_op.php';
+    break;
+
+
 
      }
      ?>

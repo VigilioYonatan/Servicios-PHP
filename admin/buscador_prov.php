@@ -78,7 +78,7 @@
                                         <td>$pro_area</td>
                                         <td>$pro_estado</td>
                                         <td>$pro_asignado</td>
-                                        <td>$pro_web</td>
+                                        <td><a href='https://$pro_web'>$pro_web</td>
                                 
                                         
                                         <?php if ($pro_cod != $_SESSION[cod_user]) {?>
@@ -127,3 +127,5 @@ if(isset($_GET['delete_pro'])){
 
   ?>
 <?php } ?>
+<?php include('pie.php'); ?>
+

@@ -9,7 +9,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-file-text"></i> COTIZACIONES</h1>
+          <h1><i class="fa fa-file-text"></i> LISTA DE COTIZACIONES</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
@@ -51,7 +51,8 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                     </tr>
                   </thead>
                   <?php 
-                  $all_cot = mysqli_query($conexion,"select * from cotizacion order by cot_id ");
+                  $estado = 'Aprobado';
+                  $all_cot = mysqli_query($conexion,"select * from cotizacion where cot_estado = '$estado' order by cot_id ");
                   $i = 1;
 
                   while($row=mysqli_fetch_array($all_cot)){

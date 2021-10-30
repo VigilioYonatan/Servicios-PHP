@@ -80,7 +80,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                                         <td>$pro_pago</td>
                                         <td>$pro_moneda</td>
                                         <td>$pro_fecha</td>
-                                        <td><a href='index.php?action=list_servicio&ruc=$row_pro[cot_codigo]' >Tabla</a></td> 
+                                        <td><a href='index.php?action=list_servicio&ruc=$row_pro[cot_codigo]' ><i class='fa fa-table fa-2x' aria-hidden='true'></i></a></td> 
                                         <?php if ($pro_cod != $_SESSION[cod_user]) {?>
                                         <td class='delete'><a href='index.php?action=edit_cotizacion&ruc=$pro_cod' ><i class='fa fa-pencil fa-2x' aria-hidden='true'></i></a></td>
 

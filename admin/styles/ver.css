@@ -4,7 +4,14 @@
   .fa-trash{
     color: #dc3545;
   }
-.fa-pencil:hover,.fa-trash:hover{
+   .fa-table{
+    color: #ffc107;
+  }
+  .fa-plus-circle{
+    color:#28a745 ;
+  }
+.fa-pencil:hover,.fa-trash:hover,.fa-table:hover,
+.fa-plus-circle:hover{
     color: black;
   }
  #estilo-foto {

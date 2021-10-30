@@ -176,7 +176,7 @@ if (isset($_POST['edit_coti'])) {
         $entrega_cot = $_POST['entrega'];
         $expira_cot = $_POST['expira'];
         $direccion_cot = $_POST['direccion'];
-        $edit_cot = "update cotizacion set cot_cliente=' $nombre_cot ',cot_estado=' $estado_cot',cot_pago='$pago_cot',cot_moneda='$moneda_cot',cot_asignado='$asignado_cot ',cot_entrega='$entrega_cot',cot_expira='$expira_cot',cot_direccion='$direccion_cot' where cot_codigo='$_GET[ruc]'";
+        $edit_cot = "update cotizacion set cot_cliente='$nombre_cot ',cot_estado='$estado_cot',cot_pago='$pago_cot',cot_moneda='$moneda_cot',cot_asignado='$asignado_cot ',cot_entrega='$entrega_cot',cot_expira='$expira_cot',cot_direccion='$direccion_cot' where cot_codigo='$_GET[ruc]'";
         $edit_cot2 = mysqli_query($conexion, $edit_cot);
 
         echo "<script>window.open('index.php?action=view_cotizacion','_self')</script>";

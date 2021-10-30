@@ -9,7 +9,7 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-handshake-o"></i> SERVICIOS</h1>
+          <h1><i class="fa fa-handshake-o"></i> SERVICIOS Y PRODUCTOS</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
@@ -41,6 +41,7 @@
                       <th>Categoria </th>
                       <th>Estado </th>
                       <th>Proovedor</th>
+                      <th>P/S</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
                     </tr>
@@ -63,6 +64,7 @@
                     <td><?php echo $row['servicio_categoria']; ?></td>
                     <td><?php echo $row['servicio_estado']; ?></td>
                     <td><?php echo $row['servicio_proveedor']; ?></td>
+                    <td><?php echo $row['servicio_tipo']; ?></td>
                     <?php if ($codRo != $_SESSION['cod_user']) {?>
                      <td class="delete"><a href="index.php?action=edit_serv&serv_id=<?php echo $row['servicio_id'];?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
@@ -81,7 +83,7 @@
         </div>
       </div>
 
-      <a href="index.php?action=add_serv" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar Servicio</a> 
+      <a href="index.php?action=add_serv" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar S/P</a> 
  </main>   
 
  

@@ -105,7 +105,13 @@ session_start();
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-bar-chart"></i><span class="app-menu__label">LOGISTICA</span></a></li>
 
         <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">ALMACEN</span></a></li>
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">OPERACIONES</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-money"></i>
+          <span class="app-menu__label">OPERACIONES</span>
+          <i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="index.php?action=lista_operaciones"><i class="icon fa fa-circle-o"></i> Cotizaciones</a></li>
+          </ul>
+        </li>
         
         <li class="treeview"><a class="app-menu__item" href="index.php?action=view_serv" data-toggle="treeview"><i class="app-menu__icon fa fa-handshake-o"></i><span class="app-menu__label">SERVICIOS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">

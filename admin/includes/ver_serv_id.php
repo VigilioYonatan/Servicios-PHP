@@ -38,6 +38,7 @@
                 <div class="col-4">
                   <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['servicio_cod'];?></b></h4>
                   <h5>Nombre: <b><?php echo $fetch_cat['servicio_nombre'];?></b></h5>
+                  <h3>P/S: <b><?php echo $fetch_cat['servicio_tipo'];?></b></h3>
                     
                 </div>
                 <div class="col-4">
