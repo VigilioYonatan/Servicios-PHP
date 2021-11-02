@@ -33,8 +33,8 @@ session_start();
     <link  rel="stylesheet" href="js/jquery-ui.css">
     <script src="js/jquery-ui.js"></script>
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="styles/ver.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css"> 
+   <link rel="stylesheet" type="text/css" href="styles/ver.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap">
@@ -109,7 +109,7 @@ session_start();
           <span class="app-menu__label">OPERACIONES</span>
           <i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="index.php?action=lista_operaciones"><i class="icon fa fa-circle-o"></i> Cotizaciones</a></li>
+            <li><a class="treeview-item" href="index.php?action=lista_operaciones"><i class="icon fa fa-circle-o"></i>Evaluaciones</a></li>
           </ul>
         </li>
         
@@ -128,6 +128,8 @@ session_start();
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="index.php?action=view_users"><i class="icon fa fa-circle-o"></i> Lista de Empleados</a></li>
             <li><a class="treeview-item" href="index.php?action=add_rol"><i class="icon fa fa-circle-o"></i> Agregar Rol</a></li>
+            <li><a class="treeview-item" href="index.php?action=add_tipoMoneda"><i class="icon fa fa-circle-o"></i> Agregar Tipo de Moneda</a></li>
+            <li><a class="treeview-item" href="index.php?action=add_area"><i class="icon fa fa-circle-o"></i> Agregar Area</a></li>
           </ul>
         </li>
         

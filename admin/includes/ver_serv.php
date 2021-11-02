@@ -36,6 +36,7 @@
           
                       <th>Codigo </th>
                       <th>Nombre </th>
+                      <th>Imagen </th>
                       <th>Disponibles</th>
                       <th>Precio</th>
                       <th>Categoria </th>
@@ -59,6 +60,7 @@
              
                     <td><a href="index.php?action=view_serv_id&servicio_codigo=<?php echo $row['servicio_cod'];?>" style="color:#dc3545;"><?php echo $row['servicio_cod']; ?></a> </td>
                     <td><?php echo $row['servicio_nombre']; ?></td>
+                    <td><img style="object-fit: cover;" src="servicios_fotos/<?php echo $row['servicio_foto']; ?>" width="70" height="70" /></td>
                     <td><?php echo $row['servicio_disponibles']; ?> Disponibles</td>
                     <td>S/.<?php echo $row['servicio_pventa']; ?></td>
                     <td><?php echo $row['servicio_categoria']; ?></td>

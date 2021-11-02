@@ -34,6 +34,7 @@
                       
                       <th>ID</th>
                       <th>Nombre </th>
+                      <th>Imagen </th>
                       <th>Disponibles</th>
                       <th>Precio</th>
                         <th>Añadir</th>
@@ -55,12 +56,14 @@
                       $pro_disp = $row_pro['servicio_disponibles'];
                       $pro_pventa = $row_pro['servicio_pventa'];
                       $pro_cat = $row_pro['servicio_categoria'];
+                      $pro_foto = $row_pro['servicio_foto'];
                     ?>
                     <tbody align="center">
                      <tr>
 
                        <td ><?php echo $i; ?></td>
                        <td ><?php echo $pro_nombre; ?></td>
+                       <td ><img style="object-fit: cover;" src="servicios_fotos/<?php echo $pro_foto; ?>" width="50" height="50" /></td>
                        <td ><?php echo $pro_disp; ?></td>
                        <td >S/.<?php echo $pro_pventa; ?></td>
                       

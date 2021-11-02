@@ -33,25 +33,26 @@
                   <h2 class="page-header"><i class="fa fa-globe"></i> Outsourcing</h2>
                 </div>
                 <div class="col-6">
-                  <h5 class="text-right">Date: <b><?php echo $fetch_cat['cot_fecha']; ?></b></h5>
+                  <h5 class="text-right colorText">Date: <b class="text-dark"><?php echo $fetch_cat['cot_fecha']; ?></b></h5>
                 </div>
               </div>
               <div class="row invoice-info">
                 <div class="col-4">
-                  <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['cot_codigo'];?></b></h4>
-                  <h5>Cliente: <b><?php echo $fetch_cat['cot_cliente'];?></b></h5>
-                  <h6>Tipo de Estado: <b><?php echo $fetch_cat['cot_estado'];?></b></h6>
+                  <h4 style="color:#dc3545;">Codigo: <b class="text-dark"><?php echo $fetch_cat['cot_codigo'];?></b></h4>
+                  <h5 class="colorText">Cliente: <b class="text-dark"><?php echo $fetch_cat['cot_cliente'];?></b></h5>
+                  <h6 class="colorText">Tipo de Estado: <b class="text-dark"><?php echo $fetch_cat['cot_estado'];?></b></h6>
                 </div>
                 <div class="col-4">
-                 <h5>Asignado: <b><?php echo $fetch_cat['cot_asignado'];?></b></h5>
-                 <h6>Tipo de Pago: <b><?php echo $fetch_cat['cot_pago'];?></b></h6>
-                 <h6>Tipo de Moneda: <b><?php echo $fetch_cat['cot_moneda'];?></b></h6>
+                 <h5 class="colorText">Asignado: <b class="text-dark"><?php echo $fetch_cat['cot_asignado'];?></b></h5>
+                 <h6 class="colorText">Tipo de Pago: <b class="text-dark"><?php echo $fetch_cat['cot_pago'];?></b></h6>
+                 <h6 class="colorText">Tipo de Moneda: <b class="text-dark"><?php echo $fetch_cat['cot_moneda'];?></b></h6>
                </div>
                <div class="col-4">
-                <h6>Entrega: <b><?php echo $fetch_cat['cot_entrega'];?></b></h6>
-                <h6>Expira: <b><?php echo $fetch_cat['cot_expira'];?></b></h6>
+                <h6 class="colorText">Entrega: <b class="text-dark"><?php echo $fetch_cat['cot_entrega'];?></b></h6>
+                <h6 class="colorText">Expira: <b class="text-dark"><?php echo $fetch_cat['cot_expira'];?></b></h6>
               </div>
               </div>
+              
               <div class="row">
                 <div class="col-12 table-responsive">
                   <table class="table table-striped">
@@ -62,13 +63,17 @@
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Total</th>
+                        <th>Precio Neto</th>
                       </tr>
                     </thead>
                     <?php 
                     $i = 1;
                       $edit_cat2 = mysqli_query($conexion, "select * from cotizacion_servicio where cod_cot='$_GET[cot_codigo]'");
                       
-                      while($row = mysqli_fetch_array($edit_cat2)){;
+                      while($row = mysqli_fetch_array($edit_cat2)){
+                        $cantidad =$row['cantidad_cot'];
+                        $edit_cat3 = mysqli_query($conexion, "select * from cotizacion_servicio2 where cantidad_cot2='$cantidad' and cod_cot2='$_GET[cot_codigo] '");
+                        $row2 = mysqli_fetch_array($edit_cat3);
                     ?>
                     <tbody>
                       <tr>
@@ -76,24 +81,41 @@
                         <td><?php echo $row['nombre_cot']; ?></td>
                         <td><?php echo $row['cantidad_cot']; ?></td>
                         <td><?php echo $row['precio_cot']; ?></td>
-                        <td></td>
+                        <td><?php echo $row2['total_cot2']; ?></td>
+                        <td><?php echo $row2['total_cot2']; ?></td>
+                        
                       </tr>
                     </tbody>
                         <?php  $i++; } ?>
                   </table>
+                  <?php 
+                  
+                  //$edit_cat3 = mysqli_query($conexion, "select * from cotizacion_servicio2 where cantidad_cot2='$cantidad' and cod_cot2='$_GET[cot_codigo] '");
+                     //   $row3 =mysqli_fetch_array($edit_cat3) ?>
+                     <?php 
+                     $edit_cat2 = mysqli_query($conexion, "select * from cotizacion_servicio where cod_cot='$_GET[cot_codigo]'");
+                      
+                     $row = mysqli_fetch_array($edit_cat2);
+                       $cantidad =$row['cantidad_cot'];
+                     $edit_cat31 = mysqli_query($conexion, "select * from cotizacion_servicio2 where cantidad_cot2='$cantidad' and cod_cot2='$_GET[cot_codigo] '");
+                        $row6 = mysqli_fetch_array($edit_cat31); ?>
+                        <label class="text-right colorText">Subtotal: <b class="text-dark"><?php echo $row2['subtotal_cot2']; ?></b></label><br>
+                        <label class="text-right colorText">IGV: <b class="text-dark"><?php echo $row2['IGV_cot2']; ?></b></label><br>
+                        <label class="text-right colorText">TOTAL: <b class="text-dark"><?php echo $row2['totalall_cot2']; ?></b></label>
+               
                 </div>
               </div>
-
+                        <hr>
               <div class="row invoice-info">
                 <div class="col-6">
-                  <h5>Dirección: <b><?php echo $fetch_cat['cot_direccion'];?></b></h5>
+                  <h5 class="colorText">Dirección: <b <?php echo $fetch_cat['cot_direccion'];?>></b></h5>
                 </div>
                 <div class="col-11">
-                  <h5>Condiciones: <br></h5>
+                  <h5 class="colorText">Condiciones: <br></h5>
                    <h6><?php echo $fetch_cat['cot_condicion'];?></h6>
                 </div>
                 <div class="col-8">
-                  <h6><?php echo $fetch_cat['cot_pie'];?></h6>
+                  <h6 class="colorText"><b class="text-dark"><?php echo $fetch_cat['cot_pie'];?></b</h6>
                 </div>
               </div>
               <div class="row d-print-none mt-2">

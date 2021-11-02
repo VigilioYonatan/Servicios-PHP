@@ -59,6 +59,9 @@
     case 'edit_cotizacion';
     include 'includes/cotizaciones/edit_cotizaciones.php';
     break;
+    case 'edit_cotizacion2';
+    include 'includes/cotizaciones/edit_cotizaciones2.php';
+    break;
 
     case 'add_cotizacion';
     include 'includes/cotizaciones/add_cotizaciones.php';
@@ -102,8 +105,23 @@
     case 'edit_proovedor';
     include 'includes/proovedor/edit_pro.php';
     break;
+
     case 'lista_operaciones';
     include 'includes/operaciones/lista_op.php';
+    break;
+
+
+    case 'view_ot';
+    include 'includes/operaciones/view_ot.php';
+    break;
+
+    case 'add_tipoMoneda';
+    include 'includes/crud/add_tipoMoneda.php';
+    break;
+
+    
+    case 'add_area';
+    include 'includes/crud/add_area.php';
     break;
 
 

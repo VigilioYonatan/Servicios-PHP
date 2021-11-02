@@ -37,29 +37,25 @@
               <div class="row invoice-info">
                 <div class="col-4">
                   <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['servicio_cod'];?></b></h4>
-                  <h5>Nombre: <b><?php echo $fetch_cat['servicio_nombre'];?></b></h5>
-                  <h3>P/S: <b><?php echo $fetch_cat['servicio_tipo'];?></b></h3>
+                  <h5 class="colorText">Nombre: <b class="text-dark"><?php echo $fetch_cat['servicio_nombre'];?></b></h5>
+                  <h5 class="colorText">P/S: <b class="text-dark"><?php echo $fetch_cat['servicio_tipo'];?></b></h5>
+                  <h5 class="colorText">Disponibles: <b class="text-dark"><?php echo $fetch_cat['servicio_disponibles'];?></b></h5>
                     
                 </div>
                 <div class="col-4">
-                    <h6>Precio de venta: <b><?php echo $fetch_cat['servicio_pventa'];?></b></h6>
-                  <h6>Categoria: <b><?php echo $fetch_cat['servicio_categoria'];?></b></h6>
-                  
+                    <h5 class="colorText">Precio de venta: <b class="text-dark"><?php echo $fetch_cat['servicio_pventa'];?></b></h5>
+                  <h5 class="colorText">Categoria: <b class="text-dark"><?php echo $fetch_cat['servicio_categoria'];?></b></h5>
+                  <h5 class="colorText">Descripción: <b class="text-dark" ><?php echo $fetch_cat['servicio_desc'];?></b></h5>
+               
                 </div>
                 <div class="col-4">
-                  <h5>Proovedor: <b><?php echo $fetch_cat['servicio_proveedor'];?></b></h5>
-                  <h6>Estado: <b><?php echo $fetch_cat['servicio_estado'];?></b></h6>
-                  <h6>Disponibles: <b><?php echo $fetch_cat['servicio_disponibles'];?></b></h6>
+                  <h5 class="colorText">Proovedor: <b class="text-dark"><?php echo $fetch_cat['servicio_proveedor'];?></b></h5>
+                  <h5 class="colorText">Estado: <b class="text-dark"><?php echo $fetch_cat['servicio_estado'];?></b></h6>
+                  <h5 class="colorText">Materiales: <b class="text-dark"><?php echo $fetch_cat['servicio_mat'];?></b></h5>
+                  
                 </div>
               </div>
-              <div class="row invoice-info">
-                <div class="col-11"><br>
-                   <h5>Descripción: <b><?php echo $fetch_cat['servicio_desc'];?></b></h5>
-                </div> 
-                <div class="col-11">  
-                  <h6>Materiales: <b><?php echo $fetch_cat['servicio_mat'];?></b></h6>
-                </div>
-              </div>
+             
             </section>
           </div>
         </div>

@@ -17,13 +17,17 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
           
         </ul>
       </div>
-      <style type="text/css">
-        
-      </style>
+      <div class="form-group">
       <form action="buscador_coti.php" method="get">
       <label>Buscar: </label>
-      <input id="buscar_coti" type="text" name="buscador_coti" >
+      <input id="buscar_coti" type="text" name="buscador_coti" id="tag">
       <input type="submit" name="buscar_coti" class="btn btn-primary" style="margin-bottom:10px;margin-left: 10px;">
+      </div>
+      <div class="col-md-5" style="position: relative;margin-top: -15px; margin-left:-15px;">
+        <div class="list-group" id="show-list">
+          <!-- autocompletado aqui -->
+        </div>
+      </div>
 
     </form>
       <div class="row" style="font-size: 15px;">
@@ -72,7 +76,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                       <!-- <td><a href="lista_servicio.php?ruc=<?php echo $row['cot_codigo']; ?>" >Tabla</a></td>  -->
                            <td class="delete"><a href="index.php?action=edit_cotizacion&ruc=<?php echo $row['cot_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
-                           <td class="delete"><a href="index.php?action=view_cotizacion&delete_cotizacion=<?php echo $row['cot_id']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+                           <td class="delete"><a href="index.php?action=view_cotizacion&delete_cotizacion=<?php echo $row['cot_codigo']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
 
                       </tr>
 
@@ -90,12 +94,15 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
       <a href="index.php?action=add_cotizacion" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar Cotización</a> 
 
  </main>   
+ 
 
  
 <!-- PHP CODIGO  --> 
 <?php
 if(isset($_GET['delete_cotizacion'])){
-  $delete_serv = mysqli_query($conexion,"delete from cotizacion where cot_id='$_GET[delete_cotizacion]' ");
+  $delete_serv = mysqli_query($conexion,"delete from cotizacion where cot_codigo='$_GET[delete_cotizacion]' ");
+  $delete_serv = mysqli_query($conexion,"delete from cotizacion_servicio where cod_cot='$_GET[delete_cotizacion]' ");
+  $delete_serv = mysqli_query($conexion,"delete from cotizacion_servicio2 where cod_cot2='$_GET[delete_cotizacion]' ");
 
   if($delete_serv){
 
@@ -107,6 +114,33 @@ if(isset($_GET['delete_cotizacion'])){
   ?>
 
 <?php } ?>
+<script type="text/javascript">
+  $(document).ready(function () {
+    // Send Search Text to the server
+    $("#tag").keyup(function () {
+      let searchText = $(this).val();
+      if (searchText != "") {
+        $.ajax({
+          url: "js/autocompletado/searchCoti.php",
+          method: "post",
+          data: {
+            query: searchText,
+          },
+          success: function (response) {
+            $("#show-list").html(response);
+          },
+        });
+      } else {
+        $("#show-list").html("");
+      }
+    });
+    // Set searched text in input field on click of search button
+    $(document).on("click", "a", function () {
+      $("#tag").val($(this).text());
+      $("#show-list").html("");
+    });
+  });
+</script>
 
 <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>

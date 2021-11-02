@@ -22,7 +22,8 @@
                                         <th>Servicio </th>
                                         <th>Cantidad</th>
                                         <th>Precio</th>
-                                   
+										<th>TOTAL</th>
+										<th>Precio Neto</th>
                
                                     </tr>
                                 </thead>
@@ -75,9 +76,10 @@
 		   <br />
 		   <!-- <img src="admin/productos_imagenes/<?php echo $product_image; ?> " style="width: 100px;" /> -->
 		   </td>
-		   <td><input type="text" class="qty_id"  data-id="<?php echo $product_id; ?>" size="4" name="qty" value="<?php echo $qty; ?>" /></td>
-		   <td><?php echo "S./" . $sing_price; ?></td>
-		  
+		   <td><input  type="text" class="qty_id"  data-id="<?php echo $product_id; ?>" size="4" name="qty" value="<?php echo $qty; ?>" /></td>
+		   <td><?php echo "S./" .$sing_price; ?></td>
+		  	<td><?php echo "S./" .$values_qty; ?></td>
+		  	<td><?php echo "S./" . $values_qty; ?></td>
 		 </tr>
 
          <?php }} ?>
@@ -86,10 +88,11 @@
 	    <tr align="center">
 		   <td colspan="1"><input class="btn btn-info" type="submit" name="update_cart" value="Actualizar" /></td>
 		   <td><input class="btn btn-primary" type="submit" name="continue" value="Agregar mas Servicios" /></td>
-		 
+		 	<td><input type="submit" name="guardar" value="GUARDAR"></td>
 		</tr>
 	   </table>
 	   </form>
+
        <input type="hidden" class="hidden_ip" value="<?php echo $_GET['cod_codigo']; ?>">
 	 
 	 <div class="load_ajax"></div>
@@ -102,24 +105,34 @@
    while($fetch_cart = mysqli_fetch_array($run_cart)){
        
 	   $product_id = $fetch_cart['servicio_cot'];
+	   $product_nombre = $fetch_cart['nombre_cot'];
 	   
 	   $qty = $fetch_cart['cantidad_cot'];
 	   
 	   $result_product = mysqli_query($conexion, "select * from servicios where servicio_cod = '$product_id'");
 	   
        while($fetch_product = mysqli_fetch_array($result_product)){
-                
+		$price = $fetch_product['servicio_pventa'];
 		$product_price = array($fetch_product['servicio_pventa']);
         
-		$values = array_sum($product_price);
+		$values2 = array_sum($product_price);
 		
-		$values_qty = $values * $qty;
+		$values_qty = $values2 * $qty;
 		
 		$total += $values_qty;
         $igv = 20;
         $todo = $total + $igv;
-				
-       }	   
+		if(isset($_POST['guardar'])){
+		$run_insert_prop = mysqli_query($conexion, "insert into cotizacion_servicio2 (cod_cot2,nombre_cot2,cantidad_cot2,precio_cot2,total_cot2,precioNeto_cot2,subtotal_cot2,IGV_cot2,totalall_cot2) values ('$_GET[cod_codigo]','$product_title','$qty','$price','$values_qty','$values_qty','$total','$igv','$todo') ");	
+		
+		if($run_insert_prop){
+			echo "<script>alert('Guardado correctamente')</script>";
+			echo "<script>window.open('index.php?action=view_cotizacion_id&cot_codigo=$_GET[cod_codigo]','_self')</script>";
+		}
+		}
+
+	}
+	   	   
    }
    
    echo "
@@ -141,19 +154,25 @@
         }else{
           
           $fetch_pro = mysqli_query($conexion, "select * from servicios where servicio_cod='$product_id'");
-          
           $fetch_pro = mysqli_fetch_array($fetch_pro);
+
+		  $run_cart2 = mysqli_query($conexion, "select * from cotizacion_servicio where servicio_cot = '$product_id' ");
+		  $fetch_pro2 = mysqli_fetch_array($run_cart2);
+		  $qty2 = $fetch_pro2['cantidad_cot'];
           
           $pro_title = $fetch_pro['servicio_nombre'];
-          $pro_precio = $fetch_pro['servicio_pventa'];
+         // $pro_precio = $fetch_pro['servicio_pventa'];
+			$precio = $fetch_pro['servicio_pventa'];
+		  $product_price = array($fetch_pro['servicio_pventa']);
+		  $valueS = array_sum($product_price);
+          $valuesQ = $valueS * $qty2;
           
           
           
-          
-          $run_insert_pro = mysqli_query($conexion, "insert into cotizacion_servicio (cod_cot,nombre_cot,servicio_cot,precio_cot) values ('$_GET[cod_codigo]','$pro_title','$product_id','$pro_precio') ");		
+          $run_insert_pro = mysqli_query($conexion, "insert into cotizacion_servicio (cod_cot,nombre_cot,servicio_cot,precio_cot) values ('$_GET[cod_codigo]','$pro_title','$product_id','$precio')");		
           
         
-         "<script>window.open('index.php?action=tabla_id&cod_codigo=$_GET[cod_codigo]','_self')</script>";
+         echo "<script>window.open('index.php?action=tabla_id&cod_codigo=$_GET[cod_codigo]','_self')</script>";
          
         }
       }?>
@@ -174,14 +193,16 @@
 	    $.ajax({
 	    url:'update_qty_ajax.php',
 	    type:'post',
-	    data:{id:pro_id,quantity:qty,ip:ip},
+	    data:{id:pro_id,
+			quantity:qty,
+			ip:ip},
 	    dataType:'html',
 	    success:function(update_qty){
 	     
 	     //alert(update_qty);
 	     
 	     if(update_qty == 1){
-	       $(".load_ajax").html('Your quantity was updated successfully!');
+	       $(".load_ajax").html('Actualizado corremente!');
 	     }
 	        
 	    }

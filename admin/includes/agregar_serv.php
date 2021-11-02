@@ -22,7 +22,7 @@
         <div class="tile">
           <div class="row">
             <div class="col-lg-4 offset-lg-1">
-              <form action="" method="POST" accept-charset="utf-8">
+              <form action="" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleInputEmail1">CODIGO:</label>
                   <input class="form-control" type="text" placeholder="Ingrese codigo" name="codigo_serv" required>
@@ -34,16 +34,14 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Descripcion:</label>
-                  <textarea class="form-control" name="desc_serv" id="" cols="40" rows="5" required></textarea>
+                  <textarea class="form-control" name="desc_serv" id="" cols="40" rows="5" required>Descripcion</textarea>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Materiales</label>
-                  <textarea class="form-control" name="mat_serv" id="" cols="40" rows="5" required></textarea>
+                  <textarea class="form-control" name="mat_serv" id="" cols="40" rows="5" required>Materiales</textarea>
                 </div>
 
-                <div class="tile-footer">
 
-                </div>
             </div>
 
             <div class="col-lg-4 offset-lg-1">
@@ -107,6 +105,10 @@
                 </select>
               </div>
               <div class="form-group">
+                <label for="">FOTO:</label><br>
+                <input type="file" name="producto_imagen">
+              </div>
+              <div class="form-group">
                 <label for="exampleInputEmail1">P/S:</label>
                 <div class="form-check">
                   <label class="form-check-label">
@@ -119,7 +121,7 @@
                   </label>
                 </div>
 
-              </div>   
+              </div>
 
               <div class="tile-footer">
                 <button class="btn btn-primary" name="agregar_serv" type="submit">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
@@ -146,14 +148,16 @@
     $cat_serv = $_POST['cat_serv'];
     $estado_serv = $_POST['estado_serv'];
     $pro_serv = $_POST['pro_serv'];
-    $tipo_serv= $_POST['tipo_serv'];
+    $tipo_serv = $_POST['tipo_serv'];
+
+    $producto_imagen = $_FILES['producto_imagen']['name'];
+    $producto_imagen_tmp = $_FILES['producto_imagen']['tmp_name'];
+    move_uploaded_file($producto_imagen_tmp,"servicios_fotos/$producto_imagen");
 
 
-
-
-    $addServ = mysqli_query($conexion, "insert into servicios(servicio_cod,servicio_nombre,servicio_desc,servicio_mat,servicio_disponibles,servicio_pventa,servicio_categoria,servicio_estado,servicio_proveedor,servicio_tipo) values('$codigo_serv','$nombre_serv','$desc_serv','$mat_serv','$dis_serv','$precio_serv','$cat_serv','$estado_serv','$pro_serv','$tipo_serv')");
-
-    if ($addServ) {
+    $addServ = "insert into servicios(servicio_cod,servicio_nombre,servicio_desc,servicio_mat,servicio_disponibles,servicio_pventa,servicio_categoria,servicio_estado,servicio_proveedor,servicio_foto,servicio_tipo) values('$codigo_serv','$nombre_serv','$desc_serv','$mat_serv','$dis_serv','$precio_serv','$cat_serv','$estado_serv','$pro_serv','$producto_imagen','$tipo_serv')";
+    $insertarPro2 = mysqli_query($conexion, $addServ);
+    if ($insertarPro2) {
       echo "<script>alert('Servicio Agregado correctamente')</script>";
       echo "<script>window.open('index.php?action=view_serv','_self')</script>";
     } else {

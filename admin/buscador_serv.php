@@ -64,12 +64,14 @@
                                             $pro_cat = $row_pro['servicio_categoria'];
                                             $pro_estado = $row_pro['servicio_estado'];
                                             $pro_provee = $row_pro['servicio_proveedor'];
+                                            $pro_foto = $row_pro['servicio_foto'];
 
 
                                             echo "
                                 <tr align='center'>
                                         <td><a href='index.php?action=view_serv_id&servicio_codigo=$pro_cod'style='color:#dc3545;'>$pro_cod</a> </td>
                                         <td>$pro_nombre</td>
+                                        <td><img style='object-fit: cover;' src='servicios_fotos/$pro_foto ' width='70' height='70' /></td>
                                         <td>$pro_disp Disponibles</td>
                                         <td>S/.$pro_precio</td>
                                         <td>$pro_cat</td>
