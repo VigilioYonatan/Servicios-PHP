@@ -109,6 +109,9 @@
     case 'lista_operaciones';
     include 'includes/operaciones/lista_op.php';
     break;
+    case 'ordenes_trabajo';
+    include 'includes/operaciones/ordenes_trabajo.php';
+    break;
 
 
     case 'view_ot';

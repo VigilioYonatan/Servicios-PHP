@@ -110,6 +110,7 @@ session_start();
           <i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="index.php?action=lista_operaciones"><i class="icon fa fa-circle-o"></i>Evaluaciones</a></li>
+            <li><a class="treeview-item" href="index.php?action=ordenes_trabajo"><i class="icon fa fa-circle-o"></i>Lista de ordenes de Trabajo</a></li>
           </ul>
         </li>
         
