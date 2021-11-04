@@ -80,7 +80,7 @@
                       <tr>
                         <td><?php echo $i ?></td>
                         <td><?php echo $row['nombre_cot']; ?></td>
-                        <td><?php echo $row2['nota_cot2']; ?></td>
+                        <td><?php echo $row['nota_cot']; ?></td>
                         <td><?php echo $row['cantidad_cot']; ?></td>
                         <td><?php echo $row['precio_cot']; ?></td>
                         <td><?php echo $row2['total_cot2']; ?></td>

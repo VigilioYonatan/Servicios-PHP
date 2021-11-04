@@ -108,6 +108,7 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
                   while ($row = mysqli_fetch_array($edit_cat2)) {
                     $nombre = $row['nombre_cot'];
                     $cantidad = $row['cantidad_cot'];
+                    $nota = $row['nota_cot'];
                     $edit_cat3 = mysqli_query($conexion, "select * from cotizacion_servicio2 where cantidad_cot2='$cantidad' and cod_cot2='$_GET[ruc] '");
                     $row2 = mysqli_fetch_array($edit_cat3);
                   ?>
@@ -115,7 +116,7 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
                       <tr>
                         <td><?php echo $i ?></td>
                         <td><?php echo $nombre; ?></td>
-                        <td><input type="text" name="nota" placeholder="Nota"></td>
+                        <td><?php echo $nota; ?></td>
                         <td><?php echo $cantidad; ?></td>
 
                         <td><input type="text" name="observaciones" placeholder="Observaciones"></td>
@@ -254,7 +255,7 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
     //tabla
 
     $nombre_serviciOT =   $nombre;
-    $nota_servicioOT = $_POST['nota'];
+    $nota_servicioOT = $nota;
     $cantidad_servicioOT = $cantidad;
     $observaciones_servicioOT = $_POST['observaciones'];
 

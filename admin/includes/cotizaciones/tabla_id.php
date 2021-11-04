@@ -11,7 +11,7 @@
 		<div class="col-md-12">
 			<div class="tile">
 				<div class="tile-body">
-					<form action="" method="post" enctype="multipart/form-data">
+					<form action="" method="post" enctype="multipart/form-data" id="frmajax">
 						<div class="table-responsive">
 							<h4 style="color:#dc3545;"><?php echo $_GET['cod_codigo']; ?> </h4>
 							<table class="table table-hover table-bordered">
@@ -94,12 +94,14 @@
 								<tr align="center">
 									<td colspan="1"><input class="btn btn-info" type="submit" name="update_cart" value="Actualizar" /></td>
 									<td><input class="btn btn-primary" type="submit" name="continue" value="Agregar mas Servicios" /></td>
-									<td><input type="submit" name="guardar" value="GUARDAR"></td>
+									<td><input type="submit" id="btnguardar" name="guardar" value="GUARDAR"></td>
 								</tr>
 							</table>
 					</form>
 
 					<input type="hidden" class="hidden_ip" value="<?php echo $_GET['cod_codigo']; ?>">
+				
+			
 
 					<div class="load_ajax"></div>
 
@@ -130,7 +132,8 @@
 							$igv = 20;
 							$todo = $total + $igv;
 							if (isset($_POST['guardar'])) {
-								
+								$nota = $_POST['nota'];
+
 								$run_insert_prop = mysqli_query($conexion, "insert into cotizacion_servicio2 (cod_cot2,nombre_cot2,nota_cot2,cantidad_cot2,precio_cot2,total_cot2,precioNeto_cot2,subtotal_cot2,IGV_cot2,totalall_cot2) values ('$_GET[cod_codigo]','$product_title','$nota','$qty','$price','$values_qty','$values_qty','$total','$igv','$todo') ");
 
 								if ($run_insert_prop) {
@@ -142,10 +145,10 @@
 					}
 
 					echo "
-   <div style='text-align:right;'>
-   <h5>Subtotal: S/.$total</h5>
-   <h5>IGV: S/.$igv</h5>
-   <h4 style='color:#dc3545;''>TOTAL: S/.$todo </h4></div>"; ?>
+   							<div style='text-align:right;'>
+   							<h5>Subtotal: S/.$total</h5>
+   							<h5>IGV: S/.$igv</h5>
+   							<h4 style='color:#dc3545;''>TOTAL: S/.$todo </h4></div>"; ?>
 					<?php //cart();
 					?>
 
@@ -188,9 +191,9 @@
 							$(".qty_id").on("keyup", function() {
 
 								var pro_id = $(this).data("id");
-
 								var qty = $(this).val();
-					
+								//var nota = $(this).val();
+							
 								var ip = $(".hidden_ip").val();
 
 								//alert(ip);
@@ -201,62 +204,44 @@
 									type: 'post',
 									data: {
 										id: pro_id,
-						
+										//Nota: nota,
 										quantity: qty,
 							
 										ip: ip
 									},
 									dataType: 'html',
-									success: function(update_qty) {
-
-										//alert(update_qty);
-
-										if (update_qty == 1) {
-											$(".load_ajax").html('Actualizado corremente!');
-										}
-
-									}
+									
 
 								});
 
 							});
 
 						});
-					</script>
-					<script> //Nota
 						$(document).ready(function() {
 
 							$(".nota_id").on("keyup", function() {
 
 								var pro_id = $(this).data("id");
-
+								//	var qty = $(this).val();
+								var nota = $(this).val();
 							
-								var nota = $(this).val()
-
 								var ip = $(".hidden_ip").val();
 
 								//alert(ip);
 
-								// Update servicios cantidad in ajax and php
+								// Update servicios nota in ajax and php
 								$.ajax({
 									url: 'update_nota_ajax.php',
 									type: 'post',
 									data: {
 										id: pro_id,
 										Nota: nota,
-		
+										//quantity: qty,
+							
 										ip: ip
 									},
 									dataType: 'html',
-									success: function(update_nota) {
-
-										//alert(update_qty);
-
-										if (update_nota == 1) {
-											$(".load_ajax").html('Actualizado corremente!');
-										}
-
-									}
+									
 
 								});
 
@@ -264,8 +249,8 @@
 
 						});
 					</script>
-			
-
+				
+					
 					<?php
 					if (isset($_POST['remove'])) {
 
