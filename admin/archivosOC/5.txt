@@ -1,0 +1,121 @@
+¿Qué es un virus?
+Es un programa malicioso que su objetivo es alterar el funcionamiento de 
+cualquier dispositivo informatico,
+sin su conocimiento o permiso del usuario para asi meterse al dispositivo y lograr 
+fines maliciosos.
+El virus se propaga por los dispositivos o redes, casi la mayoria 
+son destructivos y toman el control del dispositivo.
+
+¿Características del virus informático?
+-Puede generar copias de sí mismo en un ordenador distinto del que se ocupa.
+-Los virus se propagan a traves del internet por el correo electronico o al descargar
+archivos infectados.
+-El virus obtiene multiple variaciones, difultado su deteccion.
+-El virus se queda en la memoria, cargandose y luego infectando a la
+computadora o tambien puede no estar ahi, solo se activa el virus cuando 
+se abra un archivo.
+-Los virus puede llevar otro viruus haciendo que este sea mas letal,para asi
+ayudarse mutuamente a esconderse o para ayudar a infectar a un dispositivo en
+particular.
+-Pueden ser latentes, quiere decir pueden estar oculto 
+cierto tiempo depende de lo programado un dia, una semana, un año o mas.
+
+¿Qué son virus troyanos y qué son virus gusanos?
+Gusanos: se consideran una clase secundaria de virus.
+tienen la capacidad de desplazar sin intervencion humana
+Un gusano se aprovecha de las funciones de transferencia de archivos o de 
+información del sistema. 
+El mayor peligro de un gusano es su capacidad de replicarse en su sistema. 
+Es decir, en lugar de enviar un solo gusano, su equipo puede enviar centenares
+ o miles de copias de sí mismo, lo que puede tener consecuencias fatales.
+
+
+Troyanos: no es un virus, sino un programa destructivo que se hace 
+pasar por una aplicación auténtica estos
+ no se replican, pero pueden ser igual de dañinos. Además, los troyanos abren
+ una puerta trasera en el equipo que facilita a usuarios y programas maliciosos 
+el acceso al sistema para robar información personal y confidencial.
+
+¿Cómo eliminar un virus?
+Paso1:Descargar e instalar una herramienta de análisis de virus
+Paso 2: Desconectarse de internet
+Paso 3: Reiniciar el ordenador en el modo seguro
+Paso 4: Elimina cualquier archivo temporal
+Paso 5: Ejecutar un análisis de virus
+Paso 6: Elimina el virus o ponlo en cuarentena
+Paso 7: Reinicia el ordenador
+Paso 8: Cambia todas las contraseñas
+Paso 9: Actualiza el software, el navegador y el sistema operativo
+
+¿Qué es un antivirus y cuál crees que es el mejor?
+Se refiere al software de seguridad que, a traves de multiples capas
+de proteccion, detecta, bloquea y elimina el malware y protege a los
+usuarios de las ciberamenazas. 
+Debido al enorme crecimiento del número
+ de malware en otras categorías, los programas antivirus 
+han evolucionado hacia soluciones de seguridad complejas.
+
+Para mi seria Bitdefender
+Ofrece una protección antimalware avanzada y muchas protecciones de 
+seguridad online adicionales
+Bitdefender incluye:
+-Optimización del sistema.
+-Protección anti-ransomware.
+-VPN (red privada virtual).
+-Gestor de contraseñas.
+-Controles parentales.
+-Protección de la webcam y el micrófono.
+-Protección antihurto para Windows y Android.
+-Y mucho más…
+En general, Bitdefender es bueno para la seguridad
+ en internet. Tiene muchas características realmente
+ buenas, es fácil de usar, y es bastante económico. 
+
+
+
+
+----------------------------------------------------------
+ ¿Qué se entiende por Python?
+Python es un lenguaje de programación de alto nivel
+ que se utiliza para desarrollar aplicaciones de todo tipo.
+es un lenguaje sencillo de leer y escribir.tambien se trata de un lenguaje 
+multiplataforma de código 
+abierto y, por lo tanto, gratuito, lo que permite desarrollar software sin límites.
+ 
+Qué es framework Django?
+es un marco de trabajo construído en Python para desarrollo de aplicaciones web
+ enfocado en la velocidad y la agilidad Django nos ayuda mucho pues tiene una 
+serie de comandos que permiten crear módulos (o mini 
+aplicaciones) para dividir nuestro código y que este sea mantenible en el tiempo.
+
+¿Qué es una aplicación web?
+son los que se ejecutan en internet o por una intranet o red local. 
+quiere decir que los datos o los archivos en los que trabajas son 
+procesados y almacenados en una red o en la nube. Estas aplicaciones, por 
+lo general, no necesitan ser instaladas en tu dispositivo.
+Las aplicaciones web se relacionan con el almacenamiento de datos 
+en la nube, ya que toda la información requerida esta en los servidores web, que 
+además de guardar la información,la envían a nuestros dispositivos cuando es requerida.
+
+¿Qué es hosting y dominio?
+hosting: 
+es un servicio de alojamiento en línea que te permite publicar un sitio o aplicación web 
+en Internet. Cuando obtienes un hosting, básicamente alquilas un espacio en un servidor 
+que almacena todos los archivos, tales como imágenes, texto, documentos html y css, vídeos,
+ pdfs, etc.
+y datos de tu sitio web para que funcione correctamente.
+dominio: 
+es la dirección que los usuarios escriben en el navegador y sirve para 
+identificar y acceder al sitio web.Este nombre lo deberás elegir tu, obviamente 
+que pondrás tu nombre o el de tu marca como dominio.
+Si tu marca o empresa se llama “Animoral SA” tu dominio en informática se podría
+ llamar “animoralsa.com” o como a ti te parezca mejor.
+
+¿Paso para subir una aplicación web al servidor?
+Paso 1: Elige un servicio de hosting web confiable
+que integre todas las características clave para impulsar tu proyecto web
+Paso 2: Elige el método para subir tu sitio web
+Paso 3: Sube el archivo del sitio y extráelo
+Paso 4: Asegúrate de que todos los archivos estén en public_html
+Paso 5: Importar la base de datos MySQL
+Paso 6: Comprueba que el sitio web funcione

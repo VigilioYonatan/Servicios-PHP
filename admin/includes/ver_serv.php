@@ -9,7 +9,7 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-handshake-o"></i> SERVICIOS Y PRODUCTOS</h1>
+          <h1><i class="fa fa-handshake-o"></i> PRODUCTOS / SERVICIOS</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
@@ -34,15 +34,13 @@
                     <tr>
                       
           
-                      <th>Codigo </th>
-                      <th>Nombre </th>
-                      <th>Imagen </th>
-                      <th>Disponibles</th>
-                      <th>Precio</th>
-                      <th>Categoria </th>
-                      <th>Estado </th>
-                      <th>Proovedor</th>
-                      <th>P/S</th>
+                      <th>CODIGO</th>
+                      <th>NOMBRE </th>
+                      <th>IMAGEN </th>
+                      <th>DISPONIBLES</th>
+                      <th>CATEGORIA</th>
+                      <th>ESTADO </th>
+                      <th>PROVEEDOR</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
                     </tr>
@@ -58,15 +56,15 @@
                     <tbody align="center">
                      <tr>
              
-                    <td><a href="index.php?action=view_serv_id&servicio_codigo=<?php echo $row['servicio_cod'];?>" style="color:#dc3545;"><?php echo $row['servicio_cod']; ?></a> </td>
+                    <td><a href="index.php?action=view_serv_id&servicio_codigo=<?php echo $row['servicio_cod'];?>" style="color:#dc3545;font-weight: bold;"><?php echo $row['servicio_cod']; ?></a> </td>
                     <td><?php echo $row['servicio_nombre']; ?></td>
                     <td><img style="object-fit: cover;" src="servicios_fotos/<?php echo $row['servicio_foto']; ?>" width="70" height="70" /></td>
                     <td><?php echo $row['servicio_disponibles']; ?> Disponibles</td>
-                    <td>S/.<?php echo $row['servicio_pventa']; ?></td>
+                    
                     <td><?php echo $row['servicio_categoria']; ?></td>
                     <td><?php echo $row['servicio_estado']; ?></td>
                     <td><?php echo $row['servicio_proveedor']; ?></td>
-                    <td><?php echo $row['servicio_tipo']; ?></td>
+                    
                     <?php if ($codRo != $_SESSION['cod_user']) {?>
                      <td class="delete"><a href="index.php?action=edit_serv&serv_id=<?php echo $row['servicio_id'];?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
@@ -85,7 +83,7 @@
         </div>
       </div>
 
-      <a href="index.php?action=add_serv" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar S/P</a> 
+      <a href="index.php?action=add_serv" class="btn btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i>  Agregar P/S</a> 
  </main>   
 
  

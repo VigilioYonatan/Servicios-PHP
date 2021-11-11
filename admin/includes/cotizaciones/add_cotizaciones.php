@@ -8,7 +8,7 @@
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa fa-file-text"></i> <i class="fa fa-plus"></i> AGREGAR COTIZACIONES</h1>
+        <h1><i class="fa fa-file-text"></i> <i class="fa fa-plus"></i> AGREGAR COTIZACION</h1>
       </div>
       <ul class="app-breadcrumb breadcrumb side">
         <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
@@ -23,87 +23,13 @@
             <div class="col-lg-4 offset-lg-1">
               <form action="" method="POST" accept-charset="utf-8">
                 <div class="form-group">
-                  
-                  <label for="exampleInputEmail1">Cliente:</label>
-                  <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="cliente" name="cliente" onkeyup="GetDetail(this.value)" id="rollNo">
-                </div>
-               
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Estado:</label>
-                  <select class="form-control" name="estado" id="estado" required>
-                    <option value="null">Selecciona un estado</option>
-                    <?php
-                    $get_cats = "select * from venta_estado";
 
-                    $run_cats = mysqli_query($conexion, $get_cats);
-
-                    while ($row_cats = mysqli_fetch_array($run_cats)) {
-                      $estado_id = $row_cats['est_id'];
-                      $estado_nombre = $row_cats['est_nombre'];
-
-                      echo "<option value='$estado_nombre'>$estado_nombre</option>";
-                    }
-                    ?>
-                  </select>
+                  <label for="exampleInputEmail1">CLIENTE:</label>
+                  <input class="form-control" type="text" aria-describedby="emailHelp" placeholder="Nombre" name="cliente" onkeyup="GetDetail(this.value)" id="rollNo">
                 </div>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Forma de pago:</label>
-                  <select class="form-control" name="pago" id="pago" required>
-                    <option value="null">Selecciona un tipo pago</option>
-                    <?php
-                    $get_cats = "select * from venta_pago";
-
-                    $run_cats = mysqli_query($conexion, $get_cats);
-
-                    while ($row_cats = mysqli_fetch_array($run_cats)) {
-                      $pago_id = $row_cats['pago_id'];
-                      $pago_nombre = $row_cats['pago_nombre'];
-
-                      echo "<option value='$pago_nombre'>$pago_nombre</option>";
-                    }
-                    ?>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Moneda:</label>
-                  <select class="form-control" name="moneda" id="moneda">
-                    <option value="null">Selecciona un tipo de moneda</option>
-                    <?php
-                    $get_cats = "select * from venta_moneda";
-
-                    $run_cats = mysqli_query($conexion, $get_cats);
-
-                    while ($row_cats = mysqli_fetch_array($run_cats)) {
-                      $moneda_id = $row_cats['moneda_id'];
-                      $moneda_nombre = $row_cats['moneda_nombre'];
-
-                      echo "<option value='$moneda_nombre'>$moneda_nombre</option>";
-                    }
-                    ?>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Condiciones Generales:</label>
-                  <textarea class="form-control" id="exampleTextarea" rows="6" name="condicion" cols="35">Cuenta corriente en Dolares         
-Bco. Scotiabank: 000-34533433
-CCI DOLARES: 009-021-0000463603-77
-Cuenta corriente en soles Bco.
-Scotiabank: 2824507
-CCI Soles: 009-021-0000026452345-74</textarea>
-                </div>
-                <div class="tile-footer">
-                </div>
-
-
-            </div>
-
-            <div class="col-lg-4 offset-lg-1">
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Asignado:</label>
+                <label for="exampleInputEmail1">ASIGNADO:</label>
                 <select class="form-control" name="asignado" id="">
                   <option value="<?php echo $_SESSION['name']; ?>"><?php echo $_SESSION['name']; ?></option>
                   <?php
@@ -118,11 +44,99 @@ CCI Soles: 009-021-0000026452345-74</textarea>
                   ?>
                 </select>
               </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">MONEDA:</label>
+                  <select class="form-control" name="moneda" id="moneda">
+                    <option value="null">Selecciona el tipo de moneda</option>
+                    <?php
+                    $get_cats = "select * from cotizacion_moneda";
+
+                    $run_cats = mysqli_query($conexion, $get_cats);
+
+                    while ($row_cats = mysqli_fetch_array($run_cats)) {
+                      $moneda_id = $row_cats['cotizacion_id'];
+                      $moneda_nombre = $row_cats['cotizacion_nombre'];
+
+                      echo "<option value='$moneda_nombre'>$moneda_nombre</option>";
+                    }
+                    ?>
+                  </select>
+                </div>
+             <div class="form-group">
+                <label for="exampleInputEmail1">VALIDEZ DE OFERTA:</label>
+                <select class="form-control" name="expira" id="expira" required>
+                  <option value="null">Selecciona el tiempo </option>
+                  <?php
+                  $get_cats = "select * from cotizacion_expira";
+
+                  $run_cats = mysqli_query($conexion, $get_cats);
+
+                  while ($row_cats = mysqli_fetch_array($run_cats)) {
+                    $expira_id = $row_cats['cotizacion_id'];
+                    $expira_nombre = $row_cats['cotizacion_nombre'];
+
+                    echo "<option value='$expira_nombre'>$expira_nombre</option>";
+                  }
+                  ?>
+                </select>
+              </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">CONDICIONES GENERALES:</label>
+                  <?php
+                  $condicion = mysqli_query($conexion,"select * from condiciones_generales");
+                  $condicion2 = mysqli_fetch_array($condicion);
+                  ?>
+                  <textarea class="form-control" id="exampleTextarea" rows="6" name="condicion" cols="35"><?php echo $condicion2['texto_condicion'] ?></textarea>
+                </div>
+                <div class="tile-footer">
+                  <button class="btn btn-primary" name="agregarCot" type="submit">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-4 offset-lg-1">
+               <div class="form-group">
+                  <label for="exampleInputEmail1">ESTADO:</label>
+                  <select class="form-control" name="estado" id="estado" required>
+                    <option value="null">Selecciona un estado</option>
+                    <?php
+                    $get_cats = "select * from cotizacion_estado";
+
+                    $run_cats = mysqli_query($conexion, $get_cats);
+
+                    while ($row_cats = mysqli_fetch_array($run_cats)) {
+                      $estado_id = $row_cats['id_estado'];
+                      $estado_nombre = $row_cats['nombre_estado'];
+
+                      echo "<option value='$estado_nombre'>$estado_nombre</option>";
+                    }
+                    ?>
+                  </select>
+                </div>
+              <div class="form-group">
+                  <label for="exampleInputEmail1">FORMA DE PAGO:</label>
+                  <select class="form-control" name="pago" id="pago" required>
+                    <option value="null">Selecciona un tipo pago</option>
+                    <?php
+                    $get_cats = "select * from cotizacion_pago";
+
+                    $run_cats = mysqli_query($conexion, $get_cats);
+
+                    while ($row_cats = mysqli_fetch_array($run_cats)) {
+                      $pago_id = $row_cats['id_cotizacion'];
+                      $pago_nombre = $row_cats['nombre_cotizacion'];
+
+                      echo "<option value='$pago_nombre'>$pago_nombre</option>";
+                    }
+                    ?>
+                  </select>
+                </div>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Tiempo de entrega:</label>
+                <label for="exampleInputEmail1">TIEMPO DE ENTREGA:</label>
                 <select class="form-control" name="entrega" id="entrega" required>
-                  <option value="null">Selecciona el tiempo de entrega</option>
+                  <option value="null">Selecciona el tiempo</option>
                   <?php
                   $get_cats = "select * from venta_entrega";
 
@@ -138,42 +152,24 @@ CCI Soles: 009-021-0000026452345-74</textarea>
                 </select>
               </div>
 
-              <div class="form-group">
-                <label for="exampleInputEmail1">Expira:</label>
-                <select class="form-control" name="expira" id="expira" required>
-                  <option value="null">Selecciona el tiempo de expiracion</option>
-                  <?php
-                  $get_cats = "select * from venta_expira";
-
-                  $run_cats = mysqli_query($conexion, $get_cats);
-
-                  while ($row_cats = mysqli_fetch_array($run_cats)) {
-                    $expira_id = $row_cats['expira_id'];
-                    $expira_nombre = $row_cats['expira_nombre'];
-
-                    echo "<option value='$expira_nombre'>$expira_nombre</option>";
-                  }
-                  ?>
-                </select>
-              </div>
+              
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Direccion:</label>
+                <label for="exampleInputEmail1">DIRECCIÓN:</label>
                 <input class="form-control" type="text" name="direccion" id="studentName" placeholder="direccion" required>
               </div>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Pie de paginas:</label>
-                <textarea class="form-control" id="exampleTextarea" name="pie" cols="45" rows="6">Telef: 01-05440920 
-Celulares: 958529197
-958070350/945014170/976545807
-Correo: ventas@chromemetales.com/
-gerencia@chromemetales.com
-www.chrometales.com                      </textarea>
+                <label for="exampleInputEmail1">PIE DE PAGINA:</label>
+                <?php
+                  $pie = mysqli_query($conexion,"select * from pie_pagina");
+                  $pie2 = mysqli_fetch_array($pie);
+                  ?>
+                <textarea class="form-control" id="exampleTextarea" name="pie" cols="35" rows="6"><?php echo $pie2['texto_pie']; ?></textarea>
               </div>
 
               <div class="tile-footer">
-                <button class="btn btn-primary" name="agregarCot" type="submit">Guardar <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                
               </div>
               </form>
             </div>
@@ -230,7 +226,7 @@ www.chrometales.com                      </textarea>
             document.getElementById("studentName").value = myObj[0];
           }
         };
-        xm1hhtp.open("GET", "search.php?rollNo=" + str, true);
+        xm1hhtp.open("GET", "js/searchjs/search.php?rollNo=" + str, true);
         xm1hhtp.send();
       }
     }
@@ -253,25 +249,5 @@ www.chrometales.com                      </textarea>
     });
   </script>
 
-  <script>
-    function Getprecio(str) {
-      if (str.length == 0) {
-        document.getElementById("studentName2").value = "";
-
-        return;
-      } else {
-        var xm1hhtp2 = new XMLHttpRequest();
-        xm1hhtp2.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            var myObj2 = JSON.parse(this.responseText);
-            document.getElementById("studentName2").value = myObj2;
-
-          }
-        };
-        xm1hhtp2.open("GET", "search2.php?rollNo2=" + str, true);
-        xm1hhtp2.send();
-      }
-    }
-  </script>
 
 <?php } ?>

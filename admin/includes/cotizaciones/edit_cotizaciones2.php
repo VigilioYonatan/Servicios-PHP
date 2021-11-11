@@ -9,11 +9,11 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
   <main class="app-content">
     <div class="app-title">
       <div>
-        <h1><i class="fa fa-edit"></i> EDITAR COTIZACIÓN</h1>
+        <h1><i class="fa fa-edit"></i> EDITAR EVALUACIÓN</h1>
       </div>
       <ul class="app-breadcrumb breadcrumb side">
         <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="breadcrumb-item "><a href="index.php?action=view_cotizacion">Cotizaciones</a></li>
+        <li class="breadcrumb-item "><a href="index.php?action=lista_operaciones">Lista de Evaluaciones</a></li>
         <li class="breadcrumb-item active">Editar</li>
       </ul>
     </div>
@@ -26,174 +26,36 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
                 <h3 style="color:#dc3545; "><b><?php echo $fetch_cat['cot_codigo']; ?></b></h3>
 
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Editar Nombre:</label>
-                  <input class="form-control" type="text" name="nombre" value="<?php echo $fetch_cat['cot_cliente']; ?>" size="30" required>
+                  <label for="exampleInputEmail1">CLIENTE:</label>
+                  <input class="form-control" type="text" disabled value="<?php echo $fetch_cat['cot_cliente']; ?>" size="30" required>
                 </div>
+                 <div class="form-group">
+                <label for="exampleInputEmail1">ASIGNADO:</label>
+                <input type="text" class="form-control" value="<?php echo $fetch_cat['cot_asignado']; ?>" disabled>
 
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Editar estado:</label>
-                  <select class="form-control" name="estado" id="estado" required>
-                    <option value="<?php echo $fetch_cat['cot_estado']; ?>"><?php echo $fetch_cat['cot_estado']; ?></option>
-                    <?php
-                    $get_cats = "select * from venta_estado";
-
-                    $run_cats = mysqli_query($conexion, $get_cats);
-
-                    while ($row_cats = mysqli_fetch_array($run_cats)) {
-                      $estado_id = $row_cats['est_id'];
-                      $estado_nombre = $row_cats['est_nombre'];
-
-                      echo "<option value='$estado_nombre'>$estado_nombre</option>";
-                    }
-                    ?>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Editar forma de pago:</label>
-                  <select class="form-control" name="pago" id="pago" required>
-                    <option value="<?php echo $fetch_cat['cot_pago']; ?>"><?php echo $fetch_cat['cot_pago']; ?></option>
-                    <?php
-                    $get_cats = "select * from venta_pago";
-
-                    $run_cats = mysqli_query($conexion, $get_cats);
-
-                    while ($row_cats = mysqli_fetch_array($run_cats)) {
-                      $pago_id = $row_cats['pago_id'];
-                      $pago_nombre = $row_cats['pago_nombre'];
-
-                      echo "<option value='$pago_nombre'>$pago_nombre</option>";
-                    }
-                    ?>
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Editar moneda:</label>
-                  <select class="form-control" name="moneda" id="moneda">
-                    <option value="<?php echo $fetch_cat['cot_moneda']; ?>"><?php echo $fetch_cat['cot_moneda']; ?></option>
-                    <?php
-                    $get_cats = "select * from venta_moneda";
-
-                    $run_cats = mysqli_query($conexion, $get_cats);
-
-                    while ($row_cats = mysqli_fetch_array($run_cats)) {
-                      $moneda_id = $row_cats['moneda_id'];
-                      $moneda_nombre = $row_cats['moneda_nombre'];
-
-                      echo "<option value='$moneda_nombre'>$moneda_nombre</option>";
-                    }
-                    ?>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Editar Fecha:</label>
-                  <input class="form-control" type="text" name="fecha" value="<?php echo $fetch_cat['cot_fecha']; ?>" size="30" required>
-                </div>
-
-                <table class="table table-striped">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Servicio</th>
-                      <th>Nota</th>
-                      <th>Cantidad</th>
-                      <th>Observaciones</th>
-                    </tr>
-                  </thead>
-                  <?php
-                  $i = 1;
-                  $edit_cat2 = mysqli_query($conexion, "select * from cotizacion_servicio where cod_cot='$_GET[ruc]'");
-
-                  while ($row = mysqli_fetch_array($edit_cat2)) {
-                    $nombre = $row['nombre_cot'];
-                    $cantidad = $row['cantidad_cot'];
-                    $nota = $row['nota_cot'];
-                    $edit_cat3 = mysqli_query($conexion, "select * from cotizacion_servicio2 where cantidad_cot2='$cantidad' and cod_cot2='$_GET[ruc] '");
-                    $row2 = mysqli_fetch_array($edit_cat3);
-                  ?>
-                    <tbody>
-                      <tr>
-                        <td><?php echo $i ?></td>
-                        <td><?php echo $nombre; ?></td>
-                        <td><?php echo $nota; ?></td>
-                        <td><?php echo $cantidad; ?></td>
-
-                        <td><input type="text" name="observaciones" placeholder="Observaciones"></td>
-
-                      </tr>
-                    </tbody>
-                  <?php $i++;
-                  } ?>
-
-                </table>
-                <div class="tile-footer">
-                  <button class="btn btn-primary" name="edit_cotiOT" type="submit">PROCESAR <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                </div>
-
-                <div class="tile-footer">
-
-                </div>
+              </div>
+               <div class="form-group">
+                <label for="exampleInputEmail1">DIRECCIÓN:</label>
+                <input class="form-control" type="text" value="<?php echo $fetch_cat['cot_direccion']; ?>" size="30" disabled>
+              </div>
+           
             </div>
             <div class="col-lg-4 offset-lg-1"><br><br>
+             <div class="form-group">
+                  <label for="exampleInputEmail1">ESTADO:</label><br>
+                  <input type="text" class="form-control" value="<?php echo $fetch_cat['cot_estado']; ?>" disabled>
+                </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Asignado:</label>
-                <select class="form-control" name="asignado" id="entrega" required>
-                  <option value="<?php echo $fetch_cat['cot_asignado']; ?>"><?php echo $fetch_cat['cot_asignado']; ?></option>
-                  <?php
-                  $rol2 = 5;
-                  $get_asignado = "select * from usuarios where user_rol = '$rol2'";
-                  $get_asignado2 = mysqli_query($conexion, $get_asignado);
-                  while ($row_a = mysqli_fetch_array($get_asignado2)) {
-                    $asignados = $row_a['user_nombre'];
-                    echo "<option value='$asignados'>$asignados</option>";
-                  }
-
-                  ?>
-                </select>
+                <label for="exampleInputEmail1">TIEMPO DE ENTREGA:</label>
+                <input type="text" class="form-control" value="<?php echo $fetch_cat['cot_entrega']; ?>" disabled>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Editar tiempo de entrega:</label>
-                <select class="form-control" name="entrega" id="entrega" required>
-                  <option value="<?php echo $fetch_cat['cot_entrega']; ?>"><?php echo $fetch_cat['cot_entrega']; ?></option>
-                  <?php
-                  $get_cats = "select * from venta_entrega";
+                  <label for="exampleInputEmail1">CREADO:</label>
+                  <input type="text" class="form-control" value="<?php echo $fetch_cat['cot_fecha']; ?>" disabled>
+                </div>
 
-                  $run_cats = mysqli_query($conexion, $get_cats);
+             
 
-                  while ($row_cats = mysqli_fetch_array($run_cats)) {
-                    $entrega_id = $row_cats['entrega_id'];
-                    $entrega_nombre = $row_cats['entrega_nombre'];
-
-                    echo "<option value='$entrega_nombre'>$entrega_nombre</option>";
-                  }
-                  ?>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Expira:</label>
-                <select class="form-control" name="expira" id="expira" required>
-                  <option value="<?php echo $fetch_cat['cot_expira']; ?>"><?php echo $fetch_cat['cot_expira']; ?></option>
-                  <?php
-                  $get_cats = "select * from venta_expira";
-
-                  $run_cats = mysqli_query($conexion, $get_cats);
-
-                  while ($row_cats = mysqli_fetch_array($run_cats)) {
-                    $expira_id = $row_cats['expira_id'];
-                    $expira_nombre = $row_cats['expira_nombre'];
-
-                    echo "<option value='$expira_nombre'>$expira_nombre</option>";
-                  }
-                  ?>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Editar direccion:</label>
-                <input class="form-control" type="text" name="direccion" value="<?php echo $fetch_cat['cot_direccion']; ?>" size="30" required>
-              </div>
-              
               <?php $result = mysqli_query($conexion, "select * from servicios ");
 
               $array = array();
@@ -204,27 +66,76 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
                 }
               }
               ?>
+               </div>
+             </div>
+             <div class="row">
+              <div class="col-12 table-responsive">
+               <table class="table table-striped">
+                  <thead align="center">
+                    <tr>
+                      <th>ITEM</th>
+                      <th>NOTA</th>
+                      <th>CANTIDAD</th>
+                      <th>OBSERVACIONES</th>
+                    </tr>
+                  </thead>
+                  <?php
+                  $i = 1;
+                  $edit_cat2 = mysqli_query($conexion, "select * from cotizacion_servicio where cod_cot='$_GET[ruc]'");
 
+                  while ($row = mysqli_fetch_array($edit_cat2)) {
+                    $product_id =  $row['servicio_cot'];
+                    $nombre = $row['nombre_cot'];
+                    $cantidad = $row['cantidad_cot'];
+                    $nota = $row['nota_cot'];
+                    $servicio = $row['servicio_cot'];
+                    $observaciones  = $row['observacion_cot'];
+
+
+
+                  ?>
+                    <tbody align="center">
+                      <tr>
+                        <td><?php echo $nombre; ?></td>
+                        <td><?php echo $nota; ?></td>
+                        <td><?php echo $cantidad; ?></td>
+
+                        <td><input type="text" class="obv_id" data-id="<?php echo $product_id; ?>" value="<?php echo $observaciones; ?>" name="observaciones" placeholder="Observaciones" required></td>
+                        <!-- <td><input type="text" name="observaciones" placeholder="Observaciones" value="" required></td> -->
+                        <?php  ?>
+                      </tr>
+                    </tbody>
+                  <?php $i++;
+                  } ?>
+
+                </table>
+              </div>
+             </div>
+             
+             <div class="col-lg-4 offset-lg-1">
               <div class="form-group">
-                <label for="exampleInputEmail1">Asignar Tecnico:</label>
-                <input class="form-control rounded "  name="tecnico" id="tag" placeholder="Técnico" required>
-                
+                <label for="exampleInputEmail1">RESPONSABLE:</label>
+                <input class="form-control rounded " name="tecnico" id="tag" placeholder="Técnico" required>
+
               </div>
               <div class="col-md-5" style="position: relative;margin-top: -15px; margin-left:-15px;">
-        <div class="list-group" id="show-list">
-          <!-- autocompletado aqui -->
-        </div>
-      </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Detalle Operativo:</label>
-                <input class="form-control " type="text" name="operativo" placeholder="Detalle Operativo" size="30" required>
+                <div class="list-group" id="show-list">
+                  <!-- autocompletado aqui -->
+                </div>
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Requiere:</label>
-                <input class="form-control" type="text" name="requiere" placeholder="Requiere" size="30" required>
+                <label for="exampleInputEmail1">OPERACIONES:</label><br>
+                <textarea name="operativo" class="form-control" cols="65" rows="5" placeholder="Detalle Operativo" required></textarea>
               </div>
-
-              </form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">REQUIERE:</label>
+                <textarea name="requiere" class="form-control" cols="65" rows="5" placeholder="Requiere" required></textarea>
+              </div>
+            </div>
+             <div class="tile-footer">
+                  <button class="btn btn-primary" name="edit_cotiOT" type="submit">PROCESAR A OT <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                </div></div>
+          </form>
             </div>
 
           </div>
@@ -233,32 +144,27 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
       </div>
     </div>
   </main>
-
+  <input type="hidden" class="hidden_ip" value="<?php echo $_GET['ruc']; ?>">
   <?php
+
 
   if (isset($_POST['edit_cotiOT'])) {
 
-    $nombre_cotOT = $_POST['nombre'];
-    $estado_cotOT = $_POST['estado'];
-    $pago_cotOT = $_POST['pago'];
-    $moneda_cotOT = $_POST['moneda'];
-    $asignado_cotOT = $_POST['asignado'];
-    $entrega_cotOT = $_POST['entrega'];
-    $expira_cotOT = $_POST['expira'];
-    $direccion_cotOT = $_POST['direccion'];
-    $fecha_cotOT = $_POST['fecha'];
+    $nombre_cotOT = $fetch_cat['cot_cliente'];
+    $estado_cotOT = $fetch_cat['cot_estado'];
+    $pago_cotOT = $fetch_cat['cot_pago'];
+    $moneda_cotOT = $fetch_cat['cot_moneda'];
+    $asignado_cotOT = $fetch_cat['cot_asignado'];
+    $entrega_cotOT = $fetch_cat['cot_entrega'];
+    $expira_cotOT = $fetch_cat['cot_expira'];
+    $direccion_cotOT = $fetch_cat['cot_direccion'];
+    $fecha_cotOT = $fetch_cat['cot_fecha'];
 
     $tecnico_cotOT = $_POST['tecnico'];
     $operativo_cotOT = $_POST['operativo'];
     $requiere_cotOT = $_POST['requiere'];
 
-    //tabla
-
-    $nombre_serviciOT =   $nombre;
-    $nota_servicioOT = $nota;
-    $cantidad_servicioOT = $cantidad;
-    $observaciones_servicioOT = $_POST['observaciones'];
-
+    
     //codigo
     $all_cot = mysqli_query($conexion, "select * from otcotizacion_servicio");
     while ($row4 = mysqli_fetch_array($all_cot)) {
@@ -267,65 +173,92 @@ $fetch_cat = mysqli_fetch_array($edit_cat); ?>
       $codRo2 = str_replace('OT-', '', $codRo);
       $codRo3 = (int)$codRo2 + 1;
       $ser = 'OT-';
-      $cot_cod = $ser . $codRo3;
+      $ot_cod = $ser . $codRo3;
     }
 
-    $edit_cotOT = mysqli_query($conexion, "insert into otcotizacion_servicio (ot_codigo,ot_cot,ot_cliente,ot_asignado,ot_estado,ot_pago,ot_moneda,ot_entrega,ot_expira,ot_direccion,ot_fecha,ot_servicio,ot_nota,ot_cantidad,ot_observaciones,ot_tecnico,ot_operativo,ot_requiere) values ('$cot_cod','$_GET[ruc]','$nombre_cotOT','$asignado_cotOT','$estado_cotOT','$pago_cotOT','$moneda_cotOT','$entrega_cotOT','$expira_cotOT','$direccion_cotOT','$fecha_cotOT','$nombre_serviciOT','$nota_servicioOT','$cantidad_servicioOT','$observaciones_servicioOT','$tecnico_cotOT','$operativo_cotOT','$requiere_cotOT')");
+    $edit_cotOT = mysqli_query($conexion, "insert into otcotizacion_servicio (ot_codigo,ot_cot,ot_cliente,ot_asignado,ot_estado,ot_pago,ot_moneda,ot_entrega,ot_expira,ot_direccion,ot_fecha,ot_tecnico,ot_operativo,ot_requiere) values ('$ot_cod','$_GET[ruc]','$nombre_cotOT','$asignado_cotOT','$estado_cotOT','$pago_cotOT','$moneda_cotOT','$entrega_cotOT','$expira_cotOT','$direccion_cotOT','$fecha_cotOT','$tecnico_cotOT','$operativo_cotOT','$requiere_cotOT')");
+    // $eliminarObv = mysqli_query($conexion,"delete observacion_cot from cotizacion_servicio where cod_cot='$_GET[ruc]'"); no funca
 
+    $product_id = $_GET['ruc'];
+    $fetch_pro = mysqli_query($conexion, "select * from cotizacion_servicio where cod_cot='$product_id'");
+    while ($fetch_pro2 = mysqli_fetch_array($fetch_pro)) {
 
-    if ($edit_cotOT) {
-      echo "<script>alert('$cot_cod fue creado correctamente')</script>";
-      echo "<script>window.open('index.php?action=lista_operaciones','_self')</script>";
-    } else {
-      echo "<script>alert('ERROR')</script>";
+      //tabla 
+      $nombre_serviciOT = $fetch_pro2['nombre_cot'];
+      $nota_servicioOT = $fetch_pro2['nota_cot'];;
+      $cantidad_servicioOT = $fetch_pro2['cantidad_cot'];
+      $serviciocot_servicioOT = $fetch_pro2['servicio_cot'];
+      $observaciones_servicioOT = $fetch_pro2['observacion_cot'];
+      $edit_cotOT2 = mysqli_query($conexion, "insert into otcotizacion_servicio2 (ot2_cod,ot2_cot,ot2_nombre,ot2_nota,ot2_cantidad,ot2_observaciones) values ('$ot_cod','$_GET[ruc]','$nombre_serviciOT','$nota_servicioOT','$cantidad_servicioOT','$observaciones_servicioOT')");
+      if ($edit_cotOT2) {
+        echo "<script>alert('Nuevo Orden de Trabajo fue creado Correctamente')</script>";
+        echo "<script>window.open('index.php?action=lista_operaciones','_self')</script>";
+      } else {
+      }
     }
   }
   ?>
 
   <script type="text/javascript">
-  $(document).ready(function () {
-    // Send Search Text to the server
-    $("#tag").keyup(function () {
-      let searchText = $(this).val();
-      if (searchText != "") {
-        $.ajax({
-          url: "js/autocompletado/searchTecnico.php",
-          method: "post",
-          data: {
-            query: searchText,
-          },
-          success: function (response) {
-            $("#show-list").html(response);
-          },
-        });
-      } else {
+    $(document).ready(function() {
+      // Send Search Text to the server
+      $("#tag").keyup(function() {
+        let searchText = $(this).val();
+        if (searchText != "") {
+          $.ajax({
+            url: "js/autocompletado/searchTecnico.php",
+            method: "post",
+            data: {
+              query: searchText,
+            },
+            success: function(response) {
+              $("#show-list").html(response);
+            },
+          });
+        } else {
+          $("#show-list").html("");
+        }
+      });
+      // Set searched text in input field on click of search button
+      $(document).on("click", "a", function() {
+        $("#tag").val($(this).text());
         $("#show-list").html("");
-      }
+      });
     });
-    // Set searched text in input field on click of search button
-    $(document).on("click", "a", function () {
-      $("#tag").val($(this).text());
-      $("#show-list").html("");
+  </script>
+
+  <script>
+    $(document).ready(function() {
+
+      $(".obv_id").on("keyup", function() {
+
+        var pro_id = $(this).data("id");
+        var qty = $(this).val();
+        var nota = $(this).val();
+
+        var ip = $(".hidden_ip").val();
+
+        //alert(ip);
+
+        // Update servicios cantidad in ajax and php
+        $.ajax({
+          url: 'update_obv_ajax.php',
+          type: 'post',
+          data: {
+            id: pro_id,
+            Nota: nota,
+            //quantity: qty,
+
+            ip: ip
+          },
+          dataType: 'html',
+
+
+        });
+
+      });
+
     });
-  });
-</script>
-<script>
-
-    // $(document).ready(function() {
-    //   var items = <?= json_encode($array) ?>
-
-    //   $("#tag").autocomplete({
-    //     source: items,
-    //     select: function(event, item) {
-    //       var params = {
-    //         equipo: item.item.value
-    //       };
-    //       $.get("js/autocompletado/getTecnico.php", params, function(response) {
-            
-    //       }); // ajax
-    //     }
-    //   });
-    // });
   </script>
 
 <?php } ?>

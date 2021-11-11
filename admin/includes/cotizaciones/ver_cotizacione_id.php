@@ -110,18 +110,18 @@
                         <hr>
               <div class="row invoice-info">
                 <div class="col-6">
-                  <h5 class="colorText">Dirección: <b <?php echo $fetch_cat['cot_direccion'];?>></b></h5>
+                  <h5 class="colorText">Dirección: <b ><?php echo $fetch_cat['cot_direccion'];?></b></h5>
                 </div>
                 <div class="col-11">
                   <h5 class="colorText">Condiciones: <br></h5>
                    <h6><?php echo $fetch_cat['cot_condicion'];?></h6>
                 </div>
                 <div class="col-8">
-                  <h6 class="colorText"><b class="text-dark"><?php echo $fetch_cat['cot_pie'];?></b</h6>
+                  <h6 class="colorText"><b class="text-dark"><?php echo $fetch_cat['cot_pie'];?></b></h6>
                 </div>
               </div>
               <div class="row d-print-none mt-2">
-                <div class="col-12 text-right"><a class="btn btn-primary" href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Imprimir</a></div>
+              <div class="col-12 text-right"><a class="btn btn-primary" href="includes/cotizaciones/appPDF/pdf.php?id=<?php echo $_GET["cot_codigo"]; ?>" target="_blank"><i class="fa fa-print"></i> Imprimir</a></div>
               </div>
             </section>
           </div>

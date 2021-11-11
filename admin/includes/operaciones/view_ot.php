@@ -9,12 +9,12 @@
 <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-file-text-o"></i> VER OT</h1>
+          <h1><i class="fa fa-file-text-o"></i> VER ORDEN DE TRABAJO POR ID</h1>
         </div>
          <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item"><a href="index.php?action=view_cotizacion">OT</a></li>
-          <li class="breadcrumb-item active">OT ID</li>
+          <li class="breadcrumb-item"><a href="index.php?action=ordenes_trabajo">Lista de Ordenes</a></li>
+          <li class="breadcrumb-item active">Orden ID</li>
           
         </ul>
       </div>
@@ -27,54 +27,73 @@
             $fetch_cat = mysqli_fetch_array($edit_cat);
 
             ?>
+          <form action="" method="POST">
             <section class="invoice">
               <div class="row mb-4">
                 <div class="col-6">
-                  <h2 class="page-header"><i class="fa fa-globe"></i> Outsourcing</h2>
+                  <h2 class="page-header"><i class="fa fa-globe"></i> <span><?php echo $fetch_cat['ot_codigo'];?></span></h2>
                 </div>
                 <div class="col-6">
-                  <h5 class="text-right">Fecha: <b><?php echo $fetch_cat['ot_fechaEdit']; ?></b></h5>
+                  <h5 class="text-right">CREADO: <b><?php echo $fetch_cat['ot_fecha'];?></b></h5>
                 </div>
               </div>
               <div class="row invoice-info">
                 <div class="col-4">
-                  <h4 style="color:#dc3545;">Codigo: <b class="text-dark"><?php echo $fetch_cat['ot_codigo'];?></b></h4>
-                  <h5 class="colorText">Cliente: <span class="text-dark"><?php echo  $fetch_cat['ot_cliente'];?></span></h5>
-                  <h5 class="colorText">Tipo de Estado: <b><?php echo $fetch_cat['ot_estado'];?></b></h6>
+                  <h5 class="colorText">CLIENTE: <b class="text-dark"><?php echo  $fetch_cat['ot_cliente'];?></b></h5>
+                  
+                  
+                  <h5 class="colorText">PROCESADO: <b class="text-dark"><?php echo $fetch_cat['ot_fechaEdit']; ?></b></h5>
+                 
                 </div>
                 <div class="col-4">
-                <h5 class="colorText">Asignado: <b class="text-dark"><?php echo $fetch_cat['ot_asignado'];?></b></h5>
-                <h5 class="colorText">Tipo de Pago: <b class="text-dark"><?php echo $fetch_cat['ot_pago'];?></b></h5>
-                <h5 class="colorText">Tipo de Moneda: <b class="text-dark"><?php echo $fetch_cat['ot_moneda'];?></b></h5>
+                <h5 class="colorText">ASIGNADO: <b class="text-dark"><?php echo $fetch_cat['ot_asignado'];?></b></h5>
+
+                  <h5 class="colorText">ESTADO: <b class="text-dark"><?php echo $fetch_cat['ot_estado'];?></b></h5>
+               
+                
                </div>
                <div class="col-4">
-               <h5 class="colorText">Entrega: <b class="text-dark"><?php echo $fetch_cat['ot_entrega'];?></b></h5>
-               <h5 class="colorText">Expira: <b class="text-dark"><?php echo $fetch_cat['ot_expira'];?></b></h5>
-               <h5 class="colorText">Dirección: <b class="text-dark"><?php echo $fetch_cat['ot_direccion'];?></b></h5>
+               <h5 class="colorText">TIEMPO DE ENTREGA: <b class="text-dark"><?php echo $fetch_cat['ot_entrega'];?></b></h5>
+               
+               
+               
+               <h5 class="colorText">COT: <b class="text-dark"><?php echo $fetch_cat['ot_cot'];?></b></h5>
+               
               </div>
+              <div class="col-11"> <br>
+                <h5 class="colorText">DIRECCIÓN: <b class="text-dark"><?php echo $fetch_cat['ot_direccion'];?></b></h5>
               </div>
+              </div> <br>
               <div class="row">
                 <div class="col-12 table-responsive">
                   <table class="table table-striped">
                     <thead>
-                      <tr>
-                       
-                        <th>Item</th>
-                        <th>Nota</th>
-                        <th>Cantidad</th>
-                        <th>Observaciones</th>
+                      <tr align="center">       
+                        <th>ITEM</th>
+                        <th>NOTA</th>
+                        <th>CANTIDAD</th>
+                        <th>OBSERVACIONES</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody align="center">
+                    <?php
+                  
+                  $edit_cats = mysqli_query($conexion, "select * from otcotizacion_servicio2 where ot2_cod='$_GET[otcod]'");
+
+                  while ($rows = mysqli_fetch_array($edit_cats)) {
+
+                    ?>
                       <tr>
-               
-                        <td><?php echo $fetch_cat['ot_servicio'];?></td>
-                        <td><?php echo $fetch_cat['ot_nota'];?></td>
-                        <td><?php echo $fetch_cat['ot_cantidad'];?></td>
-                        <td><?php echo $fetch_cat['ot_observaciones'];?></td>
+                      
+                        <td><?php echo $rows['ot2_nombre'];?></td>
+                        <td><?php echo $rows['ot2_nota'];?></td>
+                        <td><?php echo $rows['ot2_cantidad'];?></td>
+                        <td><?php echo $rows['ot2_observaciones'];?></td>
                     
                         
                       </tr>
+                
+                      <?php }?>
                     </tbody>
                 
                   </table>
@@ -89,19 +108,111 @@
             <hr>    
               <div class="row invoice-info">
                 <div class="col-6">
-                <h5 class="colorText">Tecnico:<b class="text-dark"><?php echo $fetch_cat['ot_tecnico'];?></b></h5>
-                <h5 class="colorText">Operativo:<b class="text-dark"><?php echo $fetch_cat['ot_operativo'];?></b></h5>
-                <h5 class="colorText">Requiere:<b class="text-dark"><?php echo $fetch_cat['ot_requiere'];?></b></h5>
-                </div>
+                <h5 class="colorText">RESPONSABLE: <b class="text-dark"><?php echo $fetch_cat['ot_tecnico'];?></b></h5>
                 
+                <h5 class="colorText">OPERACIONES: <b class="text-dark"><?php echo $fetch_cat['ot_operativo'];?></b></h5>
+                
+                <h5 class="colorText">REQUIERE: <b class="text-dark"><?php echo $fetch_cat['ot_requiere'];?></b></h5>
+                
+                </div>
+              
               
               <div class="row d-print-none mt-2">
                 <!-- <div class="col-12 text-right"><a class="btn btn-primary" href="javascript:window.print();" target="_blank"><i class="fa fa-print"></i> Imprimir</a></div> -->
               </div>
             </section>
+          </form>
           </div>
         </div>
       </div>
     </main>
+
+    <?php
+    if(isset($_POST['procesarOP'])){
+       
+        $op_cot =  $fetch_cat['ot_cot'];
+        $op_cliente = $fetch_cat['ot_cliente'];
+        $op_asignado = $fetch_cat['ot_asignado'];
+        $op_entrega = $fetch_cat['ot_entrega'];
+        $op_estado = $fetch_cat['ot_estado'];
+        $op_pago = $fetch_cat['ot_pago'];
+        $op_direccion = $fetch_cat['ot_direccion'];
+        $op_creacion = $fetch_cat['ot_fecha'];
+        $op_moneda = $fetch_cat['ot_moneda'];
+        $op_fechaActual = $fetch_cat['ot_fechaEdit'];
+        $op_responsable = $_POST['op_responsable'];
+        $op_operativo = $fetch_cat['ot_operativo'];
+        $op_requiere = $fetch_cat['ot_requiere'];
+
+
+        
+
+        //codigo
+        $all_cot = mysqli_query($conexion, "select * from opcotizacion_servicio");
+        while ($row4 = mysqli_fetch_array($all_cot)) {
+
+          $codRo = $row4['op_codigo'];
+          $codRo2 = str_replace('OP-', '', $codRo);
+          $codRo3 = (int)$codRo2 + 1;
+          $ser = 'OP-';
+          $op_codigo = $ser . $codRo3;
+        }
+
+        $product_id = $_GET['otcod'];
+        $fetch_pro = mysqli_query($conexion, "select * from otcotizacion_servicio2 where ot2_cod='$product_id'");
+        while ($fetch_pro2 = mysqli_fetch_array($fetch_pro)) {
+
+          //tabla 
+          $nombre_serviciOT = $fetch_pro2['ot2_nombre'];
+          $nota_servicioOT = $fetch_pro2['ot2_nota'];
+          $cantidad_servicioOT = $fetch_pro2['ot2_cantidad'];
+          $observaciones_servicioOT = $fetch_pro2['ot2_observaciones'];
+
+          $edit_cotOT2 = mysqli_query($conexion, "insert into opcotizacion_servicio2(op2_cod,op2_cot,op2_nombre,op2_nota,op2_cantidad,op2_observaciones) values ('$op_codigo','$op_cot','$nombre_serviciOT','$nota_servicioOT','$cantidad_servicioOT','$observaciones_servicioOT')");
+        
+      
+        }
+
+      $addOP = mysqli_query($conexion,"insert into opcotizacion_servicio(op_codigo,op_ot,op_cot,op_cliente,op_asignado,op_entrega,op_estado,op_pago,op_direccion,op_creacion,op_moneda,op_responsable,op_operativo,op_requiere) values('$op_codigo','$_GET[otcod]','$op_cot','$op_cliente','$op_asignado','$op_entrega','$op_estado','$op_pago','$op_direccion','$op_creacion','$op_moneda','$op_responsable','$op_operativo','$op_requiere')");
+      if ($addOP){
+        echo "<script>alert('Nuevo Orden de Pedido:$op_codigo fue agregado correctamente ')</script>";
+        echo "<script>window.open('index.php?action=view_Ordpedido','_self')</script>";
+
+      }else{
+        echo "<script>alert('No se subió correctamente')</script>";
+      }
+
+        
+    }
+
+?>
+                 <!--   BUSCAR RESPONSABLE -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+      // Send Search Text to the server
+      $("#tag").keyup(function() {
+        let searchText = $(this).val();
+        if (searchText != "") {
+          $.ajax({
+            url: "js/autocompletado/searchResponsable.php",
+            method: "post",
+            data: {
+              query: searchText,
+            },
+            success: function(response) {
+              $("#show-list").html(response);
+            },
+          });
+        } else {
+          $("#show-list").html("");
+        }
+      });
+      // Set searched text in input field on click of search button
+      $(document).on("click", "a", function() {
+        $("#tag").val($(this).text());
+        $("#show-list").html("");
+      });
+    });
+  </script>
 
 <?php } ?>

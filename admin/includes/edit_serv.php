@@ -28,41 +28,10 @@ $fetch_cat = mysqli_fetch_array($edit_cat);
             <div class="row">
               <div class="col-lg-4 offset-lg-1">
                 <form action="" method="POST" accept-charset="utf-8">
-                  <h3 style="color:#dc3545; ">Codigo: <b><?php echo $fetch_cat['servicio_cod']; ?></b></h3>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Codigo:</label>
-                       <input class="form-control" type="text"name="serv_cod" value="<?php echo $fetch_cat['servicio_cod']; ?>" size="30" required >
-                  </div>
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Nombre de Servicio:</label>
-                       <input class="form-control" type="text"name="serv_nombre" value="<?php echo $fetch_cat['servicio_nombre']; ?>" size="30" required >
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar descripción de Servicio:</label>
-                    <textarea class="form-control" name="serv_desc" id="" cols="40" rows="5" required><?php echo $fetch_cat['servicio_desc']; ?></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Materiales de Servicio:</label>
-                    <textarea class="form-control" name="serv_mat" id="" cols="40" rows="5" required><?php echo $fetch_cat['servicio_mat']; ?></textarea>
-                  </div>
-
-                  <div class="tile-footer">
-              
-            </div>
-              </div>
-
-              <div class="col-lg-4 offset-lg-1">
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Servicios Disponibles:</label>
-                    <input class="form-control" type="number" placeholder="Ingrese precio" value="<?php echo $fetch_cat['servicio_disponibles']; ?>" name="serv_dis" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Precio de venta de Servicio:</label>
-                    <input class="form-control" type="text" placeholder="Ingrese precio" name="serv_precio" value="<?php echo $fetch_cat['servicio_pventa']; ?>" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar categoria de Servicio:</label>
+                  <br>
+                  <h3 style="color:#dc3545; "><b><?php echo $fetch_cat['servicio_cod']; ?></b></h3><br>
+                 <div class="form-group">
+                    <label for="exampleInputEmail1">CATEGORIA:</label>
                     <select class="form-control" name="cat_serv" id="entrega" required>
                       <option value="<?php echo $fetch_cat['servicio_categoria']; ?>"><?php echo $fetch_cat['servicio_categoria']; ?></option>
                       <?php
@@ -78,23 +47,17 @@ $fetch_cat = mysqli_fetch_array($edit_cat);
                       ?>
                     </select>
                   </div>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">DISPONIBLES:</label>
+                    <input class="form-control" type="number" placeholder="Ingrese precio" value="<?php echo $fetch_cat['servicio_disponibles']; ?>" name="serv_dis" required>
+                  </div>
+                 
                   <div class="form-group">
-      <label for="exampleInputEmail1">Editar estado:</label>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="estado_serv" value="1" <?php if ($fetch_cat['servicio_estado'] == '1') echo 'checked="checked"'; ?>>Activo
-              </label>
-            </div>
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="estado_serv" value="0" value="0" <?php if ($fetch_cat['servicio_estado'] == '0') echo 'checked="checked"'; ?>>No Activo
-              </label>
-            </div>
-          
-        </div>
-                  
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Proovedor de Servicio:</label>             
+                    <label for="exampleInputEmail1">DESCRIPCION:</label>
+                    <textarea class="form-control" name="serv_desc" id="" cols="40" rows="5" required><?php echo $fetch_cat['servicio_desc']; ?></textarea>
+                  </div>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">PROVEEDOR:</label>             
                     <select class="form-control" name="pro_serv" id="entrega" required>
                     <option value="<?php echo $fetch_cat['servicio_proveedor']; ?>"><?php echo $fetch_cat['servicio_proveedor']; ?></option>
                       <?php
@@ -111,6 +74,41 @@ $fetch_cat = mysqli_fetch_array($edit_cat);
                     </select>
                   </div>
                   
+
+                  <div class="tile-footer">
+              
+            </div>
+              </div>
+
+              <div class="col-lg-4 offset-lg-1">
+                 <div class="form-group">
+                    <label for="exampleInputEmail1">NOMBRE:</label>
+                       <input class="form-control" type="text"name="serv_nombre" value="<?php echo $fetch_cat['servicio_nombre']; ?>" size="30" required >
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">PRECIO:</label>
+                    <input class="form-control" type="text" placeholder="Ingrese precio" name="serv_precio" value="<?php echo $fetch_cat['servicio_pventa']; ?>" required>
+                  </div>
+  
+                  <div class="form-group">
+      <label for="exampleInputEmail1">ESTADO:</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="estado_serv" value="1" <?php if ($fetch_cat['servicio_estado'] == '1') echo 'checked="checked"'; ?>>Activo
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="estado_serv" value="0" value="0" <?php if ($fetch_cat['servicio_estado'] == '0') echo 'checked="checked"'; ?>>Inactivo
+              </label>
+            </div>
+          
+        </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">MATERIALES:</label>
+                    <textarea class="form-control" name="serv_mat" id="" cols="40" rows="5" required><?php echo $fetch_cat['servicio_mat']; ?></textarea>
+                  </div>
+                 
 
                   <div class="tile-footer">
               <button class="btn btn-primary" name="edit_serv"type="submit">Guardar  <i class="fa fa-floppy-o" aria-hidden="true"></i></button>

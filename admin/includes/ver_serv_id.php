@@ -13,7 +13,7 @@
         </div>
          <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item"><a href="index.php?action=view_serv">Servicios</a></li>
+          <li class="breadcrumb-item"><a href="index.php?action=view_serv">Lista de Servicios</a></li>
           <li class="breadcrumb-item active">Servicios ID</li>
           
         </ul>
@@ -30,29 +30,30 @@
             <section class="invoice">
               <div class="row mb-4">
                 <div class="col-6">
-                  <h2 class="page-header"><i class="fa fa-globe"></i> Outsourcing</h2>
+                  <h2 class="page-header"><i class="fa fa-globe"></i><?php echo $fetch_cat['servicio_cod'];?></h2>
                 </div>
                 
                </div>
               <div class="row invoice-info">
                 <div class="col-4">
-                  <h4 style="color:#dc3545;">Codigo: <b><?php echo $fetch_cat['servicio_cod'];?></b></h4>
-                  <h5 class="colorText">Nombre: <b class="text-dark"><?php echo $fetch_cat['servicio_nombre'];?></b></h5>
-                  <h5 class="colorText">P/S: <b class="text-dark"><?php echo $fetch_cat['servicio_tipo'];?></b></h5>
-                  <h5 class="colorText">Disponibles: <b class="text-dark"><?php echo $fetch_cat['servicio_disponibles'];?></b></h5>
-                    
+                 
+                  <h5 class="colorText">NOMBRE: <b class="text-dark"><?php echo $fetch_cat['servicio_nombre'];?></b></h5>
+                  
+                  <h5 class="colorText" >DISPONIBLES: <b class="text-dark"><?php echo $fetch_cat['servicio_disponibles'];?></b></h5>
+                   <h5 class="colorText">P/S: <b class="text-dark"><?php echo $fetch_cat['servicio_tipo'];?></b></h5> 
+                     <h5 class="colorText">ESTADO: <b class="text-dark"><?php echo $fetch_cat['servicio_estado'];?></b></h5>
                 </div>
+
                 <div class="col-4">
-                    <h5 class="colorText">Precio de venta: <b class="text-dark"><?php echo $fetch_cat['servicio_pventa'];?></b></h5>
-                  <h5 class="colorText">Categoria: <b class="text-dark"><?php echo $fetch_cat['servicio_categoria'];?></b></h5>
-                  <h5 class="colorText">Descripción: <b class="text-dark" ><?php echo $fetch_cat['servicio_desc'];?></b></h5>
+                    <h5 class="colorText">PRECIO DE VENTA: <b class="text-dark">S/.<?php echo $fetch_cat['servicio_pventa'];?></b></h5>
+                  <h5 class="colorText">CATEGORIA: <b class="text-dark"><?php echo $fetch_cat['servicio_categoria'];?></b></h5>
+                  <h5 class="colorText">PROVEEDOR: <b class="text-dark"><?php echo $fetch_cat['servicio_proveedor'];?></b></h5>
                
                 </div>
-                <div class="col-4">
-                  <h5 class="colorText">Proovedor: <b class="text-dark"><?php echo $fetch_cat['servicio_proveedor'];?></b></h5>
-                  <h5 class="colorText">Estado: <b class="text-dark"><?php echo $fetch_cat['servicio_estado'];?></b></h6>
-                  <h5 class="colorText">Materiales: <b class="text-dark"><?php echo $fetch_cat['servicio_mat'];?></b></h5>
-                  
+              
+                 <div class="col-11"><br>
+                  <h5 class="colorText" >DESCRIPCION: <b class="text-dark" ><?php echo $fetch_cat['servicio_desc'];?></b></h5>
+                   <h5 class="colorText" >MATERIALES: <b class="text-dark"><?php echo $fetch_cat['servicio_mat'];?></b></h5>
                 </div>
               </div>
              

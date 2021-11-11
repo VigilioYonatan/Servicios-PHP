@@ -129,7 +129,10 @@
 							$values_qty = $values2 * $qty;
 
 							$total += $values_qty;
-							$igv = 20;
+							$igv_num = mysqli_query($conexion, "select igv_numero from igv");
+							$row_igv = mysqli_fetch_array($igv_num);
+							
+							$igv = $row_igv['igv_numero'];
 							$todo = $total + $igv;
 							if (isset($_POST['guardar'])) {
 								$nota = $_POST['nota'];
@@ -138,7 +141,7 @@
 
 								if ($run_insert_prop) {
 									echo "<script>alert('Guardado correctamente')</script>";
-									echo "<script>window.open('index.php?action=view_cotizacion_id&cot_codigo=$_GET[cod_codigo]','_self')</script>";
+									echo "<script>window.open('index.php?action=view_cotizacion','_self')</script>";
 								}
 							}
 						}
@@ -166,9 +169,9 @@
 							$fetch_pro = mysqli_query($conexion, "select * from servicios where servicio_cod='$product_id'");
 							$fetch_pro = mysqli_fetch_array($fetch_pro);
 
-							$run_cart2 = mysqli_query($conexion, "select * from cotizacion_servicio where servicio_cot = '$product_id' ");
-							$fetch_pro2 = mysqli_fetch_array($run_cart2);
-							$qty2 = $fetch_pro2['cantidad_cot'];
+							//$run_cart2 = mysqli_query($conexion, "select * from cotizacion_servicio where servicio_cot = '$product_id' ");
+							//$fetch_pro2 = mysqli_fetch_array($run_cart2);
+							//$qty2 = $fetch_pro2['cantidad_cot'];
 
 							$pro_title = $fetch_pro['servicio_nombre'];
 							// $pro_precio = $fetch_pro['servicio_pventa'];

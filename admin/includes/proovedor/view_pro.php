@@ -10,11 +10,11 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-truck"></i> PROOVEDORES</h1>
+          <h1><i class="fa fa-truck"></i> PROVEEDORES</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item active">Proovedores</li>
+          <li class="breadcrumb-item active">Lista de Proveedores</li>
           
         </ul>
       </div>
@@ -34,12 +34,11 @@
                   <thead align="center">
                     <tr>
                       
-                      <th>Codigo</th>
+                      <th>CODIGO</th>
                       <th>RUC</th>
-                      <th>Razon Social</th>
-                      <th>Area</th>
-                      <th>Estado</th>
-                      <th>Asignado</th>
+                      <th>RAZON SOCIAL</th>
+                      <th>ESTADO</th>
+                      <th>CONTACTO</th>
                       <th>WEB</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
@@ -56,12 +55,12 @@
 
                     <tbody align="center">
                       <tr>
-                       <td><a href="index.php?action=view_proovedor_id&pro_codigo=<?php echo $row['cod_proovedor'];?>"style="color:#dc3545;"> <?php echo $row['cod_proovedor']; ?></a></td>
+                       <td><a href="index.php?action=view_proovedor_id&pro_codigo=<?php echo $row['cod_proovedor'];?>"style="color:#8E44AD;font-weight: bold;"> <?php echo $row['cod_proovedor']; ?></a></td>
                        <td><?php echo $row['ruc_proovedor']; ?></td>
                        <td><?php echo $row['razon_proovedor']; ?></td>
-                       <td><?php echo $row['area_proovedor']; ?></td>
+                      
                        <td><?php echo $row['estado_proovedor']; ?></td>
-                       <td><?php echo $row['asignado_proovedor']; ?></td>
+                       <td><?php echo $row['contacto_proovedor']; ?></td>
                        <td><a href="https://<?php echo $row['web_proovedor']; ?>" target="?blank"><?php echo $row['web_proovedor']; ?></a></td>
 
                      

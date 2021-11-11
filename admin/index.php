@@ -83,15 +83,33 @@
     break;
 
     case 'add_clientes';
-    include 'includes/cotizaciones/add_clientes.php';
+    include 'includes/crud/add_clientes.php';
     break;
 
     case 'edit_clien';
     include 'includes/cotizaciones/edit_cliente.php';
     break;
 
+
+
+    case 'lista_ocCliente';
+    include 'includes/ventas/lista_ocCliente.php';
+    break;
+    
+    case 'lista_ocClienteID';
+    include 'includes/ventas/lista_ocClienteID.php';
+    break;
+
+    case 'edit_ocClienteID';
+    include 'includes/ventas/edit_ocClienteID.php';
+    break;
+
+    case 'registrar_ocCliente';
+    include 'includes/cotizaciones/registrar_ocCliente.php';
+    break;
+
     case 'add_proovedor';
-    include 'includes/proovedor/add_pro.php';
+    include 'includes/crud/add_pro.php';
     break;
 
     case 'view_proovedor';
@@ -105,6 +123,8 @@
     case 'edit_proovedor';
     include 'includes/proovedor/edit_pro.php';
     break;
+    
+    
 
     case 'lista_operaciones';
     include 'includes/operaciones/lista_op.php';
@@ -118,14 +138,61 @@
     include 'includes/operaciones/view_ot.php';
     break;
 
+    case 'edit_ot';
+    include 'includes/operaciones/edit_ot.php';
+    break;
+
     case 'add_tipoMoneda';
     include 'includes/crud/add_tipoMoneda.php';
     break;
 
     
-    case 'add_area';
-    include 'includes/crud/add_area.php';
+    case 'add_area_cli';
+    include 'includes/crud/add_area_cli.php';
     break;
+
+    case 'add_estado_cot';
+    include 'includes/crud/add_estado_cot.php';
+    break;
+
+    case 'add_fPagoCot';
+    include 'includes/crud/add_fPago_cot.php';
+    break;
+
+    case 'add_moneda_cot';
+    include 'includes/crud/add_moneda_cot.php';
+    break;
+
+    case 'add_expira_cot';
+    include 'includes/crud/add_expira_cot.php';
+    break;
+
+    case 'upd_condicion';
+    include 'includes/crud/upd_condicion.php';
+    break;
+
+    case 'upd_pie';
+    include 'includes/crud/upd_pie.php';
+    break;
+
+    case 'add_igv';
+    include 'includes/crud/add_igv.php';
+    break;
+
+    case 'add_estado_cli';
+    include 'includes/crud/add_estado_cli.php';
+    break;
+
+
+    case 'view_Ordpedido';
+    include 'includes/logistica/view_Ordpedido.php';
+    break;
+
+    case 'view_Ordpedido_id';
+    include 'includes/logistica/view_Ordpedido_id.php';
+    break;
+
+
 
 
 

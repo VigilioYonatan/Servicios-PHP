@@ -25,39 +25,10 @@
               <form action="" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="exampleInputEmail1">CODIGO:</label>
-                  <input class="form-control" type="text" placeholder="Ingrese codigo" name="codigo_serv" required>
+                  <input class="form-control" type="text" placeholder="SER-XXX" name="codigo_serv" required>
                 </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Nombre del Servicio:</label>
-                  <input class="form-control" type="text" placeholder="Ingrese nombre" name="nombre_serv" required>
-
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Descripcion:</label>
-                  <textarea class="form-control" name="desc_serv" id="" cols="40" rows="5" required>Descripcion</textarea>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Materiales</label>
-                  <textarea class="form-control" name="mat_serv" id="" cols="40" rows="5" required>Materiales</textarea>
-                </div>
-
-
-            </div>
-
-            <div class="col-lg-4 offset-lg-1">
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Disponibles</label>
-                <input class="form-control" type="number" placeholder="Ingrese precio" name="dis_serv" required>
-              </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Precio:</label>
-                <input class="form-control" type="text" placeholder="Ingrese precio" name="precio_serv" required>
-
-              </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Categoria de Servicio:</label>
+               <div class="form-group">
+                <label for="exampleInputEmail1">CATEGORIA:</label>
                 <select class="form-control" name="cat_serv" id="entrega" required>
                   <?php
 
@@ -72,23 +43,16 @@
                   ?>
                 </select>
               </div>
-
-              <div class="form-group">
-                <label for="exampleInputEmail1">Editar estado:</label>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="estado_serv" value="1">Activo
-                  </label>
-                </div>
-                <div class="form-check">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="estado_serv" value="0">No Activo
-                  </label>
-                </div>
-
+               <div class="form-group">
+                <label for="exampleInputEmail1">DISPONIBLES:</label>
+                <input class="form-control" type="number" placeholder="Ingrese" name="dis_serv" required>
               </div>
 
-              <div class="form-group">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">DESCRIPCION:</label>
+                  <textarea class="form-control" name="desc_serv" id="" cols="40" rows="5" placeholder="Descripcion"required></textarea>
+                </div>
+                <div class="form-group">
                 <label for="exampleInputEmail1">PROOVEDOR:</label>
                 <select class="form-control" name="pro_serv" id="entrega" required>
                   <?php
@@ -108,6 +72,43 @@
                 <label for="">FOTO:</label><br>
                 <input type="file" name="producto_imagen">
               </div>
+
+            </div>
+
+            <div class="col-lg-4 offset-lg-1">
+               <div class="form-group">
+                  <label for="exampleInputEmail1">NOMBRE:</label>
+                  <input class="form-control" type="text" placeholder="Ingrese nombre" name="nombre_serv" required>
+
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">PRECIO:</label>
+                  <input class="form-control" type="text" placeholder="S/." name="precio_serv" required>
+
+                </div>
+             
+
+              
+              
+              <div class="form-group">
+                <label for="exampleInputEmail1">ESTADO:</label>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="estado_serv" value="1">Activo
+                  </label>
+                </div>
+                <div class="form-check">
+                  <label class="form-check-label">
+                    <input class="form-check-input" type="radio" name="estado_serv" value="0">Inactivo
+                  </label>
+                </div>
+
+              </div>
+              <div class="form-group">
+                  <label for="exampleInputEmail1">MATERIALES:</label>
+                  <textarea class="form-control" name="mat_serv" id="" cols="40" rows="5" placeholder="Materiales" required></textarea>
+                </div>
+
               <div class="form-group">
                 <label for="exampleInputEmail1">P/S:</label>
                 <div class="form-check">

@@ -13,7 +13,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item "><a href="index.php?action=view_clientes">Clientes</a></li>
+          <li class="breadcrumb-item "><a href="index.php?action=view_clientes">Lista de Clientes</a></li>
           <li class="breadcrumb-item active">Editar</li>
         </ul>
       </div>
@@ -22,54 +22,100 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
           <div class="tile">
             <div class="row">
               <div class="col-lg-4 offset-lg-1">
-                <form action="" method="POST" accept-charset="utf-8">
-                  <h3 style="color:#dc3545; ">RUC: <b><?php echo $fetch_cat['ruc_cliente']; ?></b></h3>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Nombre de Cliente:</label>
-                       <input class="form-control" type="text"name="cliente_nombre" value="<?php echo $fetch_cat['razon_cliente']; ?>" size="30" required >
-                  </div>
+                <form action="" method="POST" accept-charset="utf-8"><br>
+                  <h3 style="color:#dc3545; ">RUC: <b><?php echo $fetch_cat['ruc_cliente']; ?></b></h3><br>
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Direccion de Cliente:</label>
+                    <label for="exampleInputEmail1">DIRECCIÓN:</label>
                     <input class="form-control" type="text"name="cliente_direccion" value="<?php echo $fetch_cat['direccion_cliente']; ?>" size="30" required >
                   </div> 
                         
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar celular 1:</label>
+                    <label for="exampleInputEmail1">CELULAR 1:</label>
                     <input class="form-control" type="text"name="cliente_cel1" value="<?php echo $fetch_cat['celular1_cliente']; ?>" size="30" required >
                   </div> 
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar email 1:</label>
+                    <label for="exampleInputEmail1">EMAIL 1:</label>
                     <input class="form-control" type="text"name="cliente_email1" value="<?php echo $fetch_cat['email1_cliente']; ?>" size="30" required >
                   </div> 
-                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar contacto de Cliente:</label>
-                    <input class="form-control" type="text"name="cliente_contact" value="<?php echo $fetch_cat['contacto_cliente']; ?>" size="30" required >
-                  </div>  
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">PAGINA WEB:</label>
+                    <input class="form-control" type="text"name="cliente_web" value="<?php echo $fetch_cat['web_cliente']; ?>" size="30" required >
+                  </div> 
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">ESTADO:</label>
+                     <select class="form-control" name="cliente_est" id="moneda">
+                      <option value="<?php echo $fetch_cat['estado_cliente']; ?>"><?php echo $fetch_cat['estado_cliente']; ?></option>
+                      <?php
+                      $get_estado = "select * from cliente_estado ";
+                      $get_estado2 = mysqli_query($conexion,$get_estado);
+                      while ($row_a = mysqli_fetch_array($get_estado2)){
+                        $asignados = $row_a['nombre_estado'];
+                        echo "<option value='$asignados'>$asignados</option>";
+                      }
+
+                      ?>
+                    </select>
+                  </div>
 
                   <div class="tile-footer">
               
             </div>
           </div>
-              <div class="col-lg-4 offset-lg-1"><br><br>
+              <div class="col-lg-4 offset-lg-1">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Web:</label>
-                    <input class="form-control" type="text"name="cliente_web" value="<?php echo $fetch_cat['web_cliente']; ?>" size="30" required >
-                  </div> 
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar area:</label>
-                    <input class="form-control" type="text"name="cliente_area" value="<?php echo $fetch_cat['area_cliente']; ?>" size="30" required >
+                    <label for="exampleInputEmail1">RAZON SOCIAL:</label>
+                       <input class="form-control" type="text"name="cliente_nombre" value="<?php echo $fetch_cat['razon_cliente']; ?>" size="30" required >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar celular 2:</label>
+                    <label for="exampleInputEmail1">CONTACTO:</label>
+                    <input class="form-control" type="text"name="cliente_contact" value="<?php echo $fetch_cat['contacto_cliente']; ?>" size="30" required >
+                  </div> 
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">CELULAR 2:</label>
                     <input class="form-control" type="text"name="cliente_cel2" value="<?php echo $fetch_cat['celular2_cliente']; ?>" size="30" required >
                   </div> 
-
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar email 2:</label>
+                    <label for="exampleInputEmail1">EMAIL 2:</label>
                     <input class="form-control" type="text"name="cliente_email2" value="<?php echo $fetch_cat['email2_cliente']; ?>" size="30" required >
-                  </div> 
+                  </div>
+                
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">AREA:</label>
+                    <select class="form-control" name="cliente_area" id="entrega" required>
+                       <option value="<?php echo $fetch_cat['area_cliente']; ?>"><?php echo $fetch_cat['area_cliente']; ?></option>
+                    
+                    <?php
+                      $rol2 = 5 ;
+
+                      $get_asignado = "select * from cliente_area";
+                      $get_asignado2 = mysqli_query($conexion,$get_asignado);
+                      while ($row_a = mysqli_fetch_array($get_asignado2)){
+                        $asignados = $row_a['area_nombre'];
+                        echo "<option value='$asignados'>$asignados</option>";
+                      }
+
+                      ?>
+                  </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">ASIGNADO:</label>
+                    <select class="form-control" name="cliente_asig" id="entrega" required>
+                       <option value="<?php echo $fetch_cat['asignado_cliente']; ?>"><?php echo $fetch_cat['asignado_cliente']; ?></option>
+                      <?php
+                      $rol2 = 5 ;
+
+                      $get_asignado = "select * from usuarios where user_rol = '$rol2'";
+                      $get_asignado2 = mysqli_query($conexion,$get_asignado);
+                      while ($row_a = mysqli_fetch_array($get_asignado2)){
+                        $asignados = $row_a['user_nombre'];
+                        echo "<option value='$asignados'>$asignados</option>";
+                      }
+
+                      ?>
+                    </select>
+                  </div>
                   <div class="tile-footer">
                     <button class="btn btn-primary" name="edit_cliente"type="submit">Guardar  <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                   </div>
@@ -97,7 +143,9 @@ if (isset($_POST['edit_cliente'])) {
         $cliente_email2 = $_POST['cliente_email2'];
         $cliente_web = $_POST['cliente_web'];
         $cliente_area = $_POST['cliente_area'];
-        $edit_serv = "update clientes set razon_cliente='$nombre_cliente', direccion_cliente= '$direccion_cliente',contacto_cliente='$cliente_contact',celular1_cliente = '$cliente_cel1',celular2_cliente = '$cliente_cel2', email1_cliente ='$cliente_email1',email2_cliente ='$cliente_email2',web_cliente='$cliente_web',area_cliente='$cliente_area' where ruc_cliente='$_GET[ruc]'";
+        $cliente_estado=$_POST['cliente_est'];
+        $cliente_asignado=$_POST['cliente_asig'];
+        $edit_serv = "update clientes set razon_cliente='$nombre_cliente', direccion_cliente= '$direccion_cliente',contacto_cliente='$cliente_contact',celular1_cliente = '$cliente_cel1',celular2_cliente = '$cliente_cel2', email1_cliente ='$cliente_email1',email2_cliente ='$cliente_email2',web_cliente='$cliente_web',area_cliente='$cliente_area',estado_cliente='$cliente_estado',asignado_cliente='$cliente_asignado' where ruc_cliente='$_GET[ruc]'";
         $edit_serv2 = mysqli_query($conexion, $edit_serv);
 
         echo "<script>window.open('index.php?action=view_clientes','_self')</script>";

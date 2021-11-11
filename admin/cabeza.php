@@ -87,9 +87,23 @@ session_start();
       </div>
       <ul class="app-menu" style="font-weight: bold;">
         <li><a class="app-menu__item " href="index.php"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">DASHBOARD</span></a></li>
+        <li><a class="app-menu__item" href="index.php?action=view_serv" ><i class="app-menu__icon fa fa-handshake-o"></i><span class="app-menu__label">PRODUCTOS / SERVICIOS</span></a>
+         
+        </li>
 
         <li><a class="app-menu__item" href="index.php?action=view_proovedor" ><i class="app-menu__icon fa fa-truck"></i><span class="app-menu__label">PROOVEDORES</span></a>
          
+        </li>
+        <li><a class="app-menu__item" href="index.php?action=view_clientes" ><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">CLIENTES</span></a>
+         
+        </li>
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-cogs"></i>
+          <span class="app-menu__label">OPERACIONES</span>
+          <i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="index.php?action=lista_operaciones"><i class="icon fa fa-circle-o"></i>Evaluaciones</a></li>
+            <li><a class="treeview-item" href="index.php?action=ordenes_trabajo"><i class="icon fa fa-circle-o"></i>Ordenes de Trabajo</a></li>
+          </ul>
         </li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-money"></i>
           <span class="app-menu__label">VENTAS</span>
@@ -98,39 +112,53 @@ session_start();
             <li><a class="treeview-item" href="index.php?action=view_cotizacion"><i class="icon fa fa-circle-o"></i> Cotizaciones</a></li>
             <li><a class="treeview-item" href="index.php?action=view_clientes" ><i class="icon fa fa-circle-o"></i> Clientes</a></li>
             <li><a class="treeview-item" href="index.php?action=view_proovedor"><i class="icon fa fa-circle-o"></i> Proveedores</a></li>
+            <!-- <li><a class="treeview-item" href="index.php?action=registrar_ocCliente"><i class="icon fa fa-circle-o"></i> OC CLIENTES</a></li> -->
+            <li><a class="treeview-item" href="index.php?action=lista_ocCliente"><i class="icon fa fa-circle-o"></i>  O.C. Clientes</a></li>
            
            
           </ul>
         </li>
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-bar-chart"></i><span class="app-menu__label">LOGISTICA</span></a></li>
-
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">ALMACEN</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-money"></i>
-          <span class="app-menu__label">OPERACIONES</span>
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-bar-chart"></i>
+          <span class="app-menu__label">LOGISTICA</span>
           <i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="index.php?action=lista_operaciones"><i class="icon fa fa-circle-o"></i>Evaluaciones</a></li>
-            <li><a class="treeview-item" href="index.php?action=ordenes_trabajo"><i class="icon fa fa-circle-o"></i>Lista de ordenes de Trabajo</a></li>
+            <li><a class="treeview-item" href="index.php?action=view_Ordpedido"><i class="icon fa fa-circle-o"></i>Ordenes de Pedido</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>OC Proveedor</a></li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Proveedores</a></li>
           </ul>
         </li>
-        
-        <li class="treeview"><a class="app-menu__item" href="index.php?action=view_serv" data-toggle="treeview"><i class="app-menu__icon fa fa-handshake-o"></i><span class="app-menu__label">SERVICIOS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="index.php?action=view_serv"><i class="icon fa fa-circle-o"></i> Lista de Servicios</a></li>
-            <li><a class="treeview-item" href="index.php?action=add_serv"><i class="icon fa fa-circle-o"></i> Agregar Servicios</a></li>
-            
-          </ul>
-        </li>
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-search"></i><span class="app-menu__label">INCIDENCIAS</span></a></li>
+        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">ALMACEN</span></a></li>
+       
+
+        <!--<li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-search"></i><span class="app-menu__label">INCIDENCIAS</span></a></li>--->
 
        <?php if($_SESSION['role'] == 5){ ?>
 
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-lock"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="index.php?action=view_users"><i class="icon fa fa-circle-o"></i> Lista de Empleados</a></li>
-            <li><a class="treeview-item" href="index.php?action=add_rol"><i class="icon fa fa-circle-o"></i> Agregar Rol</a></li>
-            <li><a class="treeview-item" href="index.php?action=add_tipoMoneda"><i class="icon fa fa-circle-o"></i> Agregar Tipo de Moneda</a></li>
-            <li><a class="treeview-item" href="index.php?action=add_area"><i class="icon fa fa-circle-o"></i> Agregar Area</a></li>
+            <li><a class="treeview-item" href="index.php?action=view_users"><i class="icon fa fa-circle-o"></i> Lista de Usuarios</a></li>
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-cogs"></i>
+            <span class="app-menu__label">CRUD</span>
+            <i class="treeview-indicator fa"></i></a>
+            <ul class="treeview-menu">
+              <li><a class="treeview-item" href="../registrar.php"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_rol"><i class="icon fa fa-circle-o"></i> Rol</a></li>
+              <!-- <li><a class="treeview-item" href="index.php?action=add_tipoMoneda"><i class="icon fa fa-circle-o"></i> Tipo de Moneda</a></li> -->
+              <li><a class="treeview-item" href="index.php?action=add_proovedor"><i class="icon fa fa-circle-o"></i>Proveedores</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_clientes"><i class="icon fa fa-circle-o"></i>Clientes</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_serv"><i class="icon fa fa-circle-o"></i>Productos/Servicios</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_estado_cot"><i class="icon fa fa-circle-o"></i>Estado COT</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_fPagoCot"><i class="icon fa fa-circle-o"></i>Formas de pago COT</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_moneda_cot"><i class="icon fa fa-circle-o"></i>Moneda COT</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_expira_cot"><i class="icon fa fa-circle-o"></i>Valide de oferta COT</a></li>
+              <li><a class="treeview-item" href="index.php?action=upd_condicion"><i class="icon fa fa-circle-o"></i>Condiciones Generales</a></li>
+              <li><a class="treeview-item" href="index.php?action=upd_pie"><i class="icon fa fa-circle-o"></i>Pie de Página</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_igv"><i class="icon fa fa-circle-o"></i>IGV</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_estado_cli"><i class="icon fa fa-circle-o"></i>Estado CLI-PROV</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_area_cli"><i class="icon fa fa-circle-o"></i>Area CLI</a></li>
+
+          </ul>
+        </li>
           </ul>
         </li>
         

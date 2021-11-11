@@ -13,7 +13,7 @@
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item"><a href="index.php?action=view_cotizacion">Cotizaciones</a></li>
+          <li class="breadcrumb-item"><a href="index.php?action=view_cotizacion">Lista de Cotizaciones</a></li>
           <li class="breadcrumb-item active">Servicios</li>
           
         </ul>
@@ -33,11 +33,11 @@
                     <tr>
                       
                       <th>ID</th>
-                      <th>Nombre </th>
-                      <th>Imagen </th>
-                      <th>Disponibles</th>
-                      <th>Precio</th>
-                        <th>Añadir</th>
+                      <th>NOMBRE</th>
+                      <th>IMAGEN</th>
+                      <th>DISPONIBLES</th>
+                      <th>PRECIO</th>
+                        <th>Añadir P/S</th>
                     </tr>
                   </thead>
                   <?php

@@ -9,11 +9,11 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-file-text"></i> LISTA DE EVALUACIONES</h1>
+          <h1><i class="fa fa-file-text"></i> EVALUACIONES APROBADAS</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item active">Cotizaciones</li>
+          <li class="breadcrumb-item active">Lista de Evaluaciones</li>
           
         </ul>
       </div>
@@ -38,13 +38,12 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                   <thead align="center">
                     <tr>
                       
-                      <th>Codigo </th>
-                      <th>Cliente</th>
-                      <th>Asignado</th>
-                      <th>Estado</th>
-                      <th>Pago</th>
-                      <th>Moneda</th> 
-                      <th>Fecha de cotizacion</th>
+                      <th>CODIGO</th>
+                      <th>CLIENTE</th>
+                      <th>ASIGNADO</th>
+                      <th>ESTADO</th>
+                      <th>TIEMPO DE ENTREGA</th>
+                      <th>CREADO</th>
                       <th>Editar</th>
                       <!-- <th>Eliminar</th> -->
                     </tr>
@@ -61,12 +60,11 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                     <tbody align="center">
                       <tr>
                         
-                       <td  ><a href="index.php?action=view_cotizacion_id&cot_codigo=<?php echo $row['cot_codigo'];?>"style="color:#dc3545;"><?php echo $row['cot_codigo']; ?></a></td>
+                       <td  ><a href="index.php?action=view_cotizacion_id&cot_codigo=<?php echo $row['cot_codigo'];?>"style="color:#2E86C1; font-weight: bold;"><?php echo $row['cot_codigo']; ?></a></td>
                        <td><?php echo $row['cot_cliente']; ?></td>
                        <td><?php echo $row['cot_asignado']; ?></td>
                        <td><?php echo $row['cot_estado']; ?></td>
-                       <td><?php echo $row['cot_pago']; ?></td>
-                       <td><?php echo $row['cot_moneda']; ?></td>
+                       <td><?php echo $row['cot_entrega']; ?></td>
                        <td><?php echo $row['cot_fecha']; ?></td>
                       <!-- <td><a href="lista_servicio.php?ruc=<?php echo $row['cot_codigo']; ?>" >Tabla</a></td>  comentado para ver si el profe diga que si lo agregamos -->
                            <td class="delete"><a href="index.php?action=edit_cotizacion2&ruc=<?php echo $row['cot_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>

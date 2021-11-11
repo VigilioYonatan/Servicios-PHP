@@ -14,7 +14,7 @@
       </div>
       <ul class="app-breadcrumb breadcrumb side">
         <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-        <li class="breadcrumb-item active">Clientes</li>
+        <li class="breadcrumb-item active">Lista de Clientes</li>
 
       </ul>
     </div>
@@ -37,10 +37,10 @@
 
                       <th>CODIGO</th>
                       <th>RUC</th>
-                      <th>Razon Social</th>
-                      <th>Area</th>
-                      <th>Estado</th>
-                      <th>Asignado</th>
+                      <th>RAZON SOCIAL</th>
+                      <th>AREA</th>
+                      <th>ESTADO</th>
+                      <th>ASIGNADO</th>
                       <th>WEB</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
@@ -57,7 +57,7 @@
 
                     <tbody align="center">
                       <tr>
-                        <td><a href="index.php?action=view_cliente_id&cliente_codigo=<?php echo $row['cod_cliente']; ?>"style="color:#dc3545;"><?php echo $row['cod_cliente']; ?></a></td>
+                        <td><a href="index.php?action=view_cliente_id&cliente_codigo=<?php echo $row['cod_cliente']; ?>"style="color:#D4AC0D; font-weight: bold;"><?php echo $row['cod_cliente']; ?></a></td>
                         <td><?php echo $row['ruc_cliente']; ?></td>
                         <td><?php echo $row['razon_cliente']; ?></td>
                         <td><?php echo $row['area_cliente']; ?></td>

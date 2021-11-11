@@ -1,4 +1,3 @@
-
 <?php include('cabeza.php'); ?>
 <link href="styles/main.css" type="text/css" rel="stylesheet">
 <?php if($_SESSION['role'] != 7 AND $_SESSION['role'] != 17 AND $_SESSION['role'] != 5 ){
@@ -15,7 +14,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item active"><a href="index.php?action=view_cotizacion">Cotizaciones</a></li>
+          <li class="breadcrumb-item active"><a href="index.php?action=view_cotizacion">Lista de Cotizaciones</a></li>
           
         </ul>
       </div>
@@ -36,13 +35,12 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                   <thead align="center">
                     <tr>
                       
-                      <th>Codigo </th>
-                      <th>Cliente</th>
-                      <th>Asignado</th>
-                      <th>Estado</th>
-                      <th>Pago</th>
-                      <th>Moneda</th> 
-                      <th>Fecha de cotizacion</th>
+                      <th>CODIGO </th>
+                      <th>CLIENTE</th>
+                      <th>ASIGNADO</th>
+                      <th>ESTADO</th>
+                      <th>PAGO</th>
+                      <th>FECHA DE CREACION</th>
                       <th>Agregar tabla</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
@@ -78,7 +76,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                                         <td>$pro_asignado</td>
                                         <td>$pro_estado</td>
                                         <td>$pro_pago</td>
-                                        <td>$pro_moneda</td>
+                                      
                                         <td>$pro_fecha</td>
                                         <td><a href='index.php?action=list_servicio&ruc=$row_pro[cot_codigo]' ><i class='fa fa-table fa-2x' aria-hidden='true'></i></a></td> 
                                         <?php if ($pro_cod != $_SESSION[cod_user]) {?>

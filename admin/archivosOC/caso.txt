@@ -1,0 +1,25 @@
+PRACTICA CALIFICADA
+Desarrollar la siguiente pagina web en el Leng. Prog. PHP POO.
+Planilla de trabajadores.
+Ingresar los siguientes datos
+	Nombre del trabajador 
+	Sexo 
+	Estado Civil
+	Hijo
+Hallar
+Sueldo basico--> 5000 para  los varones y 4000 para mujeres
+APORT AFP-->Casados 10% del sueldo basico
+      Soltero 15% del sueldo basico
+      Divorciado 5% del sueldo basico.
+      Viudo 0
+APORT ESSALUD--->10% del sueldo basico para los que tienen hijos
+	5% del SB para los que no tienen.
+APORT ESPECIAL--->10% del sueldo basico para todos.
+TOTAL APORTACION--->suma de las aportaciones.
+BONIF1--->20% del Sueldo basico para lasMadres solteras, cero para el 	resto
+BONIF2--->20% del sueldo basico casados con hijos, cero para el resto
+BONIF3--->10% del sueldo basico para los que tienen entre 21--30 años
+	20% del sueldo basico para los que tienen entre 41--50 años.
+	cero para el resto
+TOTAL BONIF--->Suma de bonificaciones
+NETO A COBRAR--> Sueldo basico mas bonificaciones menos aportaciones.

@@ -9,11 +9,11 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-file-text"></i>ORDEN DE TRABAJO</h1>
+          <h1><i class="fa fa-file-text"></i> ORDENES DE TRABAJO</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item active">Cotizaciones</li>
+          <li class="breadcrumb-item active">Lista de Ordenes</li>
           
         </ul>
       </div>
@@ -32,9 +32,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
               
 
       <!-- TABLA OT -->
-      <div>
-          <h3><i class="fa fa-file-text"></i>LISTADO DE OT</h3>
-        </div>
+     
       <div class="row" style="font-size: 15px;">
         <div class="col-md-12">
           <div class="tile">
@@ -47,15 +45,14 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                   <thead align="center">
                     <tr>
                       
-                      <th>Codigo </th>
-                      <th>Cliente</th>
-                      <th>Asignado</th>
-                      <th>Estado</th>
-                      <th>Pago</th>
-                      <th>Moneda</th> 
-                      <th>Fecha de cotizacion</th>
-                      <th>Fecha de Edicion</th>
-                      <!-- <th>Editar</th> -->
+                      <th>CODIGO </th>
+                      <th>CLIENTE</th>
+                      <th>ASIGNADO</th>
+                      <th>ESTADO</th>
+                      <th>COT</th>
+                      <th>CREADO</th>
+                      <th>PROCESADO</th>
+                      <th>Editar</th> 
                       <th>Eliminar</th>
                     </tr>
                   </thead>
@@ -71,18 +68,18 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                     <tbody align="center">
                       <tr>
                         
-                       <td> <a href="index.php?action=view_ot&otcod=<?php echo $row['ot_codigo']; ?>"> <?php echo $row['ot_codigo']; ?></a></td>
+                       <td> <a href="index.php?action=view_ot&otcod=<?php echo $row['ot_codigo']; ?>" style="color: #D35400; font-weight: bold;"> <?php echo $row['ot_codigo']; ?></a></td>
                        <td><?php echo $row['ot_cliente']; ?></td>
                        <td><?php echo $row['ot_asignado']; ?></td>
                        <td><?php echo $row['ot_estado']; ?></td>
-                       <td><?php echo $row['ot_pago']; ?></td>
-                       <td><?php echo $row['ot_moneda']; ?></td>
+                       <td><?php echo $row['ot_cot']; ?></td>
+                       
                        <td><?php echo $row['ot_fecha']; ?></td>
                        <td><?php echo $row['ot_fechaEdit']; ?></td>
                       <!-- <td><a href="lista_servicio.php?ruc=<?php echo $row['cot_codigo']; ?>" >Tabla</a></td>  -->
-                           <!-- <td class="delete"><a href="index.php?action=edit_cotizacion2&ruc=<?php echo $row['cot_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>  -->
+                           <td class="delete"><a href="index.php?action=edit_ot&otcod=<?php echo $row['ot_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td> 
 
-                           <td class="delete"><a href="index.php?action=lista_operaciones&delete_ot=<?php echo $row['ot_codigo']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+                           <td class="delete"><a href="index.php?action=ordenes_trabajo&delete_ot=<?php echo $row['ot_codigo']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
 
                       </tr>
 
@@ -110,7 +107,7 @@ if(isset($_GET['delete_cotizacion'])){
 
   if($delete_serv){
 
-  echo "<script>window.open('index.php?action=lista_operaciones','_self')</script>";
+    echo "<script>window.open('index.php?action=ordenes_trabajo','_self')</script>";
 
 
     }
@@ -118,14 +115,9 @@ if(isset($_GET['delete_cotizacion'])){
 
   if(isset($_GET['delete_ot'])){
     $delete_serv = mysqli_query($conexion,"delete from otcotizacion_servicio where ot_codigo='$_GET[delete_ot]' ");
-  
-    if($delete_serv){
-  
-    echo "<script>window.open('index.php?action=lista_operaciones','_self')</script>";
-  
-  
-      }
-    }
+    $delete_serv2 = mysqli_query($conexion,"delete from otcotizacion_servicio2 where ot2_cod='$_GET[delete_ot]' ");
+    echo "<script>window.open('index.php?action=ordenes_trabajo','_self')</script>";
+  }
   ?>
 
 <?php } ?>

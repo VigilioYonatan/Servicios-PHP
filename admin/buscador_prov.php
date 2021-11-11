@@ -12,11 +12,11 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-truck"></i> PROOVEDORES</h1>
+          <h1><i class="fa fa-truck"></i> PROVEEDORES</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item active"><a href="index.php?action=view_proovedor">Proovedores</a></li>
+          <li class="breadcrumb-item active"><a href="index.php?action=view_proovedor">Lista de Proveedores</a></li>
           
         </ul>
       </div>
@@ -36,12 +36,11 @@
                   <thead align="center">
                     <tr>
                       
-                      <th>Codigo</th>
+                      <th>CODIGO</th>
                       <th>RUC</th>
-                      <th>Razon Social</th>
-                      <th>Area</th>
-                      <th>Estado</th>
-                      <th>Asignado</th>
+                      <th>RAZON SOCIAL</th>
+                      <th>ESTADO</th>
+                      <th>CONTACTO</th>
                       <th>WEB</th>
                       <th>Editar</th>
                       <th>Eliminar</th>
@@ -63,9 +62,8 @@
                             $pro_cod = $row_pro['cod_proovedor'];
                             $pro_ruc = $row_pro['ruc_proovedor'];
                             $pro_razon = $row_pro['razon_proovedor'];
-                            $pro_area  = $row_pro['area_proovedor'];
                             $pro_estado = $row_pro['estado_proovedor'];
-                            $pro_asignado = $row_pro['asignado_proovedor'];
+                            $pro_contacto = $row_pro['contacto_proovedor'];
                             $pro_web = $row_pro['web_proovedor'];
                         
 
@@ -75,14 +73,13 @@
                                         <td><a href='index.php?action=view_proovedor_id&pro_codigo=$pro_cod'style='color:#dc3545;'>$pro_cod</a> </td>
                                         <td>$pro_ruc </td>
                                         <td>$pro_razon</td>
-                                        <td>$pro_area</td>
                                         <td>$pro_estado</td>
-                                        <td>$pro_asignado</td>
+                                        <td>$pro_contacto</td>
                                         <td><a href='https://$pro_web'>$pro_web</td>
                                 
                                         
                                         <?php if ($pro_cod != $_SESSION[cod_user]) {?>
-                                        <td class='delete'><a href='index.php?action=edit_proovedor&ruc=$pro_ruc' ><i class='fa fa-pencil fa-2x' aria-hidden='true'></i></a></td>
+              <td class='delete'><a href='index.php?action=edit_proovedor&ruc=$pro_ruc' ><i class='fa fa-pencil fa-2x' aria-hidden='true'></i></a></td>
 
                                         <td class='delete'><a href='index.php?action=view_proovedor&delete_pro=$pro_ruc' onclick='return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');'><i class='fa fa-trash fa-2x' aria-hidden='true'></i></a></td>
                                         <?php } ?> 

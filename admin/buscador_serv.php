@@ -9,7 +9,7 @@
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-handshake-o"></i> SERVICIOS</h1>
+            <h1><i class="fa fa-handshake-o"></i> PRODUCTOS / SERVICIOS</h1>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
             <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
@@ -33,13 +33,13 @@
                                 <thead align="center">
                                     <tr>
 
-                                        <th>Codigo </th>
-                                        <th>Nombre </th>
-                                        <th>Disponibles</th>
-                                        <th>Precio</th>
-                                        <th>Categoria </th>
-                                        <th>Estado </th>
-                                        <th>Proovedor</th>
+                                        <th>CODIGO </th>
+                                        <th>NOMBRE </th>
+                                        <th>IMAGEN</th>
+                                        <th>DISPONIBLES</th>
+                                        <th>CATEGORIA </th>
+                                        <th>ESTADO </th>
+                                        <th>PROVEEDOR</th>
                                         <th>Editar</th>
                                         <th>Eliminar</th>
                                     </tr>
@@ -60,7 +60,7 @@
                                             $pro_cod = $row_pro['servicio_cod'];
                                             $pro_nombre = $row_pro['servicio_nombre'];
                                             $pro_disp  = $row_pro['servicio_disponibles'];
-                                            $pro_precio = $row_pro['servicio_pventa'];
+                                          
                                             $pro_cat = $row_pro['servicio_categoria'];
                                             $pro_estado = $row_pro['servicio_estado'];
                                             $pro_provee = $row_pro['servicio_proveedor'];
@@ -73,7 +73,7 @@
                                         <td>$pro_nombre</td>
                                         <td><img style='object-fit: cover;' src='servicios_fotos/$pro_foto ' width='70' height='70' /></td>
                                         <td>$pro_disp Disponibles</td>
-                                        <td>S/.$pro_precio</td>
+                                        
                                         <td>$pro_cat</td>
                                         <td>$pro_estado</td>
                                         <td>$pro_provee</td>

@@ -13,7 +13,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><a href="index.php?logged_in=Logueaste%20correctamente!"><i class="fa fa-home fa-lg"></i></a></li>
-          <li class="breadcrumb-item "><a href="index.php?action=view_cotizacion">Cotizaciones</a></li>
+          <li class="breadcrumb-item "><a href="index.php?action=view_cotizacion">Lista de Cotizaciones</a></li>
           <li class="breadcrumb-item active">Editar</li>
         </ul>
       </div>
@@ -23,53 +23,30 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
             <div class="row">
               <div class="col-lg-4 offset-lg-1">
                 <form action="" method="POST" accept-charset="utf-8">
-                  <h3 style="color:#dc3545; "><b><?php echo $fetch_cat['cot_codigo']; ?></b></h3>
+                  <h3 style="color:#dc3545; "><b><?php echo $fetch_cat['cot_codigo']; ?></b></h3><br>
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar Nombre:</label>
+                    <label for="exampleInputEmail1">CLIENTE:</label>
                        <input class="form-control" type="text"name="nombre" value="<?php echo $fetch_cat['cot_cliente']; ?>" size="30" required >
                   </div>
-
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar estado:</label>
-                    <select class="form-control"name="estado" id="estado" required>
-                      <option value="<?php echo $fetch_cat['cot_estado']; ?>"><?php echo $fetch_cat['cot_estado']; ?></option>
+                    <label for="exampleInputEmail1">ASIGNADO:</label>
+                    <select class="form-control" name="asignado" id="entrega" required>
+                      <option value="<?php echo $fetch_cat['cot_asignado']; ?>"><?php echo $fetch_cat['cot_asignado']; ?></option>
                       <?php
-                      $get_cats = "select * from venta_estado";
-
-                      $run_cats = mysqli_query($conexion, $get_cats);
-
-                      while ($row_cats = mysqli_fetch_array($run_cats)) {
-                        $estado_id = $row_cats['est_id'];
-                        $estado_nombre = $row_cats['est_nombre'];
-
-                        echo "<option value='$estado_nombre'>$estado_nombre</option>";
+                     $rol2 = 5 ;
+                      $get_asignado = "select * from usuarios where user_rol = '$rol2'";
+                      $get_asignado2 = mysqli_query($conexion,$get_asignado);
+                      while ($row_a = mysqli_fetch_array($get_asignado2)){
+                        $asignados = $row_a['user_nombre'];
+                        echo "<option value='$asignados'>$asignados</option>";
                       }
-                      ?>
-                  </select>
-                  </div> 
-                        
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar forma de pago:</label>
-                    <select class="form-control" name="pago" id="pago" required>
-                      <option value="<?php echo $fetch_cat['cot_pago']; ?>"><?php echo $fetch_cat['cot_pago']; ?></option>
-                      <?php
-                      $get_cats = "select * from venta_pago";
 
-                      $run_cats = mysqli_query($conexion, $get_cats);
-
-                      while ($row_cats = mysqli_fetch_array($run_cats)) {
-                        $pago_id = $row_cats['pago_id'];
-                        $pago_nombre = $row_cats['pago_nombre'];
-
-                        echo "<option value='$pago_nombre'>$pago_nombre</option>";
-                      }
                       ?>
                     </select>
                   </div> 
-
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Editar moneda:</label>
+                   <div class="form-group">
+                    <label for="exampleInputEmail1">MONEDA:</label>
                     <select class="form-control" name="moneda" id="moneda">
                       <option value="<?php echo $fetch_cat['cot_moneda']; ?>"><?php echo $fetch_cat['cot_moneda']; ?></option>
                       <?php
@@ -86,49 +63,8 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                       ?>
                     </select>
                   </div> 
-                   
-
-                  <div class="tile-footer">
-              
-            </div>
-          </div>
-              <div class="col-lg-4 offset-lg-1"><br><br>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Asignado:</label>
-                    <select class="form-control" name="asignado" id="entrega" required>
-                      <option value="<?php echo $fetch_cat['cot_asignado']; ?>"><?php echo $fetch_cat['cot_asignado']; ?></option>
-                      <?php
-                     $rol2 = 5 ;
-                      $get_asignado = "select * from usuarios where user_rol = '$rol2'";
-                      $get_asignado2 = mysqli_query($conexion,$get_asignado);
-                      while ($row_a = mysqli_fetch_array($get_asignado2)){
-                        $asignados = $row_a['user_nombre'];
-                        echo "<option value='$asignados'>$asignados</option>";
-                      }
-
-                      ?>
-                    </select>
-                  </div> 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar tiempo de entrega:</label>
-                    <select class="form-control" name="entrega" id="entrega" required>
-                      <option value="<?php echo $fetch_cat['cot_entrega']; ?>" ><?php echo $fetch_cat['cot_entrega']; ?></option>
-                      <?php
-                      $get_cats = "select * from venta_entrega";
-
-                      $run_cats = mysqli_query($conexion, $get_cats);
-
-                      while ($row_cats = mysqli_fetch_array($run_cats)) {
-                        $entrega_id = $row_cats['entrega_id'];
-                        $entrega_nombre = $row_cats['entrega_nombre'];
-
-                        echo "<option value='$entrega_nombre'>$entrega_nombre</option>";
-                      }
-                      ?>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Expira:</label>
+                    <label for="exampleInputEmail1">VALIDEZ DE OFERTA:</label>
                      <select class="form-control" name="expira" id="expira" required>
                       <option value="<?php echo $fetch_cat['cot_expira']; ?>"><?php echo $fetch_cat['cot_expira']; ?></option>
                       <?php
@@ -145,9 +81,72 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                       ?>
                     </select>
                   </div> 
+                 
+
+                  <div class="tile-footer">
+              
+            </div>
+          </div>
+              <div class="col-lg-4 offset-lg-1"><br><br>
+                
+                  <div class="form-group">
+                    <div class="form-group">
+                    <label for="exampleInputEmail1">ESTADO:</label>
+                    <select class="form-control"name="estado" id="estado" required>
+                      <option value="<?php echo $fetch_cat['cot_estado']; ?>"><?php echo $fetch_cat['cot_estado']; ?></option>
+                      <?php
+                      $get_cats = "select * from venta_estado";
+
+                      $run_cats = mysqli_query($conexion, $get_cats);
+
+                      while ($row_cats = mysqli_fetch_array($run_cats)) {
+                        $estado_id = $row_cats['est_id'];
+                        $estado_nombre = $row_cats['est_nombre'];
+
+                        echo "<option value='$estado_nombre'>$estado_nombre</option>";
+                      }
+                      ?>
+                  </select>
+                  </div> 
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">FORMA DE PAGO:</label>
+                    <select class="form-control" name="pago" id="pago" required>
+                      <option value="<?php echo $fetch_cat['cot_pago']; ?>"><?php echo $fetch_cat['cot_pago']; ?></option>
+                      <?php
+                      $get_cats = "select * from venta_pago";
+
+                      $run_cats = mysqli_query($conexion, $get_cats);
+
+                      while ($row_cats = mysqli_fetch_array($run_cats)) {
+                        $pago_id = $row_cats['pago_id'];
+                        $pago_nombre = $row_cats['pago_nombre'];
+
+                        echo "<option value='$pago_nombre'>$pago_nombre</option>";
+                      }
+                      ?>
+                    </select>
+                  </div> 
+                    <label for="exampleInputEmail1">TIEMPO DE ENTREGA:</label>
+                    <select class="form-control" name="entrega" id="entrega" required>
+                      <option value="<?php echo $fetch_cat['cot_entrega']; ?>" ><?php echo $fetch_cat['cot_entrega']; ?></option>
+                      <?php
+                      $get_cats = "select * from venta_entrega";
+
+                      $run_cats = mysqli_query($conexion, $get_cats);
+
+                      while ($row_cats = mysqli_fetch_array($run_cats)) {
+                        $entrega_id = $row_cats['entrega_id'];
+                        $entrega_nombre = $row_cats['entrega_nombre'];
+
+                        echo "<option value='$entrega_nombre'>$entrega_nombre</option>";
+                      }
+                      ?>
+                    </select>
+                  </div>
+                  
 
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Editar direccion:</label>
+                    <label for="exampleInputEmail1">DIRECCIÓN:</label>
                     <input class="form-control" type="text"name="direccion" value="<?php echo $fetch_cat['cot_direccion']; ?>" size="30" required >
                   </div> 
                   <div class="tile-footer">
