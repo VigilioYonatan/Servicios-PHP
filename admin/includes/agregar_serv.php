@@ -142,8 +142,8 @@
   if (isset($_POST['agregar_serv'])) {
     $codigo_serv = $_POST['codigo_serv'];
     $nombre_serv = $_POST['nombre_serv'];
-    $desc_serv = trim(mysqli_real_escape_string($conexion, $_POST['desc_serv']));;
-    $mat_serv = trim(mysqli_real_escape_string($conexion, $_POST['mat_serv']));;
+    $desc_serv = trim(mysqli_real_escape_string($conexion, $_POST['desc_serv']));
+    $mat_serv = trim(mysqli_real_escape_string($conexion, $_POST['mat_serv']));
     $dis_serv = $_POST['dis_serv'];
     $precio_serv = $_POST['precio_serv'];
     $cat_serv = $_POST['cat_serv'];

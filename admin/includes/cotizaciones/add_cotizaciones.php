@@ -29,11 +29,11 @@
                 </div>
 
                 <div class="form-group">
-                <label for="exampleInputEmail1">ASIGNADO:</label>
+                <label for="exampleInputEmail1">VENDEDOR:</label>
                 <select class="form-control" name="asignado" id="">
                   <option value="<?php echo $_SESSION['name']; ?>"><?php echo $_SESSION['name']; ?></option>
                   <?php
-                  $rol2 = 5;
+                  $rol2 = 1;
 
                   $get_asignado = "select * from usuarios where user_rol = '$rol2'";
                   $get_asignado2 = mysqli_query($conexion, $get_asignado);

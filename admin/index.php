@@ -52,6 +52,10 @@
     include 'includes/agregar_rol.php';
     break;
 
+    case 'edit_rol';
+    include 'includes/edit_rol.php';
+    break;
+
     case 'view_cotizacion';
     include 'includes/cotizaciones/ver_cotizaciones.php';
     break;
@@ -127,7 +131,7 @@
     
 
     case 'lista_operaciones';
-    include 'includes/operaciones/lista_op.php';
+    include 'includes/operaciones/lista_op.php'; 
     break;
     case 'ordenes_trabajo';
     include 'includes/operaciones/ordenes_trabajo.php';
@@ -153,6 +157,10 @@
 
     case 'add_estado_cot';
     include 'includes/crud/add_estado_cot.php';
+    break;
+    
+    case 'edit_estado_id';
+    include 'includes/crud/edit_estado_id.php';
     break;
 
     case 'add_fPagoCot';
@@ -183,6 +191,54 @@
     include 'includes/crud/add_estado_cli.php';
     break;
 
+    case 'oc_proveedor_estado';
+    include 'includes/crud/oc_proveedor_estado.php';
+    break;
+
+    case 'edit_estado_proveedorid';
+    include 'includes/crud/edit_estado_proveedorid.php';
+    break;
+
+    case 'add_almacen_ingresos';
+    include 'includes/crud/add_almacen_ingresos.php';
+    break;
+
+    case 'edit_almacen_ing';
+    include 'includes/crud/edit_almacen_ing.php';
+    break;
+
+    case 'add_categorias_ingresos';
+    include 'includes/crud/add_categorias_ingresos.php';
+    break;
+
+    case 'edit_categorias_ing';
+    include 'includes/crud/edit_categorias_ing.php';
+    break;
+
+    case 'add_lote_ingresos';
+    include 'includes/crud/add_lote_ingresos.php';
+    break;
+
+    case 'edit_lote_ing';
+    include 'includes/crud/edit_lote_ing.php';
+    break;
+
+    case 'add_modelo_ingresos';
+    include 'includes/crud/add_modelo_ingresos.php';
+    break;
+
+    case 'edit_modelo_ing';
+    include 'includes/crud/edit_modelo_ing.php';
+    break;
+
+    case 'add_um_ingresos';
+    include 'includes/crud/add_um_ingresos.php';
+    break;
+
+    case 'edit_um_ing';
+    include 'includes/crud/edit_um_ing.php';
+    break;
+
 
     case 'view_Ordpedido';
     include 'includes/logistica/view_Ordpedido.php';
@@ -190,6 +246,81 @@
 
     case 'view_Ordpedido_id';
     include 'includes/logistica/view_Ordpedido_id.php';
+    break;
+
+    case 'edit_Ordpedido';
+    include 'includes/logistica/edit_Ordpedido.php';
+    break;
+
+    case 'view_Items';
+    include 'includes/logistica/view_Items.php';
+    break;
+
+    case 'view_item_id';
+    include 'includes/logistica/view_item_id.php';
+    break;
+
+    case 'edit_item_op';
+    include 'includes/logistica/edit_item_op.php';
+    break;
+
+    case 'add_ocproveedor';
+    include 'includes/logistica/add_ocproveedor.php';
+    break;
+
+    case 'view_ocproovedor';
+    include 'includes/logistica/view_ocproovedor.php';
+    break;
+
+    case 'lista_ocp';
+    include 'includes/logistica/lista_ocp.php';
+    break;
+
+    case 'tabla_OCP';
+    include 'includes/logistica/tabla_OCP.php';
+    break;
+
+    case 'view_ocp_id';
+    include 'includes/logistica/view_ocp_id.php';
+    break;
+    
+
+    case 'view_ingresos';
+    include 'includes/almacen/view_ingresos.php';
+    break;
+
+    case 'add_ingresos';
+    include 'includes/almacen/add_ingresos.php';
+    break;
+
+    case 'view_stock';
+    include 'includes/almacen/view_stock.php';
+    break;
+
+    case 'view_ingresos_id';
+    include 'includes/almacen/view_ingresos_id.php';
+    break;
+
+    case 'stock_salida';
+    include 'includes/almacen/stock_salida.php';
+    break;
+
+    case 'edit_stock';
+    include 'includes/almacen/edit_stock.php';
+    break;
+    
+    case 'view_stock_cod';
+    include 'includes/almacen/view_stock_cod.php';
+    break;
+
+
+    case 'add_fabricante_ingresos';
+    include 'includes/crud/add_fabricante_ingresos.php';
+    break;
+
+
+    case 'edit_fabricantes_ing';
+    include 'includes/crud/edit_fabricantes_ing.php';
     break;
 
 

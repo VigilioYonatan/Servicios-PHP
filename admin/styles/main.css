@@ -16738,3 +16738,9 @@ be a descendant of the grid when it is being dragged.
 .colorText{
   color:#009688;
 }
+/* input buenardo de  */
+#multiple-datasets{
+  margin: 0 20px 5px 20px;
+  padding: 3px 0;
+  border-bottom: 1px solid #ccc;
+}

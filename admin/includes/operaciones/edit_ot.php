@@ -37,7 +37,7 @@
                   <input class="form-control" type="text" disabled value="<?php echo  $fetch_cat['ot_cliente'];?>" size="30" required>
                 </div>
                  <div class="form-group">
-                <label for="exampleInputEmail1">ASIGNADO:</label>
+                <label for="exampleInputEmail1">VENDEDOR:</label>
                 <input type="text" class="form-control" value="<?php echo $fetch_cat['ot_asignado'];?>" disabled>
 
               </div>

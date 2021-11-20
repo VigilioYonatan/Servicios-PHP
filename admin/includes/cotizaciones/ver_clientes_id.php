@@ -51,7 +51,7 @@
                   <h5 class="colorText">CONTACTO: <b class="text-dark"><?php echo $fetch_cat['contacto_cliente'];?></b></h5>
                   <h5 class="colorText">EMAIL 2: <b class="text-dark"><?php echo $fetch_cat['email2_cliente'];?></b></h5>
                    <h5 class="colorText">CELULAR 2: <b class="text-dark"><?php echo $fetch_cat['celular2_cliente'];?></b></h5>
-                  <h5 class="colorText">ASIGNADO: <b class="text-dark"><?php echo $fetch_cat['asignado_cliente'];?></b></h5>
+                  <h5 class="colorText">VENDEDOR: <b class="text-dark"><?php echo $fetch_cat['asignado_cliente'];?></b></h5>
 
                 </div>
                 <div class="col-11"><br>

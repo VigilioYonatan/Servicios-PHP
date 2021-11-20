@@ -108,6 +108,20 @@ $fetch_cat = mysqli_fetch_array($edit_cat);
                     <label for="exampleInputEmail1">MATERIALES:</label>
                     <textarea class="form-control" name="serv_mat" id="" cols="40" rows="5" required><?php echo $fetch_cat['servicio_mat']; ?></textarea>
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">TIPO:</label>
+                    <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="estado_tipo" value="1" <?php if ($fetch_cat['servicio_tipo'] == '1') echo 'checked="checked"'; ?>>Servicio
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="estado_tipo" value="0" value="0" <?php if ($fetch_cat['servicio_tipo'] == '0') echo 'checked="checked"'; ?>>Producto
+              </label>
+            </div>
+
+                  </div>
                  
 
                   <div class="tile-footer">
@@ -136,7 +150,8 @@ $fetch_cat = mysqli_fetch_array($edit_cat);
             $cat_serv = $_POST['cat_serv'];
             $estado_serv = $_POST['estado_serv'];
             $pro_serv = $_POST['pro_serv'];
-            $edit_serv = "update servicios set servicio_cod = '$serv_cod', servicio_nombre='$serv_nombre', servicio_desc = '$serv_desc',servicio_mat='$serv_mat', servicio_disponibles='$serv_dis', servicio_pventa = '$serv_precio', servicio_categoria = '$cat_serv', servicio_estado='$estado_serv', servicio_proveedor='$pro_serv ' where servicio_id='$_GET[serv_id]'";
+            $estado_tipo = $_POST['estado_tipo'];
+            $edit_serv = "update servicios set  servicio_nombre='$serv_nombre', servicio_desc = '$serv_desc',servicio_mat='$serv_mat', servicio_disponibles='$serv_dis', servicio_pventa = '$serv_precio', servicio_categoria = '$cat_serv', servicio_estado='$estado_serv', servicio_proveedor='$pro_serv ', servicio_tipo='$estado_tipo' where servicio_id='$_GET[serv_id]'";
             $edit_serv2 = mysqli_query($conexion, $edit_serv);
 
             echo "<script>window.open('index.php?action=view_serv','_self')</script>";

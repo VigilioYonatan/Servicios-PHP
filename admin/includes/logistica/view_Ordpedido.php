@@ -36,12 +36,12 @@
                       
                       <th>CODIGO</th>
                       <th>CLIENTE</th>
-                      <th>ASIGNADO</th>
+                      <th>VENDEDOR</th>
                       <th>OT</th>
                       <th>CREADO</th>
                       <th>PROCESADO</th>
                       <th>RESPONSABLE</th>
-                      <!-- <th>Editar</th> -->
+                      <th>Editar</th>
                       <th>Eliminar</th>
                     </tr>
                   </thead>
@@ -66,7 +66,7 @@
 
                      
                       
-                           <!-- <td class="delete"><a href="index.php?action=edit_proovedor&ruc=<?php echo $row['op_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td> -->
+                           <td class="delete"><a href="index.php?action=edit_Ordpedido&op_cod=<?php echo $row['op_codigo']; ?>" ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
 
                            <td class="delete"><a href="index.php?action=view_Ordpedido&delete_op=<?php echo $row['op_codigo']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  a este empleado?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
                         </tr>

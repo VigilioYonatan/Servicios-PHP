@@ -46,7 +46,7 @@
                  
                 </div>
                 <div class="col-4">
-                <h5 class="colorText">ASIGNADO: <b class="text-dark"><?php echo $fetch_cat['ot_asignado'];?></b></h5>
+                <h5 class="colorText">VENDEDOR: <b class="text-dark"><?php echo $fetch_cat['ot_asignado'];?></b></h5>
 
                   <h5 class="colorText">ESTADO: <b class="text-dark"><?php echo $fetch_cat['ot_estado'];?></b></h5>
                

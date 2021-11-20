@@ -38,7 +38,7 @@ session_start();
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap">
-    
+    <script src="http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script> <!-- bueno buscador -->
   </head>
   <body class="app sidebar-mini" style="font-family: 'Open Sans', sans-serif;">
     <!-- Navbar-->
@@ -123,11 +123,27 @@ session_start();
           <i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" href="index.php?action=view_Ordpedido"><i class="icon fa fa-circle-o"></i>Ordenes de Pedido</a></li>
-            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>OC Proveedor</a></li>
+            <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-cogs"></i>
+            <span class="app-menu__label">Compras</span>
+            <i class="treeview-indicator fa"></i></a>
+            <ul class="treeview-menu">
+              <li><a class="treeview-item" href="index.php?action=view_Items"><i class="icon fa fa-circle-o"></i> Listado</a></li>
+              <li><a class="treeview-item" href="index.php?action=view_ocproovedor"><i class="icon fa fa-circle-o"></i>OC proveedores</a></li>
+            </ul>
+            </li>
             <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i>Proveedores</a></li>
+            
           </ul>
         </li>
-        <li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cubes"></i><span class="app-menu__label">ALMACEN</span></a></li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-cogs"></i>
+          <span class="app-menu__label">ALMACEN</span>
+          <i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="index.php?action=view_ingresos"><i class="icon fa fa-circle-o"></i>Ingresos</a></li>
+            <li><a class="treeview-item" href="index.php?action=view_stock"><i class="icon fa fa-circle-o"></i>Stock</a></li>
+            <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i>Registro de Guias</a></li>
+            <li><a class="treeview-item" href=""><i class="icon fa fa-circle-o"></i>Compras</a></li>
+          </ul>
        
 
         <!--<li><a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-search"></i><span class="app-menu__label">INCIDENCIAS</span></a></li>--->
@@ -141,7 +157,6 @@ session_start();
             <span class="app-menu__label">CRUD</span>
             <i class="treeview-indicator fa"></i></a>
             <ul class="treeview-menu">
-              <li><a class="treeview-item" href="../registrar.php"><i class="icon fa fa-circle-o"></i> Usuarios</a></li>
               <li><a class="treeview-item" href="index.php?action=add_rol"><i class="icon fa fa-circle-o"></i> Rol</a></li>
               <!-- <li><a class="treeview-item" href="index.php?action=add_tipoMoneda"><i class="icon fa fa-circle-o"></i> Tipo de Moneda</a></li> -->
               <li><a class="treeview-item" href="index.php?action=add_proovedor"><i class="icon fa fa-circle-o"></i>Proveedores</a></li>
@@ -156,7 +171,13 @@ session_start();
               <li><a class="treeview-item" href="index.php?action=add_igv"><i class="icon fa fa-circle-o"></i>IGV</a></li>
               <li><a class="treeview-item" href="index.php?action=add_estado_cli"><i class="icon fa fa-circle-o"></i>Estado CLI-PROV</a></li>
               <li><a class="treeview-item" href="index.php?action=add_area_cli"><i class="icon fa fa-circle-o"></i>Area CLI</a></li>
-
+              <li><a class="treeview-item" href="index.php?action=oc_proveedor_estado"><i class="icon fa fa-circle-o"></i>oc proveedor Estado</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_fabricante_ingresos"><i class="icon fa fa-circle-o"></i>Fabricantes Ingresos</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_almacen_ingresos"><i class="icon fa fa-circle-o"></i>Almacen Ingresos</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_categorias_ingresos"><i class="icon fa fa-circle-o"></i>Categorias Ingresos</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_lote_ingresos"><i class="icon fa fa-circle-o"></i>Lote Ingresos</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_modelo_ingresos"><i class="icon fa fa-circle-o"></i>Modelo Ingresos</a></li>
+              <li><a class="treeview-item" href="index.php?action=add_um_ingresos"><i class="icon fa fa-circle-o"></i>U.M. Ingresos</a></li>
           </ul>
         </li>
           </ul>

@@ -42,7 +42,7 @@
                                             <th>RAZON SOCIAL</th>
                                             <th>AREA</th>
                                             <th>ESTADO</th>
-                                            <th>ASIGNADO</th>
+                                            <th>VENDEDOR</th>
                                             <th>WEB</th>
                                             <th>Editar</th>
                                             <th>Eliminar</th>

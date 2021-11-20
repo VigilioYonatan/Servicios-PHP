@@ -30,7 +30,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                        <input class="form-control" type="text"name="nombre" value="<?php echo $fetch_cat['cot_cliente']; ?>" size="30" required >
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">ASIGNADO:</label>
+                    <label for="exampleInputEmail1">VENDEDOR:</label>
                     <select class="form-control" name="asignado" id="entrega" required>
                       <option value="<?php echo $fetch_cat['cot_asignado']; ?>"><?php echo $fetch_cat['cot_asignado']; ?></option>
                       <?php

@@ -2,7 +2,7 @@
 require_once 'config.php';
  if (isset($_POST['query'])) {
     $inpText = $_POST['query'];
-    $sql = 'SELECT ruc_cliente FROM clientes WHERE ruc_cliente LIKE :country';
+    $sql = 'SELECT ruc_cliente FROM clientes WHERE ruc_cliente LIKE :country ORDER BY ruc_cliente ASC LIMIT 0,3';
     $stmt = $conn->prepare($sql);
     $stmt->execute(['country' => '%' . $inpText . '%']);
     $result = $stmt->fetchAll();

@@ -97,7 +97,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                   </select>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputEmail1">ASIGNADO:</label>
+                    <label for="exampleInputEmail1">VENDEDOR:</label>
                     <select class="form-control" name="asignado" id="entrega" required>
                       <option value="<?php echo $_SESSION['name']; ?>"><?php echo $_SESSION['name']; ?></option>
                       <?php

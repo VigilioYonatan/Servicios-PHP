@@ -33,8 +33,42 @@
               </div>
             </div>
       </form>
-            </div>
-            
+            </div><br>
+    
+            <table class="table table-hover table-bordered">
+                  <thead align="center">
+                    <tr>
+                      
+                      <th>ID</th>
+                      <th>NOMBRE</th>
+                      <th>Editar</th>
+                      <th>Eliminar</th>
+                    </tr>
+                  </thead>
+                  <?php 
+                  $all_cli = mysqli_query($conexion,"select * from cotizacion_estado");
+                  $i = 1;
+
+                  while($row=mysqli_fetch_array($all_cli)){
+                    // $nombreRa = $row['razon_proovedor'];
+                    // $rucRa = $row['ruc_proovedor'];
+                    ?>
+
+                    <tbody align="center">
+                      <tr>
+                       <td><?php echo $i; ?></td>
+                       
+                       <td> <input type="text" name="nombre" value="<?php echo $row['nombre_estado']; ?>" disabled></td>
+           
+           
+                           <td class="delete"><a href="index.php?action=edit_estado_id&edit_estado=<?php echo $row['id_estado']; ?>" onclick="window.open(this.href, this.target, 'width=600,height=400'); return false;"  ><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a></td>
+                           
+                           <td class="delete"><a href="index.php?action=add_estado_cot&delete_estado=<?php echo $row['id_estado']; ?>" onclick="return confirm('Estas seguro de eliminar que quieres eliminar  esto?');"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></td>
+                        </tr>
+                    </tbody>
+                    
+                    <?php $i++;} // End while loop ?>
+                </table>
           </div>
         </div>
        
@@ -43,6 +77,17 @@
 
 <!-- PHP CODIGO  -->
 <?php
+if(isset($_GET['delete_estado'])){
+  $delete_serv = mysqli_query($conexion,"delete from cotizacion_estado where id_estado='$_GET[delete_estado]' ");
+  
+  if($delete_serv){  
+  echo "<script>window.open('index.php?action=add_estado_cot','_self')</script>";
+    }else{
+      echo "<script>alert('error')</script>";
+    }
+  }
+
+
 if(isset($_POST['agregar'])){
     $nombreR = $_POST['estado_cot'];
 
@@ -59,5 +104,8 @@ if(isset($_POST['agregar'])){
     }
 }
 
+
+
 ?>
+
 <?php } ?>

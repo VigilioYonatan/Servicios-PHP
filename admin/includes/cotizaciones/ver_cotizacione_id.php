@@ -43,7 +43,7 @@
                   <h6 class="colorText">Tipo de Estado: <b class="text-dark"><?php echo $fetch_cat['cot_estado'];?></b></h6>
                 </div>
                 <div class="col-4">
-                 <h5 class="colorText">Asignado: <b class="text-dark"><?php echo $fetch_cat['cot_asignado'];?></b></h5>
+                 <h5 class="colorText">Vendedor: <b class="text-dark"><?php echo $fetch_cat['cot_asignado'];?></b></h5>
                  <h6 class="colorText">Tipo de Pago: <b class="text-dark"><?php echo $fetch_cat['cot_pago'];?></b></h6>
                  <h6 class="colorText">Tipo de Moneda: <b class="text-dark"><?php echo $fetch_cat['cot_moneda'];?></b></h6>
                </div>

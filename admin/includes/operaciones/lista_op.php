@@ -40,7 +40,7 @@ echo "<script>window.open('index.php?logged_in=Logueaste%20correctamente!','_sel
                       
                       <th>CODIGO</th>
                       <th>CLIENTE</th>
-                      <th>ASIGNADO</th>
+                      <th>VENDEDOR</th>
                       <th>ESTADO</th>
                       <th>TIEMPO DE ENTREGA</th>
                       <th>CREADO</th>
